@@ -155,6 +155,14 @@ public class JoueurBiosphere7Test {
 
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "PmE"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PmE,13,10"));
+        
+        niveau = 7;
+        plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU7);
+        couleur = 'R';
+        actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
+        Utils.afficherActionsPossibles(actionsPossibles);
+        
+        assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "FaM"));
 
     }
 
@@ -168,7 +176,7 @@ public class JoueurBiosphere7Test {
         assertEquals(0, joueur.nbActions);
         // on crée le tableau d'actions et on en ajoute une
         String[] actions = new String[30];
-        joueur.ajoutActionPommier(Coordonnees.depuisCars('f', 'D'), actions);
+        joueur.ajoutAction(Coordonnees.depuisCars('f', 'D'), actions,'P');
         // l'action est devenue possible
         assertTrue(Utils.actionsPossiblesContient(actions, "PfD,0,0"));
         // une action possible mais qui n'a pas encore été ajoutée
@@ -176,7 +184,7 @@ public class JoueurBiosphere7Test {
         // pour l'instant une seule action possible
         assertEquals(1, joueur.nbActions);
         // ajout d'une deuxième action possible
-        joueur.ajoutActionPommier(Coordonnees.depuisCars('b', 'H'), actions);
+        joueur.ajoutAction(Coordonnees.depuisCars('b', 'H'), actions,'P');
         // l'action a bien été ajoutée
         assertTrue(Utils.actionsPossiblesContient(actions, "PbH,0,0"));
         // désormais, deux actions possibles
@@ -192,7 +200,7 @@ public class JoueurBiosphere7Test {
         assertEquals(0, joueur.nbActions);
         String[] actions = new String[30];
 
-        joueur.ajoutActionCouper(Coordonnees.depuisCars('f', 'D'), actions);
+        joueur.ajoutAction(Coordonnees.depuisCars('f', 'D'), actions, 'C');
         assertTrue(Utils.actionsPossiblesContient(actions, "CfD,0,0"));
         assertFalse(Utils.actionsPossiblesContient(actions, "PbH,0,0"));
 
@@ -459,6 +467,41 @@ public class JoueurBiosphere7Test {
             + "d|   |   |   |   |   |   |   |PB1|PR1|PB1|   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "e|PB1|   |   |   |   |   |   |PR1|   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "f|   |PB1|   |   |   |   |   |   |PR1|   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "g|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "h|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "i|   |   |   |   |   |   |   |   |   |   |PB1|   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "j|   |   |   |   |   |   |   |   |   |PB1|   |PB1|   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "k|   |   |   |   |PR1|   |   |   |   |   |PB1|   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "l|   |   |   |PR1|PR1|PR1|   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "m|   |   |PR1|PB2|   |PR9|PR1|   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "n|   |   |   |PR1|   |PR1|   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
+    
+        /**
+     * Un plateau pour tester le niveau 4.
+     */ // 12 vitalitées bleu et 20 rouge
+    final String PLATEAU_NIVEAU7
+            = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N \n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "a|   |   |   |   |   |   |   |   |   |   |   |   |PB1|   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "b|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "c|   |   |   |   |   |   |   |   |FB1|   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "d|   |   |   |   |   |   |   |HB1|PR1|PB1|   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "e|DB1|   |   |   |   |   |   |SR1|   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "f|   |PB1|   |   |   |   |   |   |PR1|   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"

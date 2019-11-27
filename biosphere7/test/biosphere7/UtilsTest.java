@@ -21,13 +21,13 @@ public class UtilsTest {
         // un pommier possédé par les rouges
         laCase = Utils.caseDepuisCodage("---", "PR4");
         assertEquals(Utils.CAR_TERRE, laCase.nature);
-        assertEquals(Utils.CAR_POMMIER, laCase.espece);
+        assertEquals(Utils.ESPECES[0], laCase.espece);
         assertEquals(Utils.CAR_ROUGE, laCase.couleur);
         assertEquals(4, laCase.vitalite);
         // un pommier possédé par les bleus
         laCase = Utils.caseDepuisCodage("---", "PB9");
         assertEquals(Utils.CAR_TERRE, laCase.nature);
-        assertEquals(Utils.CAR_POMMIER, laCase.espece);
+        assertEquals(Utils.ESPECES[0], laCase.espece);
         assertEquals(Utils.CAR_BLEU, laCase.couleur);
         assertEquals(9, laCase.vitalite);
     }
@@ -42,13 +42,13 @@ public class UtilsTest {
         // une case avec un pommier bleu
         laCase = plateau[0][0];
         assertEquals(Utils.CAR_TERRE, laCase.nature);
-        assertEquals(Utils.CAR_POMMIER, laCase.espece);
+        assertEquals(Utils.ESPECES[0], laCase.espece);
         assertEquals(Utils.CAR_BLEU, laCase.couleur);
         assertEquals(4, laCase.vitalite);
         // une case avec un pommier rouge
         laCase = plateau[13][13];
         assertEquals(Utils.CAR_TERRE, laCase.nature);
-        assertEquals(Utils.CAR_POMMIER, laCase.espece);
+        assertEquals(Utils.ESPECES[0], laCase.espece);
         assertEquals(Utils.CAR_ROUGE, laCase.couleur);
         assertEquals(1, laCase.vitalite);
         // une case vide

@@ -46,10 +46,13 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
         nbActions = 0;
         for (int lig = 0; lig < Coordonnees.NB_LIGNES; lig++) { // Lorsque l'on plante un arbre
             for (int col = 0; col < Coordonnees.NB_COLONNES; col++) {
-                Coordonnees coord = new Coordonnees(lig, col);
-                calculVitalite(plateau, couleurJoueur, 'P', coord, niveau);
-                if (plateau[lig][col].espece == Utils.CAR_VIDE && !etouffe(plateau, coord, 4)) {
-                    ajoutActionPommier(coord, actions);
+                for (char charAction : Utils.ESPECES) {
+                    Coordonnees coord = new Coordonnees(lig, col);
+                    calculVitalite(plateau, couleurJoueur, charAction, coord, niveau);
+                    if (plateau[lig][col].espece == Utils.CAR_VIDE && !etouffe(plateau, coord, 4)) {
+                        ajoutAction(coord, actions, charAction);
+                    }
+
                 }
             }
         }
@@ -61,7 +64,9 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
                         coordsCasePourVoisin.ligne = lig;
                         coordsCasePourVoisin.colonne = col;
                         calculVitalite(plateau, couleurJoueur, 'C', coordsCasePourVoisin, niveau);
-                        ajoutActionCouper(coordsCasePourVoisin, actions);
+                        ajoutAction(coordsCasePourVoisin, actions, 'C');
+                        calculVitalite(plateau, couleurJoueur, 'F', coordsCasePourVoisin, niveau);
+                        ajoutAction(coordsCasePourVoisin, actions, 'F');
                     }
                 }
             }
@@ -97,7 +102,7 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
         }
         Coordonnees[] coordsVoisin = arbreVoisins(plateau, coordCase);
 
-        if (action == 'P') {// quand on plante un pommier
+        if (action != 'C' && action != 'F') {// quand on plante un pommier
             if (!etouffe(plateau, coordCase, 4) && plateau[coordCase.ligne][coordCase.colonne].espece == CAR_VIDE) {
                 if (couleurJoueur == Utils.CAR_ROUGE) {
                     rouge += vitalitePlanterSymbiose(plateau, coordsVoisin, niveau, Utils.CAR_ROUGE);
@@ -109,6 +114,62 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
                 rouge -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisin, niveau, Utils.CAR_ROUGE);
                 bleu -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisin, niveau, Utils.CAR_BLEU);
 
+            }
+
+        } else if (action == 'F') {
+            if (coordCase.ligne < Coordonnees.NB_LIGNES && coordCase.ligne >= 0 && coordCase.colonne < Coordonnees.NB_COLONNES && coordCase.colonne >= 0) {
+                char espece = plateau[coordCase.ligne][coordCase.colonne].espece;
+                Case caseCentrale = plateau[coordCase.ligne][coordCase.colonne];
+                switch (espece) {
+                    case 'P':
+                    case 'S':
+                        // Arbres
+                        if (caseCentrale.vitalite < 9) {
+                            if (caseCentrale.couleur == Utils.CAR_BLEU) {
+                                bleu++;
+                            } else if (caseCentrale.couleur == Utils.CAR_ROUGE) {
+                                rouge++;
+                            }
+                        }
+                        break;
+                    case 'B':
+                        // Arbustes
+                        if (caseCentrale.vitalite + 2 <= 9) {
+                            if (caseCentrale.couleur == Utils.CAR_BLEU) {
+                                bleu += 2;
+                            } else if (caseCentrale.couleur == Utils.CAR_ROUGE) {
+                                rouge += 2;
+                            }
+                        } else {
+                            if (caseCentrale.couleur == Utils.CAR_BLEU) {
+                                bleu += 9 - caseCentrale.vitalite;
+                            } else if (caseCentrale.couleur == Utils.CAR_ROUGE) {
+                                rouge += 9 - caseCentrale.vitalite;;
+                            }
+                        }
+                        break;
+                    case 'D':
+                    case 'T':
+                    case 'H':
+                        // Légumes
+                        if (caseCentrale.vitalite + 3 <= 9) {
+                            if (caseCentrale.couleur == Utils.CAR_BLEU) {
+                                bleu += 3;
+                            } else if (caseCentrale.couleur == Utils.CAR_ROUGE) {
+                                rouge += 3;
+                            }
+                        } else {
+                            if (caseCentrale.couleur == Utils.CAR_BLEU) {
+                                bleu += 9 - caseCentrale.vitalite;
+                            } else if (caseCentrale.couleur == Utils.CAR_ROUGE) {
+                                rouge += 9 - caseCentrale.vitalite;;
+                            }
+                        }
+                        break;
+                    default:
+                        // vide
+                        break;
+                }
             }
 
         } else if (action == 'C') {     // quand on coupe un arbre
@@ -141,8 +202,9 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
     }
 
     /**
-     * Renvoi la vitalité à ajouter suivant les arbres autours d'elle
-     * Attention à tester si la case centrale (dont sont issus les cases voisines) est bien vide !!!!
+     * Renvoi la vitalité à ajouter suivant les arbres autours d'elle Attention
+     * à tester si la case centrale (dont sont issus les cases voisines) est
+     * bien vide !!!!
      *
      * @param plateau le plateau considéré
      * @param coordsVoisin tableau contenant les coordonées de arbres voisons si
@@ -162,7 +224,7 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
                 }
             }
         }
-        
+
         return compteur;
     }
 
@@ -274,28 +336,16 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
     }
 
     /**
-     * Ajout d'une action de plantation de pommier dans l'ensemble des actions
-     * possibles.
+     * Ajout d'une action de plantation dans l'ensemble des actions possibles.
      *
      * @param coord coordonnées de la case où planter le pommier
      * @param actions l'ensemble des actions possibles (en construction)
+     * @param carAction le caractère correspondant à l'action à exécuter
      */
-    void ajoutActionPommier(Coordonnees coord, String[] actions) {
-        String action = "P" + coord.carLigne() + coord.carColonne() + vitalite;
+    void ajoutAction(Coordonnees coord, String[] actions, char carAction) {
+        String action = carAction + "" + coord.carLigne() + "" + coord.carColonne() + "" + vitalite;
         actions[nbActions] = action;
         nbActions++;
     }
 
-    /**
-     * Ajout d'une action de coupe d' arbre dans l'ensemble des actions
-     * possibles.
-     *
-     * @param coord coordonnées de la case où planter le pommier
-     * @param actions l'ensemble des actions possibles (en construction)
-     */
-    void ajoutActionCouper(Coordonnees coord, String[] actions) {
-        String action = "C" + coord.carLigne() + coord.carColonne() + vitalite;
-        actions[nbActions] = action;
-        nbActions++;
-    }
 }

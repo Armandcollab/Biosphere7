@@ -39,6 +39,11 @@ public class Utils {
     public final static char CAR_POMMIER = 'P';
 
     /**
+     * Nombre d'èspeces de plantes
+     */
+    public final static char[] ESPECES = new char[]{'P', 'S', 'B', 'D', 'T', 'H'};
+
+    /**
      * Fonction qui renvoie une copie du tableau sans les cases non utilisées,
      * c'est-à-dire contenant null ou la chaîne vide. Par exemple {"Coucou", "",
      * null, "Hello", null} renvoie {"Coucou", "Hello"}.
