@@ -174,4 +174,86 @@ public class Utils {
                 .filter(a -> a != null)
                 .anyMatch(a -> a.startsWith(debutAction));
     }
+
+    /**
+     * Si l'arbre contenue sur la case donnée est entre 4 arbres ( valeur
+     * pourCombienArbre ) alors revoi vrai, sinon faux
+     *
+     * @param plateau le plateau considéré
+     * @param coord coordoné de la case dont on vas dire si elle étouffe
+     * @param nbrArbrePourEtouffer nombre d'arbre nécéssaires pour étouffer un
+     * arbre
+     * @return true, si l'arbre étouffe, sinon faux
+     */
+    static boolean etouffe(Case[][] plateau, Coordonnees coord, int nbrArbrePourEtouffer) {
+        Coordonnees[] tabArbresVoisins = arbreVoisins(plateau, coord);
+
+        if (coord.ligne == 0 || coord.ligne == 13 || coord.colonne == 0 || coord.colonne == 13) {
+            return false;
+        } else if (nbrArbrePourEtouffer % 4 == 0) {
+            return !(tabArbresVoisins[0].ligne == -1 || tabArbresVoisins[0].colonne == -1
+                    || tabArbresVoisins[1].ligne == -1 || tabArbresVoisins[1].colonne == -1
+                    || tabArbresVoisins[2].ligne == -1 || tabArbresVoisins[2].colonne == -1
+                    || tabArbresVoisins[3].ligne == -1 || tabArbresVoisins[3].colonne == -1);
+
+        } else if (nbrArbrePourEtouffer % 4 != 0) {
+            int nbrVoisins = 0;
+            for (int i = 0; i < 4; i++) {
+                if (tabArbresVoisins[i].ligne != -1 || tabArbresVoisins[i].colonne != -1) {
+                    nbrVoisins++;
+                }
+            }
+            return nbrVoisins >= nbrArbrePourEtouffer % 4;
+        }
+
+        return false; // toutes les cas on était traités plus haut, ce return n'arrive donc jamais
+    }
+
+    /**
+     * Retourne les coordonés d'une case si elle n'est pas vide
+     *
+     * @param plateau le plateau considéré
+     * @param coord coordonnées de la case à regarder
+     * @return les coordonées de la case si il possède un arbre, sinon des
+     * coordonnées nul
+     */
+    static Coordonnees regardeSiArbre(Case[][] plateau, Coordonnees coord) {
+        if (coord.ligne < Coordonnees.NB_LIGNES && coord.ligne >= 0
+                && coord.colonne < Coordonnees.NB_COLONNES && coord.colonne >= 0) {
+            if (plateau[coord.ligne][coord.colonne].espece != CAR_VIDE) {
+                return coord;
+            }
+
+        }
+        return (new Coordonnees(-1, -1));
+    }
+
+    /**
+     * A partir d'une case vérifie si les cases voisines contiennent un arbre et
+     * retorune leurs coordonnées
+     *
+     * @param plateau le plateau considéré
+     * @param coord coordoné de la case dont on vas chercher les arbres voisins
+     * @return un tableau contenant les coordonées de arbres voisons si il y en
+     * as, sinon -1,-1
+     */
+    static Coordonnees[] arbreVoisins(Case[][] plateau, Coordonnees coord) {
+        Coordonnees[] coordsVoisins = new Coordonnees[4]; // 4 correspond au nombre de voisins possibles maximum
+
+        Coordonnees coordsTmp1 = new Coordonnees(coord.ligne + 1, coord.colonne);
+        Coordonnees coordsTmp2 = new Coordonnees(coord.ligne - 1, coord.colonne);
+        Coordonnees coordsTmp3 = new Coordonnees(coord.ligne, coord.colonne + 1);
+        Coordonnees coordsTmp4 = new Coordonnees(coord.ligne, coord.colonne - 1);
+
+        coordsVoisins[0] = regardeSiArbre(plateau, coordsTmp1);
+
+        coordsVoisins[1] = regardeSiArbre(plateau, coordsTmp2);
+
+        coordsVoisins[2] = regardeSiArbre(plateau, coordsTmp3);
+
+        coordsVoisins[3] = regardeSiArbre(plateau, coordsTmp4);
+
+        return coordsVoisins;
+    }
+
 }

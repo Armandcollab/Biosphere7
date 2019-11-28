@@ -155,13 +155,13 @@ public class JoueurBiosphere7Test {
 
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "PmE"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PmE,13,10"));
-        
+
         niveau = 7;
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU7);
         couleur = 'R';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         Utils.afficherActionsPossibles(actionsPossibles);
-        
+
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "FaM"));
 
     }
@@ -176,7 +176,8 @@ public class JoueurBiosphere7Test {
         assertEquals(0, joueur.nbActions);
         // on crée le tableau d'actions et on en ajoute une
         String[] actions = new String[30];
-        joueur.ajoutAction(Coordonnees.depuisCars('f', 'D'), actions,'P');
+        Vitalite vit = new Vitalite();
+        joueur.ajoutAction(Coordonnees.depuisCars('f', 'D'), actions, 'P', vit);
         // l'action est devenue possible
         assertTrue(Utils.actionsPossiblesContient(actions, "PfD,0,0"));
         // une action possible mais qui n'a pas encore été ajoutée
@@ -184,7 +185,7 @@ public class JoueurBiosphere7Test {
         // pour l'instant une seule action possible
         assertEquals(1, joueur.nbActions);
         // ajout d'une deuxième action possible
-        joueur.ajoutAction(Coordonnees.depuisCars('b', 'H'), actions,'P');
+        joueur.ajoutAction(Coordonnees.depuisCars('b', 'H'), actions, 'P', vit);
         // l'action a bien été ajoutée
         assertTrue(Utils.actionsPossiblesContient(actions, "PbH,0,0"));
         // désormais, deux actions possibles
@@ -199,8 +200,9 @@ public class JoueurBiosphere7Test {
         JoueurBiosphere7 joueur = new JoueurBiosphere7();
         assertEquals(0, joueur.nbActions);
         String[] actions = new String[30];
+        Vitalite vit = new Vitalite();
 
-        joueur.ajoutAction(Coordonnees.depuisCars('f', 'D'), actions, 'C');
+        joueur.ajoutAction(Coordonnees.depuisCars('f', 'D'), actions, 'C', vit);
         assertTrue(Utils.actionsPossiblesContient(actions, "CfD,0,0"));
         assertFalse(Utils.actionsPossiblesContient(actions, "PbH,0,0"));
 
@@ -211,7 +213,6 @@ public class JoueurBiosphere7Test {
      */
     @Test
     public void testArbresVoisins() {
-        JoueurBiosphere7 joueur = new JoueurBiosphere7();
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU3);
 
         Coordonnees[] coordsAttendu = new Coordonnees[4];
@@ -220,14 +221,14 @@ public class JoueurBiosphere7Test {
         }
 
         Coordonnees coord = new Coordonnees(1, 1);
-        Assert.assertArrayEquals(coordsAttendu, joueur.arbreVoisins(plateau, coord));
+        Assert.assertArrayEquals(coordsAttendu, Utils.arbreVoisins(plateau, coord));
 
         coord.ligne = 0;
         coord.colonne = 12;
         coordsAttendu[2].ligne = 0;
         coordsAttendu[2].colonne = 13;
         //Assert.assertArrayEquals(coordsAttendu, joueur.arbreVoisins(plateau, coord));
-        Assert.assertEquals(coordsAttendu[2].colonne, joueur.arbreVoisins(plateau, coord)[2].colonne);
+        Assert.assertEquals(coordsAttendu[2].colonne, Utils.arbreVoisins(plateau, coord)[2].colonne);
 
         coord.ligne = 12;
         coord.colonne = 4;
@@ -239,7 +240,7 @@ public class JoueurBiosphere7Test {
         coordsAttendu[2].colonne = 5;
         coordsAttendu[3].ligne = 12;
         coordsAttendu[3].colonne = 3;
-        Assert.assertArrayEquals(coordsAttendu, joueur.arbreVoisins(plateau, coord));
+        Assert.assertArrayEquals(coordsAttendu, Utils.arbreVoisins(plateau, coord));
 
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU6);
         coord.ligne = 12;
@@ -252,7 +253,7 @@ public class JoueurBiosphere7Test {
         coordsAttendu[2].colonne = 5;
         coordsAttendu[3].ligne = 12;
         coordsAttendu[3].colonne = 3;
-        Assert.assertArrayEquals(coordsAttendu, joueur.arbreVoisins(plateau, coord));
+        Assert.assertArrayEquals(coordsAttendu, Utils.arbreVoisins(plateau, coord));
         //Assert.assertEquals(coordsAttendu[0].ligne, joueur.arbreVoisins(plateau, coord)[0].ligne);
     }
 
@@ -261,16 +262,15 @@ public class JoueurBiosphere7Test {
      */
     @Test
     public void testRegardeSiArbre() {
-        JoueurBiosphere7 joueur = new JoueurBiosphere7();
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU3);
 
         Coordonnees coordTest = new Coordonnees(0, 0);
         Coordonnees coordNull = new Coordonnees(-1, -1);
-        Assert.assertEquals(coordNull, joueur.regardeSiArbre(plateau, coordTest));
+        Assert.assertEquals(coordNull, Utils.regardeSiArbre(plateau, coordTest));
 
         coordTest.colonne = 1;
         coordTest.ligne = 1;
-        Assert.assertEquals(coordTest, joueur.regardeSiArbre(plateau, coordTest));
+        Assert.assertEquals(coordTest, Utils.regardeSiArbre(plateau, coordTest));
     }
 
     /**
@@ -282,34 +282,37 @@ public class JoueurBiosphere7Test {
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU4);
 
         Coordonnees coord = new Coordonnees(0, 0);
-        Assert.assertEquals(false, joueur.etouffe(plateau, coord, 4));
+        Assert.assertEquals(false, Utils.etouffe(plateau, coord, 4));
         coord.ligne = 12;
         coord.colonne = 4;
-        Assert.assertEquals(true, joueur.etouffe(plateau, coord, 4));
+        Assert.assertEquals(true, Utils.etouffe(plateau, coord, 4));
         coord.ligne = 0;
         coord.colonne = 13;
-        Assert.assertEquals(false, joueur.etouffe(plateau, coord, 4));
+        Assert.assertEquals(false, Utils.etouffe(plateau, coord, 4));
 
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU6);
-        Assert.assertEquals(false, joueur.etouffe(plateau, Coordonnees.depuisCars('m', 'E'), 4));
-        Assert.assertEquals(false, joueur.etouffe(plateau, Coordonnees.depuisCars('f', 'A'), 4));
-        Assert.assertEquals(false, joueur.etouffe(plateau, Coordonnees.depuisCars('f', 'B'), 3));
+        Assert.assertEquals(false, Utils.etouffe(plateau, Coordonnees.depuisCars('m', 'E'), 4));
+        Assert.assertEquals(false, Utils.etouffe(plateau, Coordonnees.depuisCars('f', 'A'), 4));
+        Assert.assertEquals(false, Utils.etouffe(plateau, Coordonnees.depuisCars('f', 'B'), 3));
 
     }
 
     @Test
     public void testSymbiose() {
-        JoueurBiosphere7 joueur = new JoueurBiosphere7();
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU4);
         char couleurJoueur = 'R';
-        assertEquals(1, joueur.vitalitePlanterSymbiose(plateau, joueur.arbreVoisins(plateau, Coordonnees.depuisCars('a', 'A')), 6, couleurJoueur));
+        assertEquals(1, Vitalite.vitalitePlanterSymbiose(plateau, Utils.arbreVoisins(plateau, Coordonnees.depuisCars('a', 'A')), 6, couleurJoueur));
 
-        assertEquals(1, joueur.vitalitePlanterSymbiose(plateau, joueur.arbreVoisins(plateau, Coordonnees.depuisCars('f', 'A')), 6, couleurJoueur));
-        assertEquals(4, joueur.vitalitePlanterSymbiose(plateau, joueur.arbreVoisins(plateau, Coordonnees.depuisCars('e', 'I')), 6, couleurJoueur));
-       // assertEquals(3, joueur.vitalitePlanterSymbiose(plateau, joueur.arbreVoisins(plateau, Coordonnees.depuisCars('e', 'M')), 6, couleurJoueur));
-}
+        assertEquals(1, Vitalite.vitalitePlanterSymbiose(plateau, Utils.arbreVoisins(plateau, Coordonnees.depuisCars('f', 'A')), 6, couleurJoueur));
+        assertEquals(4, Vitalite.vitalitePlanterSymbiose(plateau, Utils.arbreVoisins(plateau, Coordonnees.depuisCars('e', 'I')), 6, couleurJoueur));
+        // assertEquals(3, joueur.vitalitePlanterSymbiose(plateau, joueur.arbreVoisins(plateau, Coordonnees.depuisCars('e', 'M')), 6, couleurJoueur));
+    }
 
-    
+    @Test
+    public void testTest() {
+        JoueurBiosphere7 joueur = new JoueurBiosphere7();
+        joueur.test();
+    }
     /**
      * Un plateau de base, sous forme de chaîne. Pour construire une telle
      * chaîne depuis votre sortie.log, déclarez simplement : final String
@@ -486,8 +489,8 @@ public class JoueurBiosphere7Test {
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "n|   |   |   |PR1|   |PR1|   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
-    
-        /**
+
+    /**
      * Un plateau pour tester le niveau 4.
      */ // 12 vitalitées bleu et 20 rouge
     final String PLATEAU_NIVEAU7
