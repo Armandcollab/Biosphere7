@@ -22,7 +22,7 @@ public class Vitalite {
      * Constructeur de la class vitalité
      *
      * @param r la vitalité des rouges
-     * @param b lavitalité des bleus
+     * @param b la vitalité des bleus
      */
     Vitalite(int r, int b) {
         vitalite = new int[]{r, b};
@@ -70,7 +70,7 @@ public class Vitalite {
             case 'H':
                 // quand on plante une plante
                 if (!Utils.etouffe(plateau, coordCase, 4) && plateau[coordCase.ligne][coordCase.colonne].espece == CAR_VIDE) {
-                    ajoutVitalite(plateau, coordCase, couleurJoueur, true, vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, Utils.CAR_ROUGE));
+                    ajoutVitalite(plateau, coordCase, couleurJoueur, true, vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau,couleurJoueur));
                     vitalite[0] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_ROUGE);
                     vitalite[1] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_BLEU);
                 }
@@ -79,7 +79,6 @@ public class Vitalite {
                 // quand on fertilise
                 if (coordCase.ligne < Coordonnees.NB_LIGNES && coordCase.ligne >= 0 && coordCase.colonne < Coordonnees.NB_COLONNES && coordCase.colonne >= 0) {
                     char espece = plateau[coordCase.ligne][coordCase.colonne].espece;
-                    Case caseCentrale = plateau[coordCase.ligne][coordCase.colonne];
                     switch (espece) {
                         case 'P':
                         case 'S':
@@ -206,22 +205,25 @@ public class Vitalite {
      * @param vitAjout le nombre de vitalité à ajouter
      */
     void ajoutVitalite(Case[][] plateau, Coordonnees coordsCase, char couleurJoueur, boolean joueurOuCase, int vitAjout) {
+        // attention à ce que les coordonnées de case en paramètre soit bien dans le tableau !
         if (!joueurOuCase) {
-            if (plateau[coordsCase.ligne][coordsCase.colonne].couleur == Utils.CAR_BLEU) {
-                if (plateau[coordsCase.ligne][coordsCase.colonne].vitalite + vitAjout <= 9) {
-                    vitalite[1] += vitAjout;
-                } else {
-                    vitalite[1] += 9 - plateau[coordsCase.ligne][coordsCase.colonne].vitalite;
-                }
-            } else if (plateau[coordsCase.ligne][coordsCase.colonne].couleur == Utils.CAR_ROUGE) {
-                if (plateau[coordsCase.ligne][coordsCase.colonne].vitalite + vitAjout <= 9) {
-                    vitalite[0] += vitAjout;
-                } else {
-                    vitalite[0] += 9 - plateau[coordsCase.ligne][coordsCase.colonne].vitalite;
+            if (plateau[coordsCase.ligne][coordsCase.colonne].espece != Utils.CAR_VIDE) {
+                if (plateau[coordsCase.ligne][coordsCase.colonne].couleur == Utils.CAR_BLEU) {
+                    if (plateau[coordsCase.ligne][coordsCase.colonne].vitalite + vitAjout <= 9) {
+                        vitalite[1] += vitAjout;
+                    } else {
+                        vitalite[1] += 9 - plateau[coordsCase.ligne][coordsCase.colonne].vitalite;
+                    }
+                } else if (plateau[coordsCase.ligne][coordsCase.colonne].couleur == Utils.CAR_ROUGE) {
+                    if (plateau[coordsCase.ligne][coordsCase.colonne].vitalite + vitAjout <= 9) {
+                        vitalite[0] += vitAjout;
+                    } else {
+                        vitalite[0] += 9 - plateau[coordsCase.ligne][coordsCase.colonne].vitalite;
+                    }
                 }
             }
         } else {
-            if (couleurJoueur == Utils.CAR_BLEU) {
+            if (couleurJoueur == Utils.CAR_BLEU) { 
                 if (plateau[coordsCase.ligne][coordsCase.colonne].vitalite + vitAjout <= 9) {
                     vitalite[1] += vitAjout;
                 } else {

@@ -93,7 +93,6 @@ public class JoueurBiosphere7Test {
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU3);
         niveau = 3;
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
-        Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "CbB,15,7"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "CaM,16,7"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "CaN,16,7"));
@@ -140,6 +139,7 @@ public class JoueurBiosphere7Test {
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PbB,13,6"));
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "PaN"));
+        Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PaN,13,7"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PfA,13,8"));
         //assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PmE,13,8"));
@@ -326,6 +326,10 @@ public class JoueurBiosphere7Test {
         vit.vitalite[1] = 0;
         vit.ajoutVitalite(plateau, coord, couleurJoueur, true, 1);
         assertEquals(1, vit.vitalite[0]);
+        assertEquals(0, vit.vitalite[1]);
+        vit.vitalite[0] = 0;
+        vit.ajoutVitalite(plateau, coord, couleurJoueur, true, -1);
+        assertEquals(-1, vit.vitalite[0]);
         assertEquals(0, vit.vitalite[1]);
         
     }
