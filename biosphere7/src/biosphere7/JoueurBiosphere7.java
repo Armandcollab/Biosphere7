@@ -39,7 +39,7 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
         // calculer les actions possibles
         String actions[] = new String[MAX_NB_ACTIONS];
         nbActions = 0;
-        for (int lig = 0; lig < Coordonnees.NB_LIGNES; lig++) { // Lorsque l'on plante un arbre
+        for (int lig = 0; lig < Coordonnees.NB_LIGNES; lig++) { // Lorsque l'on plante unne plante
             for (int col = 0; col < Coordonnees.NB_COLONNES; col++) {
                 for (char charAction : Utils.ESPECES) {
                     Coordonnees coord = new Coordonnees(lig, col);
@@ -48,26 +48,32 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
                     if (plateau[lig][col].espece == Utils.CAR_VIDE && !Utils.etouffe(plateau, coord, 4)) {
                         ajoutAction(coord, actions, charAction, vit);
                     }
+                    if(plateau[lig][col].espece == Utils.CAR_VIDE && Utils.estAutoSterile(plateau, coord) && Utils.unVoisinDeLaMemeEspece(plateau, coord) ) {
+                        //lacer la dissémination
+                        
+                    }
+                }
+                Coordonnees coordsCasePourVoisin = new Coordonnees(-1, -1); // Lorsque l'on coupe / fertilise une plante
+                if (plateau[lig][col].espece != CAR_VIDE) {
+                    coordsCasePourVoisin.ligne = lig;
+                    coordsCasePourVoisin.colonne = col;
+                    Vitalite vit = new Vitalite();
+                    vit.calculVitalite(plateau, couleurJoueur, 'C', coordsCasePourVoisin, niveau);
+                    ajoutAction(coordsCasePourVoisin, actions, 'C', vit);
+                    vit.calculVitalite(plateau, couleurJoueur, 'F', coordsCasePourVoisin, niveau);
+                    ajoutAction(coordsCasePourVoisin, actions, 'F', vit);
 
                 }
             }
-        }
+        }/*
         if (niveau >= 3) {
-            Coordonnees coordsCasePourVoisin = new Coordonnees(-1, -1); // Lorsque l'on coupe un arbre
+           
             for (int lig = 0; lig < Coordonnees.NB_LIGNES; lig++) {
                 for (int col = 0; col < Coordonnees.NB_COLONNES; col++) {
-                    if (plateau[lig][col].espece != CAR_VIDE) {
-                        coordsCasePourVoisin.ligne = lig;
-                        coordsCasePourVoisin.colonne = col;
-                        Vitalite vit = new Vitalite();
-                        vit.calculVitalite(plateau, couleurJoueur, 'C', coordsCasePourVoisin, niveau);
-                        ajoutAction(coordsCasePourVoisin, actions, 'C', vit);
-                        vit.calculVitalite(plateau, couleurJoueur, 'F', coordsCasePourVoisin, niveau);
-                        ajoutAction(coordsCasePourVoisin, actions, 'F', vit);
-                    }
+
                 }
             }
-        }
+        }*/
         System.out.println("actionsPossibles : fin");
         return Utils.nettoyerTableau(actions);
     }
@@ -84,7 +90,8 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
         actions[nbActions] = action;
         nbActions++;
     }
-    void test(){
+
+    void test() {
         Vitalite v = new Vitalite();
         System.out.println(v.vitalite[1]);
     }

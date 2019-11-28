@@ -256,4 +256,38 @@ public class Utils {
         return coordsVoisins;
     }
 
+    /**
+     * Vérifie si une case est Auto Stérile ( T ou H ) ou Auto Féconde ( P , S ,
+     * D , B)
+     *
+     * @param plateau le plateau considéré
+     * @param coord coordoné de la case dont on vas chercher les arbres voisins
+     * @return true si la plante est autoSterile, faux sinon, soit si elle est
+     * autoFeconde
+     */
+    static boolean estAutoSterile(Case[][] plateau, Coordonnees coord) {
+        switch (plateau[coord.ligne][coord.colonne].espece) {
+            case 'P':
+            case 'S':
+            case 'B':
+            case 'D':
+                return true;
+            case 'T':
+            case 'H':
+            default:
+                return false;
+        }
+    }
+
+    static boolean unVoisinDeLaMemeEspece(Case[][] plateau, Coordonnees coord) {
+        for (int i = 0; i < 4; i++) {
+            Coordonnees coordVoisin = arbreVoisins(plateau, coord)[i];
+            if (coordVoisin.ligne != -1 && coordVoisin.colonne != -1) {
+                if (plateau[coordVoisin.ligne][coordVoisin.colonne].espece == plateau[coord.ligne][coord.colonne].espece) {
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
 }
