@@ -47,10 +47,12 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
                     vit.calculVitalite(plateau, couleurJoueur, charAction, coord, niveau);
                     if (plateau[lig][col].espece == Utils.CAR_VIDE && !Utils.etouffe(plateau, coord, 4)) {
                         ajoutAction(coord, actions, charAction, vit);
-                    }
-                    if(plateau[lig][col].espece == Utils.CAR_VIDE && Utils.estAutoSterile(plateau, coord) && Utils.unVoisinDeLaMemeEspece(plateau, coord) ) {
-                        //lacer la dissémination
-                        
+                    } else if (plateau[lig][col].espece != Utils.CAR_VIDE && Utils.estAutoSterile(plateau, coord) && Utils.unVoisinDeLaMemeEspece(plateau, coord)) {
+                        vit.calculVitalite(plateau, couleurJoueur, 'I', coord, niveau);
+                        ajoutAction(coord, actions, 'I', vit);
+                    } else if (plateau[lig][col].espece != Utils.CAR_VIDE && !Utils.estAutoSterile(plateau, coord)) {
+                        vit.calculVitalite(plateau, couleurJoueur, 'I', coord, niveau);
+                        ajoutAction(coord, actions, 'I', vit);
                     }
                 }
                 Coordonnees coordsCasePourVoisin = new Coordonnees(-1, -1); // Lorsque l'on coupe / fertilise une plante

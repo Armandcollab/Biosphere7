@@ -186,7 +186,7 @@ public class Utils {
      * @return true, si l'arbre étouffe, sinon faux
      */
     static boolean etouffe(Case[][] plateau, Coordonnees coord, int nbrArbrePourEtouffer) {
-        Coordonnees[] tabArbresVoisins = arbreVoisins(plateau, coord);
+        Coordonnees[] tabArbresVoisins = plantesVoisines(plateau, coord, false);
 
         if (coord.ligne == 0 || coord.ligne == 13 || coord.colonne == 0 || coord.colonne == 13) {
             return false;
@@ -214,14 +214,21 @@ public class Utils {
      *
      * @param plateau le plateau considéré
      * @param coord coordonnées de la case à regarder
+     * @param inverse regarde si les cases sont vide au lieu de pleines
      * @return les coordonées de la case si il possède un arbre, sinon des
      * coordonnées nul
      */
-    static Coordonnees regardeSiArbre(Case[][] plateau, Coordonnees coord) {
+    static Coordonnees regardeSiArbre(Case[][] plateau, Coordonnees coord, boolean inverse) {
         if (coord.ligne < Coordonnees.NB_LIGNES && coord.ligne >= 0
                 && coord.colonne < Coordonnees.NB_COLONNES && coord.colonne >= 0) {
-            if (plateau[coord.ligne][coord.colonne].espece != CAR_VIDE) {
-                return coord;
+            if (!inverse) {
+                if (plateau[coord.ligne][coord.colonne].espece != CAR_VIDE) {
+                    return coord;
+                }
+            } else {
+                if (plateau[coord.ligne][coord.colonne].espece == CAR_VIDE) {
+                    return coord;
+                }
             }
 
         }
@@ -230,14 +237,17 @@ public class Utils {
 
     /**
      * A partir d'une case vérifie si les cases voisines contiennent un arbre et
-     * retorune leurs coordonnées
+     * retorune leurs coordonnées selon si l'on veut les vides ou les pleines
+     * (boolean vérifie)
      *
      * @param plateau le plateau considéré
      * @param coord coordoné de la case dont on vas chercher les arbres voisins
+     * @param vide si vaut true on retourne les coordonnées des cases vides
+     * sinon renvoi les coordonées des cases pleines
      * @return un tableau contenant les coordonées de arbres voisons si il y en
      * as, sinon -1,-1
      */
-    static Coordonnees[] arbreVoisins(Case[][] plateau, Coordonnees coord) {
+    static Coordonnees[] plantesVoisines(Case[][] plateau, Coordonnees coord, boolean vide) {
         Coordonnees[] coordsVoisins = new Coordonnees[4]; // 4 correspond au nombre de voisins possibles maximum
 
         Coordonnees coordsTmp1 = new Coordonnees(coord.ligne + 1, coord.colonne);
@@ -245,14 +255,24 @@ public class Utils {
         Coordonnees coordsTmp3 = new Coordonnees(coord.ligne, coord.colonne + 1);
         Coordonnees coordsTmp4 = new Coordonnees(coord.ligne, coord.colonne - 1);
 
-        coordsVoisins[0] = regardeSiArbre(plateau, coordsTmp1);
+        if (!vide) {
+            coordsVoisins[0] = regardeSiArbre(plateau, coordsTmp1, false);
 
-        coordsVoisins[1] = regardeSiArbre(plateau, coordsTmp2);
+            coordsVoisins[1] = regardeSiArbre(plateau, coordsTmp2, false);
 
-        coordsVoisins[2] = regardeSiArbre(plateau, coordsTmp3);
+            coordsVoisins[2] = regardeSiArbre(plateau, coordsTmp3, false);
 
-        coordsVoisins[3] = regardeSiArbre(plateau, coordsTmp4);
+            coordsVoisins[3] = regardeSiArbre(plateau, coordsTmp4, false);
+        } else {
 
+            coordsVoisins[0] = regardeSiArbre(plateau, coordsTmp1, true);
+
+            coordsVoisins[1] = regardeSiArbre(plateau, coordsTmp2, true);
+
+            coordsVoisins[2] = regardeSiArbre(plateau, coordsTmp3, true);
+
+            coordsVoisins[3] = regardeSiArbre(plateau, coordsTmp4, true);
+        }
         return coordsVoisins;
     }
 
@@ -279,9 +299,16 @@ public class Utils {
         }
     }
 
+    /**
+     * Vérifie si une case à un voisin de la même espèce qu'elle
+     *
+     * @param plateau le plateau considéré
+     * @param coord coordoné de la case dont on vas chercher les arbres voisins
+     * @return true si il y a au moins un voisin de la même espèce sinon false
+     */
     static boolean unVoisinDeLaMemeEspece(Case[][] plateau, Coordonnees coord) {
         for (int i = 0; i < 4; i++) {
-            Coordonnees coordVoisin = arbreVoisins(plateau, coord)[i];
+            Coordonnees coordVoisin = plantesVoisines(plateau, coord, false)[i];
             if (coordVoisin.ligne != -1 && coordVoisin.colonne != -1) {
                 if (plateau[coordVoisin.ligne][coordVoisin.colonne].espece == plateau[coord.ligne][coord.colonne].espece) {
                     return false;
@@ -289,5 +316,27 @@ public class Utils {
             }
         }
         return false;
+    }
+
+    /**
+     * Cherche la valeur minimum entre les vialités voisines et celle de la case
+     * centrale
+     *
+     * @param plateau le plateau considéré
+     * @param coord coordoné de la case dont on vas chercher les arbres voisins
+     * @return la valeur minimum de vitalité trouvé dans les cases voisins
+     * pleines et la case centrale
+     */
+    static int vitaliteVoisinPlusFaible(Case[][] plateau, Coordonnees coord) {
+        Coordonnees[] coordsVoisins = plantesVoisines(plateau, coord, false);
+        int valMin = plateau[coord.ligne][coord.colonne].vitalite;
+        for (int i = 0; i < 4; i++) {
+            if (coordsVoisins[i].ligne != -1 && coordsVoisins[i].colonne != -1) {
+                if (plateau[coordsVoisins[i].ligne][coordsVoisins[i].colonne].vitalite < valMin) {
+                    valMin = plateau[coordsVoisins[i].ligne][coordsVoisins[i].colonne].vitalite;
+                }
+            }
+        }
+        return valMin;
     }
 }

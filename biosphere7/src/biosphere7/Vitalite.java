@@ -20,19 +20,19 @@ public class Vitalite {
 
     /**
      * Constructeur de la class vitalité
-     * 
+     *
      * @param r la vitalité des rouges
      * @param b lavitalité des bleus
      */
     Vitalite(int r, int b) {
         vitalite = new int[]{r, b};
     }
+
     /**
-     * Constructeur vitalité vide
-     * rouge = 0 et bleu = 0
+     * Constructeur vitalité vide rouge = 0 et bleu = 0
      */
-    Vitalite(){
-        vitalite = new int[]{0,0};
+    Vitalite() {
+        vitalite = new int[]{0, 0};
     }
 
     /**
@@ -46,119 +46,99 @@ public class Vitalite {
      * @param niveau niveau de jeu
      */
     void calculVitalite(Case[][] plateau, char couleurJoueur, char action, Coordonnees coordCase, int niveau) {
-        int bleu = 0;
-        int rouge = 0;
+        vitalite[1] = 0;
+        vitalite[0] = 0;
         for (int lig = 0; lig < Coordonnees.NB_LIGNES; lig++) { // parcour tout le tableau et compte les arbres avec elur vitalité
             for (int col = 0; col < Coordonnees.NB_COLONNES; col++) {
                 if (plateau[lig][col].espece != CAR_VIDE) {
                     if (plateau[lig][col].couleur == Utils.CAR_ROUGE) {
-                        rouge += plateau[lig][col].vitalite;
+                        vitalite[0] += plateau[lig][col].vitalite;
                     } else if (plateau[lig][col].couleur == Utils.CAR_BLEU) {
-                        bleu += plateau[lig][col].vitalite;
+                        vitalite[1] += plateau[lig][col].vitalite;
                     }
                 }
             }
         }
-        Coordonnees[] coordsVoisin = Utils.arbreVoisins(plateau, coordCase);
-
-        if (action != 'C' && action != 'F') {// quand on plante un pommier
-            if (!Utils.etouffe(plateau, coordCase, 4) && plateau[coordCase.ligne][coordCase.colonne].espece == CAR_VIDE) {
-                if (couleurJoueur == Utils.CAR_ROUGE) {
-                    rouge += vitalitePlanterSymbiose(plateau, coordsVoisin, niveau, Utils.CAR_ROUGE);
-
-                } else if (couleurJoueur == Utils.CAR_BLEU) {
-                    bleu += vitalitePlanterSymbiose(plateau, coordsVoisin, niveau, Utils.CAR_BLEU);
-
+        Coordonnees[] coordsVoisinPlein = Utils.plantesVoisines(plateau, coordCase, false);
+        Coordonnees[] coordsVoisinVide = Utils.plantesVoisines(plateau, coordCase, true);
+        switch (action) {
+            case 'P':
+            case 'S':
+            case 'B':
+            case 'D':
+            case 'T':
+            case 'H':
+                // quand on plante une plante
+                if (!Utils.etouffe(plateau, coordCase, 4) && plateau[coordCase.ligne][coordCase.colonne].espece == CAR_VIDE) {
+                    ajoutVitalite(plateau, coordCase, couleurJoueur, true, vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, Utils.CAR_ROUGE));
+                    vitalite[0] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_ROUGE);
+                    vitalite[1] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_BLEU);
                 }
-                rouge -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisin, niveau, Utils.CAR_ROUGE);
-                bleu -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisin, niveau, Utils.CAR_BLEU);
-
-            }
-
-        } else if (action == 'F') {
-            if (coordCase.ligne < Coordonnees.NB_LIGNES && coordCase.ligne >= 0 && coordCase.colonne < Coordonnees.NB_COLONNES && coordCase.colonne >= 0) {
-                char espece = plateau[coordCase.ligne][coordCase.colonne].espece;
-                Case caseCentrale = plateau[coordCase.ligne][coordCase.colonne];
-                switch (espece) {
-                    case 'P':
-                    case 'S':
-                        // Arbres
-                        if (caseCentrale.vitalite < 9) {
-                            if (caseCentrale.couleur == Utils.CAR_BLEU) {
-                                bleu++;
-                            } else if (caseCentrale.couleur == Utils.CAR_ROUGE) {
-                                rouge++;
-                            }
-                        }
-                        break;
-                    case 'B':
-                        // Arbustes
-                        if (caseCentrale.vitalite + 2 <= 9) {
-                            if (caseCentrale.couleur == Utils.CAR_BLEU) {
-                                bleu += 2;
-                            } else if (caseCentrale.couleur == Utils.CAR_ROUGE) {
-                                rouge += 2;
-                            }
-                        } else {
-                            if (caseCentrale.couleur == Utils.CAR_BLEU) {
-                                bleu += 9 - caseCentrale.vitalite;
-                            } else if (caseCentrale.couleur == Utils.CAR_ROUGE) {
-                                rouge += 9 - caseCentrale.vitalite;;
-                            }
-                        }
-                        break;
-                    case 'D':
-                    case 'T':
-                    case 'H':
-                        // Légumes
-                        if (caseCentrale.vitalite + 3 <= 9) {
-                            if (caseCentrale.couleur == Utils.CAR_BLEU) {
-                                bleu += 3;
-                            } else if (caseCentrale.couleur == Utils.CAR_ROUGE) {
-                                rouge += 3;
-                            }
-                        } else {
-                            if (caseCentrale.couleur == Utils.CAR_BLEU) {
-                                bleu += 9 - caseCentrale.vitalite;
-                            } else if (caseCentrale.couleur == Utils.CAR_ROUGE) {
-                                rouge += 9 - caseCentrale.vitalite;;
-                            }
-                        }
-                        break;
-                    default:
-                        // vide
-                        break;
+                break;
+            case 'F':
+                // quand on fertilise
+                if (coordCase.ligne < Coordonnees.NB_LIGNES && coordCase.ligne >= 0 && coordCase.colonne < Coordonnees.NB_COLONNES && coordCase.colonne >= 0) {
+                    char espece = plateau[coordCase.ligne][coordCase.colonne].espece;
+                    Case caseCentrale = plateau[coordCase.ligne][coordCase.colonne];
+                    switch (espece) {
+                        case 'P':
+                        case 'S':
+                            // Arbres
+                            ajoutVitalite(plateau, coordCase, couleurJoueur, false, 1);
+                            break;
+                        case 'B':
+                            // Arbustes
+                            ajoutVitalite(plateau, coordCase, couleurJoueur, false, 2);
+                            break;
+                        case 'D':
+                        case 'T':
+                        case 'H':
+                            // Légumes
+                            ajoutVitalite(plateau, coordCase, couleurJoueur, false, 3);
+                            break;
+                        default:
+                            // vide
+                            break;
+                    }
                 }
-            }
+                break;
+            case 'C':
+                // quand on coupe un arbre
+                if (coordCase.ligne < Coordonnees.NB_LIGNES && coordCase.ligne >= 0 && coordCase.colonne < Coordonnees.NB_COLONNES && coordCase.colonne >= 0) {
+                    Case caseCentrale = plateau[coordCase.ligne][coordCase.colonne];
+                    ajoutVitalite(plateau, coordCase, couleurJoueur, false, -caseCentrale.vitalite);
 
-        } else if (action == 'C') {     // quand on coupe un arbre
-            if (coordCase.ligne < Coordonnees.NB_LIGNES && coordCase.ligne >= 0 && coordCase.colonne < Coordonnees.NB_COLONNES && coordCase.colonne >= 0) {
-                Case caseCentrale = plateau[coordCase.ligne][coordCase.colonne];
-
-                if (caseCentrale.espece != CAR_VIDE && caseCentrale.couleur == Utils.CAR_BLEU) {
-                    bleu -= caseCentrale.vitalite;
-
-                } else if (caseCentrale.espece != CAR_VIDE && caseCentrale.couleur == Utils.CAR_ROUGE) {
-                    rouge -= caseCentrale.vitalite;
-
-                }
-
-                for (int i = 0; i < 4; i++) {
-                    if (coordsVoisin[i].ligne != -1 && coordsVoisin[i].colonne != -1) {
-                        if (plateau[coordsVoisin[i].ligne][coordsVoisin[i].colonne].couleur == Utils.CAR_BLEU
-                                && plateau[coordsVoisin[i].ligne][coordsVoisin[i].colonne].vitalite < 9) {
-                            bleu++;
-                        } else if (plateau[coordsVoisin[i].ligne][coordsVoisin[i].colonne].couleur == Utils.CAR_ROUGE
-                                && plateau[coordsVoisin[i].ligne][coordsVoisin[i].colonne].vitalite < 9) {
-                            rouge++;
+                    for (int i = 0; i < 4; i++) {
+                        if (coordsVoisinPlein[i].ligne != -1 && coordsVoisinPlein[i].colonne != -1) {
+                            ajoutVitalite(plateau, coordsVoisinPlein[i], couleurJoueur, false, 1);
                         }
                     }
                 }
-            }
-        }
+                break;
+            case 'I':
+                // quand on dissémine
+                if (plateau[coordCase.ligne][coordCase.colonne].espece == Utils.CAR_VIDE && Utils.estAutoSterile(plateau, coordCase) && Utils.unVoisinDeLaMemeEspece(plateau, coordCase)) {
+                    //quand on a des plantes autoStériles
+                    for (int i = 0; i < coordsVoisinVide.length; i++) {
+                        if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1) {
+                            int ajoutVit = Utils.vitaliteVoisinPlusFaible(plateau, coordCase);
+                            ajoutVitalite(plateau, coordCase, couleurJoueur, true, ajoutVit);
+                        }
+                    }
+                } else if (plateau[coordCase.ligne][coordCase.colonne].espece == Utils.CAR_VIDE && !Utils.estAutoSterile(plateau, coordCase)) {
+                    //quand on a des plantes autoFécondes 
+                    for (int i = 0; i < coordsVoisinVide.length; i++) {
+                        if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1) {
+                            ajoutVitalite(plateau, coordCase, couleurJoueur, true, 1);
+                        }
+                    }
+                }
+                break;
 
-        vitalite[0] = rouge;
-        vitalite[1] = bleu;
+            default:
+                System.out.println("Action non valide pour le calcule de vitalité");
+                break;
+        }
     }
 
     /**
@@ -214,4 +194,46 @@ public class Vitalite {
         return compteur;
     }
 
+    /**
+     * Ajoute la vitalité suivant la couleur de la case ou du joueur courant
+     *
+     * @param plateau le plateau considéré
+     * @param coordsCase coordonées de la case courante
+     * @param couleurJoueur la couleur du joueur courant
+     * @param joueurOuCase Si true alors ajoute la vitalité suivant la couleur
+     * du joueur courant sinon ajoute la vitalité suivant la couleur de la case
+     * courante
+     * @param vitAjout le nombre de vitalité à ajouter
+     */
+    void ajoutVitalite(Case[][] plateau, Coordonnees coordsCase, char couleurJoueur, boolean joueurOuCase, int vitAjout) {
+        if (!joueurOuCase) {
+            if (plateau[coordsCase.ligne][coordsCase.colonne].couleur == Utils.CAR_BLEU) {
+                if (plateau[coordsCase.ligne][coordsCase.colonne].vitalite + vitAjout <= 9) {
+                    vitalite[1] += vitAjout;
+                } else {
+                    vitalite[1] += 9 - plateau[coordsCase.ligne][coordsCase.colonne].vitalite;
+                }
+            } else if (plateau[coordsCase.ligne][coordsCase.colonne].couleur == Utils.CAR_ROUGE) {
+                if (plateau[coordsCase.ligne][coordsCase.colonne].vitalite + vitAjout <= 9) {
+                    vitalite[0] += vitAjout;
+                } else {
+                    vitalite[0] += 9 - plateau[coordsCase.ligne][coordsCase.colonne].vitalite;
+                }
+            }
+        } else {
+            if (couleurJoueur == Utils.CAR_BLEU) {
+                if (plateau[coordsCase.ligne][coordsCase.colonne].vitalite + vitAjout <= 9) {
+                    vitalite[1] += vitAjout;
+                } else {
+                    vitalite[1] += 9 - plateau[coordsCase.ligne][coordsCase.colonne].vitalite;
+                }
+            } else if (couleurJoueur == Utils.CAR_ROUGE) {
+                if (plateau[coordsCase.ligne][coordsCase.colonne].vitalite + vitAjout <= 9) {
+                    vitalite[0] += vitAjout;
+                } else {
+                    vitalite[0] += 9 - plateau[coordsCase.ligne][coordsCase.colonne].vitalite;
+                }
+            }
+        }
+    }
 }

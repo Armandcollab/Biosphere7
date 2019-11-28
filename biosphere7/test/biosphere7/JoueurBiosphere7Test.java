@@ -93,6 +93,7 @@ public class JoueurBiosphere7Test {
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU3);
         niveau = 3;
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
+        Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "CbB,15,7"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "CaM,16,7"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "CaN,16,7"));
@@ -138,6 +139,7 @@ public class JoueurBiosphere7Test {
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PbB,13,6"));
+        assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "PaN"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PaN,13,7"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PfA,13,8"));
         //assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PmE,13,8"));
@@ -221,14 +223,14 @@ public class JoueurBiosphere7Test {
         }
 
         Coordonnees coord = new Coordonnees(1, 1);
-        Assert.assertArrayEquals(coordsAttendu, Utils.arbreVoisins(plateau, coord));
+        Assert.assertArrayEquals(coordsAttendu, Utils.plantesVoisines(plateau, coord, false));
 
         coord.ligne = 0;
         coord.colonne = 12;
         coordsAttendu[2].ligne = 0;
         coordsAttendu[2].colonne = 13;
         //Assert.assertArrayEquals(coordsAttendu, joueur.arbreVoisins(plateau, coord));
-        Assert.assertEquals(coordsAttendu[2].colonne, Utils.arbreVoisins(plateau, coord)[2].colonne);
+        Assert.assertEquals(coordsAttendu[2].colonne, Utils.plantesVoisines(plateau, coord, false)[2].colonne);
 
         coord.ligne = 12;
         coord.colonne = 4;
@@ -240,7 +242,7 @@ public class JoueurBiosphere7Test {
         coordsAttendu[2].colonne = 5;
         coordsAttendu[3].ligne = 12;
         coordsAttendu[3].colonne = 3;
-        Assert.assertArrayEquals(coordsAttendu, Utils.arbreVoisins(plateau, coord));
+        Assert.assertArrayEquals(coordsAttendu, Utils.plantesVoisines(plateau, coord, false));
 
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU6);
         coord.ligne = 12;
@@ -253,7 +255,7 @@ public class JoueurBiosphere7Test {
         coordsAttendu[2].colonne = 5;
         coordsAttendu[3].ligne = 12;
         coordsAttendu[3].colonne = 3;
-        Assert.assertArrayEquals(coordsAttendu, Utils.arbreVoisins(plateau, coord));
+        Assert.assertArrayEquals(coordsAttendu, Utils.plantesVoisines(plateau, coord, false));
         //Assert.assertEquals(coordsAttendu[0].ligne, joueur.arbreVoisins(plateau, coord)[0].ligne);
     }
 
@@ -266,11 +268,11 @@ public class JoueurBiosphere7Test {
 
         Coordonnees coordTest = new Coordonnees(0, 0);
         Coordonnees coordNull = new Coordonnees(-1, -1);
-        Assert.assertEquals(coordNull, Utils.regardeSiArbre(plateau, coordTest));
+        Assert.assertEquals(coordNull, Utils.regardeSiArbre(plateau, coordTest, false));
 
         coordTest.colonne = 1;
         coordTest.ligne = 1;
-        Assert.assertEquals(coordTest, Utils.regardeSiArbre(plateau, coordTest));
+        Assert.assertEquals(coordTest, Utils.regardeSiArbre(plateau, coordTest, false));
     }
 
     /**
@@ -301,13 +303,33 @@ public class JoueurBiosphere7Test {
     public void testSymbiose() {
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU4);
         char couleurJoueur = 'R';
-        assertEquals(1, Vitalite.vitalitePlanterSymbiose(plateau, Utils.arbreVoisins(plateau, Coordonnees.depuisCars('a', 'A')), 6, couleurJoueur));
+        assertEquals(1, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('a', 'A'), false), 6, couleurJoueur));
 
-        assertEquals(1, Vitalite.vitalitePlanterSymbiose(plateau, Utils.arbreVoisins(plateau, Coordonnees.depuisCars('f', 'A')), 6, couleurJoueur));
-        assertEquals(4, Vitalite.vitalitePlanterSymbiose(plateau, Utils.arbreVoisins(plateau, Coordonnees.depuisCars('e', 'I')), 6, couleurJoueur));
-        // assertEquals(3, joueur.vitalitePlanterSymbiose(plateau, joueur.arbreVoisins(plateau, Coordonnees.depuisCars('e', 'M')), 6, couleurJoueur));
+        assertEquals(1, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('f', 'A'), false), 6, couleurJoueur));
+        assertEquals(4, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('e', 'I'), false), 6, couleurJoueur));
+        // assertEquals(3, joueur.vitalitePlanterSymbiose(plateau, joueur.arbreVoisins(plateau, Coordonnees.depuisCars('e', 'M'), false), 6, couleurJoueur));
     }
 
+    /**
+     * Test la methode ajoutVitalité
+     */
+    @Test
+    public void testAjoutVitalite(){
+        Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU2);
+        Coordonnees coord = new Coordonnees(0, 13);
+        char couleurJoueur = 'R';
+        Vitalite vit = new Vitalite(0,0);
+        
+        vit.ajoutVitalite(plateau, coord, couleurJoueur, false, 1);
+        assertEquals(0, vit.vitalite[0]);
+        assertEquals(1, vit.vitalite[1]);
+        vit.vitalite[1] = 0;
+        vit.ajoutVitalite(plateau, coord, couleurJoueur, true, 1);
+        assertEquals(1, vit.vitalite[0]);
+        assertEquals(0, vit.vitalite[1]);
+        
+    }
+    
     @Test
     public void testTest() {
         JoueurBiosphere7 joueur = new JoueurBiosphere7();
@@ -388,7 +410,7 @@ public class JoueurBiosphere7Test {
 
     /**
      * Un plateau pour tester le niveau 3.
-     */
+     */ // 16 R & 7 B
     final String PLATEAU_NIVEAU3
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N \n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
