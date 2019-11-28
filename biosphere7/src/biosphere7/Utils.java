@@ -311,7 +311,7 @@ public class Utils {
             Coordonnees coordVoisin = plantesVoisines(plateau, coord, false)[i];
             if (coordVoisin.ligne != -1 && coordVoisin.colonne != -1) {
                 if (plateau[coordVoisin.ligne][coordVoisin.colonne].espece == plateau[coord.ligne][coord.colonne].espece) {
-                    return false;
+                    return true;
                 }
             }
         }
