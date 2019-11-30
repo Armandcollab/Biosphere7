@@ -299,46 +299,6 @@ public class JoueurBiosphere7Test {
 
     }
 
-    @Test
-    public void testSymbiose() {
-        Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU4);
-        char couleurJoueur = 'R';
-        assertEquals(1, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('a', 'A'), false), 6, couleurJoueur));
-
-        assertEquals(1, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('f', 'A'), false), 6, couleurJoueur));
-        assertEquals(4, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('e', 'I'), false), 6, couleurJoueur));
-        // assertEquals(3, joueur.vitalitePlanterSymbiose(plateau, joueur.arbreVoisins(plateau, Coordonnees.depuisCars('e', 'M'), false), 6, couleurJoueur));
-    }
-
-    /**
-     * Test la methode ajoutVitalité
-     */
-    @Test
-    public void testAjoutVitalite(){
-        Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU2);
-        Coordonnees coord = new Coordonnees(0, 13);
-        char couleurJoueur = 'R';
-        Vitalite vit = new Vitalite(0,0);
-        
-        vit.ajoutVitalite(plateau, coord, couleurJoueur, false, 1);
-        assertEquals(0, vit.vitalite[0]);
-        assertEquals(1, vit.vitalite[1]);
-        vit.vitalite[1] = 0;
-        vit.ajoutVitalite(plateau, coord, couleurJoueur, true, 1);
-        assertEquals(1, vit.vitalite[0]);
-        assertEquals(0, vit.vitalite[1]);
-        vit.vitalite[0] = 0;
-        vit.ajoutVitalite(plateau, coord, couleurJoueur, true, -1);
-        assertEquals(-1, vit.vitalite[0]);
-        assertEquals(0, vit.vitalite[1]);
-        
-    }
-    
-    @Test
-    public void testTest() {
-        JoueurBiosphere7 joueur = new JoueurBiosphere7();
-        joueur.test();
-    }
     /**
      * Un plateau de base, sous forme de chaîne. Pour construire une telle
      * chaîne depuis votre sortie.log, déclarez simplement : final String

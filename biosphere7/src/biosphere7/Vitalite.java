@@ -194,7 +194,7 @@ public class Vitalite {
     }
 
     /**
-     * Ajoute la vitalité suivant la couleur de la case ou du joueur courant
+     * Ajoute la vitalité suivant la couleur de la case ou celle du joueur courant
      *
      * @param plateau le plateau considéré
      * @param coordsCase coordonées de la case courante
