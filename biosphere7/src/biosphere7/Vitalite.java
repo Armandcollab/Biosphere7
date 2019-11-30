@@ -70,14 +70,14 @@ public class Vitalite {
             case 'H':
                 // quand on plante une plante
                 if (!Utils.etouffe(plateau, coordCase, 4) && plateau[coordCase.ligne][coordCase.colonne].espece == CAR_VIDE) {
-                    ajoutVitalite(plateau, coordCase, couleurJoueur, true, vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau,couleurJoueur));
+                    ajoutVitalite(plateau, coordCase, couleurJoueur, true, vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur));
                     vitalite[0] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_ROUGE);
                     vitalite[1] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_BLEU);
                 }
                 break;
             case 'F':
                 // quand on fertilise
-                if (Utils.estDansPlateau(plateau,coordCase)) {
+                if (Utils.estDansPlateau(plateau, coordCase)) {
                     char espece = plateau[coordCase.ligne][coordCase.colonne].espece;
                     switch (espece) {
                         case 'P':
@@ -103,7 +103,7 @@ public class Vitalite {
                 break;
             case 'C':
                 // quand on coupe un arbre
-                if (Utils.estDansPlateau(plateau,coordCase)) {
+                if (Utils.estDansPlateau(plateau, coordCase)) {
                     Case caseCentrale = plateau[coordCase.ligne][coordCase.colonne];
                     ajoutVitalite(plateau, coordCase, couleurJoueur, false, -caseCentrale.vitalite);
 
@@ -116,18 +116,25 @@ public class Vitalite {
                 break;
             case 'I':
                 // quand on dissémine
-                if (plateau[coordCase.ligne][coordCase.colonne].espece != Utils.CAR_VIDE && !Utils.estAutoFéconde(plateau, coordCase) && Utils.unVoisinDeLaMemeEspece(plateau, coordCase)) {
+                if (plateau[coordCase.ligne][coordCase.colonne].espece != Utils.CAR_VIDE
+                        && !Utils.estAutoFéconde(plateau, coordCase)
+                        && Utils.unVoisinDeLaMemeEspece(plateau, coordCase)) {
                     //quand on a des plantes autoStériles
                     for (int i = 0; i < coordsVoisinPlein.length; i++) {
-                        if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1 && Utils.estDansPlateau(plateau,coordsVoisinVide[i])) {
-                            ajoutVitalite(plateau, coordCase, couleurJoueur, true, Utils.vitaliteVoisinPlusFaible(plateau, coordCase));
+                        if (coordsVoisinPlein[i].ligne == -1
+                                && coordsVoisinPlein[i].colonne == -1
+                                && Utils.estDansPlateau(plateau, coordsVoisinVide[i])) {
+                            ajoutVitalite(plateau,  new Coordonnees(coordsVoisinVide[i].ligne, coordsVoisinVide[i].colonne),
+                                    couleurJoueur, true,Utils.vitaliteVoisinPlusFaible(plateau,coordCase));
                         }
                     }
-                } else if (plateau[coordCase.ligne][coordCase.colonne].espece != Utils.CAR_VIDE && Utils.estAutoFéconde(plateau, coordCase)) {
+                } else if (plateau[coordCase.ligne][coordCase.colonne].espece != Utils.CAR_VIDE
+                        && Utils.estAutoFéconde(plateau, coordCase)) {
                     //quand on a des plantes autoFécondes 
                     for (int i = 0; i < coordsVoisinPlein.length; i++) {
-                        if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1 && Utils.estDansPlateau(plateau,coordsVoisinVide[i])) {
-                            ajoutVitalite(plateau, coordCase, couleurJoueur, true, 1);
+                        if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1 
+                                && Utils.estDansPlateau(plateau, coordsVoisinVide[i])) {
+                            ajoutVitalite(plateau,  new Coordonnees(coordsVoisinVide[i].ligne, coordsVoisinVide[i].colonne), couleurJoueur, true, 1);
                         }
                     }
                 }
@@ -182,7 +189,8 @@ public class Vitalite {
         if (niveau >= 6) {
             for (int i = 0; i < 4; i++) {
                 if (coordsVoisin[i].ligne != -1 && coordsVoisin[i].colonne != -1) {
-                    if (Utils.etouffe(plateau, coordsVoisin[i], 3) && couleurCase == plateau[coordsVoisin[i].ligne][coordsVoisin[i].colonne].couleur) {
+                    if (Utils.etouffe(plateau, coordsVoisin[i], 3) 
+                            && couleurCase == plateau[coordsVoisin[i].ligne][coordsVoisin[i].colonne].couleur) {
                         // etouffe à trois arbres parceque l'on vien d'en planter un à coté mais qu'il n'est que imaginé pour le moment
                         compteur += plateau[coordsVoisin[i].ligne][coordsVoisin[i].colonne].vitalite;
                     }
@@ -193,7 +201,8 @@ public class Vitalite {
     }
 
     /**
-     * Ajoute la vitalité suivant la couleur de la case ou celle du joueur courant
+     * Ajoute la vitalité suivant la couleur de la case ou celle du joueur
+     * courant
      *
      * @param plateau le plateau considéré
      * @param coordsCase coordonées de la case courante
@@ -222,7 +231,7 @@ public class Vitalite {
                 }
             }
         } else {
-            if (couleurJoueur == Utils.CAR_BLEU) { 
+            if (couleurJoueur == Utils.CAR_BLEU) {
                 if (plateau[coordsCase.ligne][coordsCase.colonne].vitalite + vitAjout <= 9) {
                     vitalite[1] += vitAjout;
                 } else {
