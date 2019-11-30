@@ -285,7 +285,7 @@ public class Utils {
      * @return true si la plante est autoSterile, faux sinon, soit si elle est
      * autoFeconde
      */
-    static boolean estAutoSterile(Case[][] plateau, Coordonnees coord) {
+    static boolean estAutoFéconde(Case[][] plateau, Coordonnees coord) {
         switch (plateau[coord.ligne][coord.colonne].espece) {
             case 'P':
             case 'S':
@@ -338,5 +338,19 @@ public class Utils {
             }
         }
         return valMin;
+    }
+
+    /**
+     * Vérifie si des coordonnées indique une case dans le tableau
+     *
+     * @param plateau le plateau considéré
+     * @param coord coordoné de la case dont on vas chercher les arbres voisins
+     * @return true si la les coordonées donné sont compris dans les cases du tableau
+     */
+    static boolean estDansPlateau(Case[][] plateau, Coordonnees coordCase) {
+        if (coordCase.ligne < Coordonnees.NB_LIGNES && coordCase.ligne >= 0 && coordCase.colonne < Coordonnees.NB_COLONNES && coordCase.colonne >= 0) {
+            return true;
+        }
+        return false;
     }
 }

@@ -52,11 +52,6 @@ public class VitaliteTest {
         assertEquals(4, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('e', 'I'), false), 6, couleurJoueur));
         // assertEquals(3, joueur.vitalitePlanterSymbiose(plateau, joueur.arbreVoisins(plateau, Coordonnees.depuisCars('e', 'M'), false), 6, couleurJoueur));
     }
-    
-    @Test
-    public void estAutoSterile() {
-        
-    }
     /**
      * Un plateau de base, sous forme de chaîne. Pour construire une telle
      * chaîne depuis votre sortie.log, déclarez simplement : final String
@@ -268,4 +263,5 @@ public class VitaliteTest {
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "n|   |   |   |PR1|   |PR1|   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
+
 }

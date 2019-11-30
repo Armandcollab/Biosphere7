@@ -146,10 +146,10 @@ public class UtilsTest {
     public void testEstAutoSteril() {
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU2);
 
-        assertTrue(Utils.estAutoSterile(plateau, Coordonnees.depuisCars('a', 'A')));
-        assertTrue(Utils.estAutoSterile(plateau, Coordonnees.depuisCars('e', 'D')));
-        assertFalse(Utils.estAutoSterile(plateau, Coordonnees.depuisCars('f', 'D')));
-        assertFalse(Utils.estAutoSterile(plateau, Coordonnees.depuisCars('e', 'E')));
+        assertTrue(Utils.estAutoFéconde(plateau, Coordonnees.depuisCars('a', 'A')));
+        assertTrue(Utils.estAutoFéconde(plateau, Coordonnees.depuisCars('e', 'D')));
+        assertFalse(Utils.estAutoFéconde(plateau, Coordonnees.depuisCars('f', 'D')));
+        assertFalse(Utils.estAutoFéconde(plateau, Coordonnees.depuisCars('e', 'E')));
     }
 
     /**
@@ -242,6 +242,27 @@ public class UtilsTest {
 
     }
 
+    /**
+     * Test de la methode est dans plateau
+     */
+    @Test
+    public void testEstDansPlateau(){
+        Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU1);
+        assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('a', 'A')));
+        assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('n', 'N')));
+        assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('n', 'A')));
+        assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('a', 'N')));
+        assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('f', 'D')));
+        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(-1, -1)));
+        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(-1, 5)));
+        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(14, 14)));
+        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(8, 14)));
+        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(-1, 14)));
+        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(14, 0)));
+        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(14, -1)));
+        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(13, -1)));
+        
+    }
     /**
      * Plateau de test 1
      */

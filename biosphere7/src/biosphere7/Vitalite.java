@@ -77,7 +77,7 @@ public class Vitalite {
                 break;
             case 'F':
                 // quand on fertilise
-                if (coordCase.ligne < Coordonnees.NB_LIGNES && coordCase.ligne >= 0 && coordCase.colonne < Coordonnees.NB_COLONNES && coordCase.colonne >= 0) {
+                if (Utils.estDansPlateau(plateau,coordCase)) {
                     char espece = plateau[coordCase.ligne][coordCase.colonne].espece;
                     switch (espece) {
                         case 'P':
@@ -103,7 +103,7 @@ public class Vitalite {
                 break;
             case 'C':
                 // quand on coupe un arbre
-                if (coordCase.ligne < Coordonnees.NB_LIGNES && coordCase.ligne >= 0 && coordCase.colonne < Coordonnees.NB_COLONNES && coordCase.colonne >= 0) {
+                if (Utils.estDansPlateau(plateau,coordCase)) {
                     Case caseCentrale = plateau[coordCase.ligne][coordCase.colonne];
                     ajoutVitalite(plateau, coordCase, couleurJoueur, false, -caseCentrale.vitalite);
 
@@ -116,18 +116,21 @@ public class Vitalite {
                 break;
             case 'I':
                 // quand on dissémine
-                if (plateau[coordCase.ligne][coordCase.colonne].espece == Utils.CAR_VIDE && !Utils.estAutoSterile(plateau, coordCase) && Utils.unVoisinDeLaMemeEspece(plateau, coordCase)) {
+                if (plateau[coordCase.ligne][coordCase.colonne].espece != Utils.CAR_VIDE && !Utils.estAutoFéconde(plateau, coordCase) && Utils.unVoisinDeLaMemeEspece(plateau, coordCase)) {
                     //quand on a des plantes autoStériles
-                    for (int i = 0; i < coordsVoisinVide.length; i++) {
+                    System.out.println(coordCase.ligne + coordCase.colonne + " est autoSTERILE !!!!!!!!!!!!!!!!!");
+                    for (int i = 0; i < coordsVoisinPlein.length; i++) {
                         if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1) {
                             ajoutVitalite(plateau, coordCase, couleurJoueur, true, Utils.vitaliteVoisinPlusFaible(plateau, coordCase));
                         }
                     }
-                } else if (plateau[coordCase.ligne][coordCase.colonne].espece == Utils.CAR_VIDE && Utils.estAutoSterile(plateau, coordCase)) {
+                } else if (plateau[coordCase.ligne][coordCase.colonne].espece != Utils.CAR_VIDE && Utils.estAutoFéconde(plateau, coordCase)) {
                     //quand on a des plantes autoFécondes 
-                    for (int i = 0; i < coordsVoisinVide.length; i++) {
-                        if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1) {
+                    System.out.println(coordCase.ligne + coordCase.colonne + " est autoféconde");
+                    for (int i = 0; i < coordsVoisinPlein.length; i++) {
+                        if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1 && Utils.estDansPlateau(plateau,coordsVoisinVide[i])) {
                             ajoutVitalite(plateau, coordCase, couleurJoueur, true, 1);
+                            System.out.println(" et on lui ajoute 1 !");
                         }
                     }
                 }

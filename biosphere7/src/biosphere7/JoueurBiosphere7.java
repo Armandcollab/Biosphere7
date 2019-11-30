@@ -41,25 +41,25 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
         nbActions = 0;
         for (int lig = 0; lig < Coordonnees.NB_LIGNES; lig++) { // Lorsque l'on plante unne plante
             for (int col = 0; col < Coordonnees.NB_COLONNES; col++) {
+                Coordonnees coord = new Coordonnees(lig, col);
+                Vitalite vit = new Vitalite();
                 for (char charAction : Utils.ESPECES) {
-                    Coordonnees coord = new Coordonnees(lig, col);
-                    Vitalite vit = new Vitalite();
                     vit.calculVitalite(plateau, couleurJoueur, charAction, coord, niveau);
                     if (plateau[lig][col].espece == Utils.CAR_VIDE && !Utils.etouffe(plateau, coord, 4)) {
                         ajoutAction(coord, actions, charAction, vit);
-                    } else if (plateau[lig][col].espece != Utils.CAR_VIDE && !Utils.estAutoSterile(plateau, coord) && Utils.unVoisinDeLaMemeEspece(plateau, coord)) {
-                        vit.calculVitalite(plateau, couleurJoueur, 'I', coord, niveau);
-                        ajoutAction(coord, actions, 'I', vit);
-                    } else if (plateau[lig][col].espece != Utils.CAR_VIDE && Utils.estAutoSterile(plateau, coord)) {
-                        vit.calculVitalite(plateau, couleurJoueur, 'I', coord, niveau);
-                        ajoutAction(coord, actions, 'I', vit);
                     }
+                }
+                if (plateau[lig][col].espece != Utils.CAR_VIDE && !Utils.estAutoFéconde(plateau, coord) && Utils.unVoisinDeLaMemeEspece(plateau, coord)) {
+                    vit.calculVitalite(plateau, couleurJoueur, 'I', coord, niveau);
+                    ajoutAction(coord, actions, 'I', vit);
+                } else if (plateau[lig][col].espece != Utils.CAR_VIDE && Utils.estAutoFéconde(plateau, coord)) {
+                    vit.calculVitalite(plateau, couleurJoueur, 'I', coord, niveau);
+                    ajoutAction(coord, actions, 'I', vit);
                 }
                 Coordonnees coordsCasePourVoisin = new Coordonnees(-1, -1); // Lorsque l'on coupe / fertilise une plante
                 if (plateau[lig][col].espece != CAR_VIDE) {
                     coordsCasePourVoisin.ligne = lig;
                     coordsCasePourVoisin.colonne = col;
-                    Vitalite vit = new Vitalite();
                     vit.calculVitalite(plateau, couleurJoueur, 'C', coordsCasePourVoisin, niveau);
                     ajoutAction(coordsCasePourVoisin, actions, 'C', vit);
                     vit.calculVitalite(plateau, couleurJoueur, 'F', coordsCasePourVoisin, niveau);
