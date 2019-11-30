@@ -118,19 +118,16 @@ public class Vitalite {
                 // quand on dissémine
                 if (plateau[coordCase.ligne][coordCase.colonne].espece != Utils.CAR_VIDE && !Utils.estAutoFéconde(plateau, coordCase) && Utils.unVoisinDeLaMemeEspece(plateau, coordCase)) {
                     //quand on a des plantes autoStériles
-                    System.out.println(coordCase.ligne + coordCase.colonne + " est autoSTERILE !!!!!!!!!!!!!!!!!");
                     for (int i = 0; i < coordsVoisinPlein.length; i++) {
-                        if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1) {
+                        if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1 && Utils.estDansPlateau(plateau,coordsVoisinVide[i])) {
                             ajoutVitalite(plateau, coordCase, couleurJoueur, true, Utils.vitaliteVoisinPlusFaible(plateau, coordCase));
                         }
                     }
                 } else if (plateau[coordCase.ligne][coordCase.colonne].espece != Utils.CAR_VIDE && Utils.estAutoFéconde(plateau, coordCase)) {
                     //quand on a des plantes autoFécondes 
-                    System.out.println(coordCase.ligne + coordCase.colonne + " est autoféconde");
                     for (int i = 0; i < coordsVoisinPlein.length; i++) {
                         if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1 && Utils.estDansPlateau(plateau,coordsVoisinVide[i])) {
                             ajoutVitalite(plateau, coordCase, couleurJoueur, true, 1);
-                            System.out.println(" et on lui ajoute 1 !");
                         }
                     }
                 }
