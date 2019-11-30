@@ -165,12 +165,20 @@ public class JoueurBiosphere7Test {
 
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "FaM"));
         
+        
+        niveau = 9;
+        plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU9);
+        couleur = 'B';
+        actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "O,16,22"));
+        
         // log
         niveau = 8;
         plateau = Utils.plateauDepuisTexte(PLATEAU_log);
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         Utils.afficherActionsPossibles(actionsPossibles);
+        
 
     }
 
@@ -427,6 +435,41 @@ public class JoueurBiosphere7Test {
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "n|   |   |   |PR1|   |PR1|   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
+
+    /**
+     * Un plateau pour tester le niveau 9.
+     */ // 12 vitalitées bleu et 20 rouge
+    final String PLATEAU_NIVEAU9
+            = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "a|   |   |   |SB1|   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "b|   |   |   |HR2|   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "c|PR1|   |   |SR1|   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "d|   |   |   |   |BR1|   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "e|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "f|   |   |   |PR2|HB1|   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "g|   |   |   |DB8|   |   |   |   |PB1|   |DR1|   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "h|   |   |   |   |   |   |TR1|   |   |   |TB1|   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "i|   |   |   |PR5|   |   |   |   |   |   |   |   |BR1|   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "j|   |   |HB1|   |   |   |   |   |BB4|   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "k|   |   |   |   |   |   |   |   |PR3|   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "l|   |   |   |   |   |   |   |   |SR4|   |   |PR1|   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "m|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "n|   |   |   |   |   |HB1|   |   |SB8|   |   |   |   |DB1|\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+";
 
     /**
      * le plateau du dernier sortie.log

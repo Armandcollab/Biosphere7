@@ -67,15 +67,13 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
 
                 }
             }
-        }/*
-        if (niveau >= 3) {
-           
-            for (int lig = 0; lig < Coordonnees.NB_LIGNES; lig++) {
-                for (int col = 0; col < Coordonnees.NB_COLONNES; col++) {
+        }
 
-                }
-            }
-        }*/
+        Vitalite vit = new Vitalite();
+        Coordonnees coordNULL = new Coordonnees(0, 0);
+        vit.calculVitalite(plateau, couleurJoueur, 'O', coordNULL, niveau);
+        ajoutAction(coordNULL, actions, 'O', vit);
+
         System.out.println("actionsPossibles : fin");
         return Utils.nettoyerTableau(actions);
     }
@@ -88,9 +86,16 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
      * @param carAction le caractère correspondant à l'action à exécuter
      */
     void ajoutAction(Coordonnees coord, String[] actions, char carAction, Vitalite vit) {
-        String action = carAction + "" + coord.carLigne() + "" + coord.carColonne() + "," + vit.vitalite[0] + "," + vit.vitalite[1];
-        actions[nbActions] = action;
-        nbActions++;
+        if (carAction != 'O') {
+            String action = carAction + "" + coord.carLigne() + "" + coord.carColonne() + "," + vit.vitalite[0] + "," + vit.vitalite[1];
+            actions[nbActions] = action;
+            nbActions++;
+        } else {
+            String action = carAction + "," + vit.vitalite[0] + "," + vit.vitalite[1];
+            actions[nbActions] = action;
+            nbActions++;
+        }
+
     }
 
     void test() {

@@ -124,17 +124,39 @@ public class Vitalite {
                         if (coordsVoisinPlein[i].ligne == -1
                                 && coordsVoisinPlein[i].colonne == -1
                                 && Utils.estDansPlateau(plateau, coordsVoisinVide[i])) {
-                            ajoutVitalite(plateau,  new Coordonnees(coordsVoisinVide[i].ligne, coordsVoisinVide[i].colonne),
-                                    couleurJoueur, true,Utils.vitaliteVoisinPlusFaible(plateau,coordCase));
+                            ajoutVitalite(plateau, new Coordonnees(coordsVoisinVide[i].ligne, coordsVoisinVide[i].colonne),
+                                    couleurJoueur, true, Utils.vitaliteVoisinPlusFaible(plateau, coordCase));
                         }
                     }
                 } else if (plateau[coordCase.ligne][coordCase.colonne].espece != Utils.CAR_VIDE
                         && Utils.estAutoFéconde(plateau, coordCase)) {
                     //quand on a des plantes autoFécondes 
                     for (int i = 0; i < coordsVoisinPlein.length; i++) {
-                        if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1 
+                        if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1
                                 && Utils.estDansPlateau(plateau, coordsVoisinVide[i])) {
-                            ajoutVitalite(plateau,  new Coordonnees(coordsVoisinVide[i].ligne, coordsVoisinVide[i].colonne), couleurJoueur, true, 1);
+                            ajoutVitalite(plateau, new Coordonnees(coordsVoisinVide[i].ligne, coordsVoisinVide[i].colonne), couleurJoueur, true, 1);
+                        }
+                    }
+                }
+                break;
+            case 'O':
+                for (int lig = 0; lig < Coordonnees.NB_LIGNES; lig++) {
+                    for (int col = 0; col < Coordonnees.NB_COLONNES; col++) {
+                        if (plateau[lig][col].espece != CAR_VIDE) {
+                            int vitaliteInitiale = plateau[lig][col].vitalite;
+                            int vitaliteAEnlever = 0;
+                            for (int i = 0; i < 9; i++) {
+                                if (Utils.estDansPlateau(plateau, new Coordonnees(lig - i, col))) {
+                                    if ((plateau[lig - i][col].espece == 'S' || plateau[lig - i][col].espece == 'P') && i + 1 < plateau[lig - i][col].vitalite) {
+                                        vitaliteAEnlever = plateau[lig][col].vitalite - (plateau[lig - i][col].vitalite-i+1);
+                                    }
+                                }
+                            }
+                            if ((vitaliteInitiale - vitaliteAEnlever)/2 > 0){
+                                ajoutVitalite(plateau, coordCase, couleurJoueur, false, -vitaliteAEnlever);
+                            }else{
+                                ajoutVitalite(plateau, coordCase, couleurJoueur, false, -vitaliteInitiale);
+                            }
                         }
                     }
                 }
@@ -189,7 +211,7 @@ public class Vitalite {
         if (niveau >= 6) {
             for (int i = 0; i < 4; i++) {
                 if (coordsVoisin[i].ligne != -1 && coordsVoisin[i].colonne != -1) {
-                    if (Utils.etouffe(plateau, coordsVoisin[i], 3) 
+                    if (Utils.etouffe(plateau, coordsVoisin[i], 3)
                             && couleurCase == plateau[coordsVoisin[i].ligne][coordsVoisin[i].colonne].couleur) {
                         // etouffe à trois arbres parceque l'on vien d'en planter un à coté mais qu'il n'est que imaginé pour le moment
                         compteur += plateau[coordsVoisin[i].ligne][coordsVoisin[i].colonne].vitalite;
