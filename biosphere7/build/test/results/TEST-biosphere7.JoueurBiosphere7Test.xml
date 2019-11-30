@@ -1,414 +1,450 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="MSI" name="biosphere7.JoueurBiosphere7Test" skipped="0" tests="9" time="0.417" timestamp="2019-11-28T21:21:01">
+<testsuite errors="0" failures="0" hostname="info-314-09" name="biosphere7.JoueurBiosphere7Test" skipped="0" tests="8" time="0.703" timestamp="2019-11-29T07:30:09">
   <properties>
-    <property name="libs.javaee-api-6.0.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\javaee-api-6.0.jar" />
-    <property name="libs.spring-framework300.classpath" value="C:\NetBeans\netbeans\ide\modules\org-apache-commons-logging.jar;C:\NetBeans\netbeans\java\modules\ext\cglib-2.2.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
-    <property name="javac.test.classpath" value=":build/classes:C:\NetBeans\netbeans\platform\modules\ext\hamcrest-core-1.3.jar:C:\NetBeans\netbeans\platform\modules\ext\junit-4.12.jar" />
-    <property name="javac.includesfile.binary" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\null1450648243" />
-    <property name="java.specification.version" value="13" />
-    <property name="libs.javaee-api-7.0.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\javaee-api-7.0.jar" />
-    <property name="sun.cpu.isalist" value="amd64" />
-    <property name="libs.restapi.maven-pom" value="" />
-    <property name="jar.index.metainf" value="false" />
-    <property name="do.depend" value="false" />
-    <property name="javadoc.preview" value="true" />
-    <property name="libs.spring-webmvc4.0.javadoc" value="" />
-    <property name="libs.spring-framework400.classpath" value="C:\NetBeans\netbeans\ide\modules\org-apache-commons-logging.jar;C:\NetBeans\netbeans\java\modules\ext\cglib-2.2.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-aop-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-aspects-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-beans-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-build-src-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-context-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-context-support-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-core-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-expression-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-framework-bom-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-instrument-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-instrument-tomcat-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-jdbc-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-jms-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-messaging-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-orm-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-oxm-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-test-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-tx-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-web-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-webmvc-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-webmvc-portlet-4.0.1.RELEASE.jar;C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-websocket-4.0.1.RELEASE.jar" />
-    <property name="sun.arch.data.model" value="64" />
-    <property name="test.binaryincludes" value="&lt;nothing&gt;" />
-    <property name="nb.show.statistics.ui" value="usageStatisticsEnabled" />
-    <property name="libs.javaee-endorsed-api-7.0.src" value="" />
-    <property name="debug-transport" value="dt_shmem" />
-    <property name="libs.javaee-web-api-8.0.src" value="" />
-    <property name="java.vendor.url" value="https://java.oracle.com/" />
-    <property name="annotation.processing.enabled" value="true" />
-    <property name="libs.junit_5.src" value="C:\NetBeans\netbeans\platform\docs\junit-jupiter-api-5.3.1-sources.jar;C:\NetBeans\netbeans\platform\docs\junit-jupiter-params-5.3.1-sources.jar;C:\NetBeans\netbeans\platform\docs\junit-jupiter-engine-5.3.1-sources.jar" />
-    <property name="debug.modulepath" value="" />
-    <property name="libs.jaxb.classpath" value="C:\NetBeans\netbeans\ide\modules\ext\jaxb\jaxb-impl-2.2.5-2.jar;C:\NetBeans\netbeans\ide\modules\ext\jaxb\jaxb-xjc-2.2.5-2.jar;C:\NetBeans\netbeans\ide\modules\ext\jaxb\jaxb1-impl-2.2.5-2.jar;C:\NetBeans\netbeans\ide\modules\ext\jaxb\activation.jar;C:\NetBeans\netbeans\ide\modules\ext\jaxb\api\jaxb-api.jar" />
-    <property name="libs.javaee-api-8.0.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\javaee-api-8.0.jar" />
-    <property name="libs.jsp-compilation.src" value="" />
-    <property name="libs.eclipselink.javadoc" value="" />
-    <property name="libs.JWSAntTasks.javadoc" value="" />
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-13.0.1\bin" />
-    <property name="libs.CopyLibs.src" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner biosphere7.JoueurBiosphere7Test skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\build\test\results\TEST-biosphere7.JoueurBiosphere7Test.xml crashfile=C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\build\junitvmwatcher14201547820704453171.properties propsfile=C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\build\junit6910343508991422746.properties" />
-    <property name="jdk.debug" value="release" />
-    <property name="libs.spring-framework300.src" value="" />
-    <property name="java.specification.vendor" value="Oracle Corporation" />
-    <property name="javac.source" value="1.8" />
-    <property name="javadoc.use" value="true" />
-    <property name="libs.javac-api.maven-pom" value="" />
-    <property name="javadoc.notree" value="false" />
-    <property name="java.version.date" value="2019-10-15" />
-    <property name="java.home" value="C:\Program Files\Java\jdk-13.0.1" />
-    <property name="basedir" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7" />
-    <property name="application.vendor" value="ogauwin" />
-    <property name="work.dir" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7" />
-    <property name="javac.test.compilerargs" value="" />
-    <property name="jna.boot.library.name" value="jnidispatch-nb" />
-    <property name="java.specification.name" value="Java Platform API Specification" />
-    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
-    <property name="libs.PostgreSQLDriver.classpath" value="C:\NetBeans\netbeans\ide\modules\ext\postgresql-42.2.5.jar" />
-    <property name="libs.javac-api.javadoc" value="" />
-    <property name="libs.spring-webmvc3.0.javadoc" value="" />
-    <property name="libs.JAXB-ENDORSED.src" value="" />
-    <property name="libs.jsf20.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar" />
-    <property name="netbeans.extbrowser.manual_chrome_plugin_install" value="yes" />
-    <property name="manifest.encoding" value="UTF-8" />
-    <property name="user.script" value="" />
-    <property name="netbeans.default_userdir_root" value="C:\Users\Zail3\AppData\Roaming\NetBeans" />
-    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
-    <property name="libs.spring-framework400.src" value="" />
-    <property name="libs.jsp-compilation-syscp.src" value="" />
-    <property name="run.test.modulepath" value="" />
-    <property name="jdk.home" value="C:\Program Files\Java\jdk-13.0.1" />
-    <property name="java.runtime.version" value="13.0.1+9" />
-    <property name="libs.maven-dependencies.src" value="" />
-    <property name="libs.javaee-web-api-6.0.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\javaee-web-api-6.0.jar" />
-    <property name="libs.eclipselink.maven-pom" value="" />
     <property name="libs.jsp-compiler.javadoc" value="" />
-    <property name="libs.metro.maven-pom" value="" />
-    <property name="libs.JAXB-ENDORSED.javadoc" value="" />
-    <property name="debug.test.modulepath" value="" />
-    <property name="libs.javaee-web-api-7.0.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\javaee-web-api-7.0.jar" />
-    <property name="file.encoding" value="Cp1252" />
-    <property name="sun.java2d.noddraw" value="true" />
-    <property name="sun.zip.disableMemoryMapping" value="true" />
-    <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
-    <property name="libs.maven-dependencies.maven-pom" value="" />
-    <property name="jnidispatch.path" value="C:\Users\Zail3\AppData\Local\Temp\jna-86110921\jna6616058860433965898.dll" />
-    <property name="libs.jsf12.src" value="" />
-    <property name="libs.primefaces.javadoc" value="" />
-    <property name="https.nonProxyHosts" value="localhost|127.0.0.1|MSI" />
-    <property name="libs.jsp-compilation.javadoc" value="" />
-    <property name="libs.restlib.javadoc" value="" />
-    <property name="libs.groovy-all.maven-pom" value="" />
-    <property name="libs.restapi.src" value="" />
-    <property name="libs.junit_5.javadoc" value="C:\NetBeans\netbeans\platform\docs\junit-jupiter-api-5.3.1-javadoc.jar;C:\NetBeans\netbeans\platform\docs\junit-jupiter-params-5.3.1-javadoc.jar;C:\NetBeans\netbeans\platform\docs\junit-jupiter-engine-5.3.1-javadoc.jar" />
-    <property name="dist.archive.excludes" value="" />
-    <property name="libs.absolutelayout.classpath" value="C:\NetBeans\netbeans\java\modules\ext\AbsoluteLayout.jar" />
-    <property name="java.io.tmpdir" value="C:\Users\Zail3\AppData\Local\Temp\" />
-    <property name="do.archive" value="true" />
-    <property name="java.version" value="13.0.1" />
-    <property name="libs.struts.maven-pom" value="" />
-    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
-    <property name="built-jar.properties" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\build\built-jar.properties" />
-    <property name="nb.native.filechooser" value="false" />
-    <property name="libs.testng.src" value="" />
-    <property name="libs.javaee-web-api-8.0.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\javaee-web-api-8.0.jar" />
-    <property name="libs.hamcrest.src" value="" />
-    <property name="ant.file.type.Biosphere7" value="file" />
-    <property name="platform.active" value="default_platform" />
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-13.0.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;&quot;C:\WINDOWS\system32;C:\Python&quot;;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\Zail3\AppData\Local\Programs\Python\Python37-32;C:\WINDOWS\system32;C:\Program Files\Git\cmd;C:\Users\Zail3\AppData\Roaming\Dashlane\6.1907.0.17833\bin\Firefox_Extension\{442718d9-475e-452a-b3e1-fb1ee16b8e9f}\components;C:\Users\Zail3\AppData\Roaming\Dashlane\6.1907.0.17833\ucrt;C:\Users\Zail3\AppData\Roaming\Dashlane\6.1907.0.17833\bin\Qt;C:\Users\Zail3\AppData\Roaming\Dashlane\6.1907.0.17833\bin\Ssl;C:\Users\Zail3\AppData\Local\Microsoft\WindowsApps;C:\Users\Zail3\AppData\Local\GitHubDesktop\bin;C:\Users\Zail3\AppData\Local\Programs\Microsoft VS Code\bin;." />
-    <property name="manifest.file" value="manifest.mf" />
-    <property name="java.vendor" value="Oracle Corporation" />
-    <property name="libs.groovy-all.src" value="" />
-    <property name="libs.testng.javadoc" value="C:\NetBeans\netbeans\platform\docs\testng-6.8.1-javadoc.zip" />
-    <property name="meta.inf.dir" value="src/META-INF" />
-    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
-    <property name="libs.testng.maven-pom" value="" />
-    <property name="libs.struts.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\struts-1.3.10-javadoc.zip" />
-    <property name="org.openide.version" value="deprecated" />
-    <property name="default.javac.source" value="13" />
-    <property name="test.includes" value="biosphere7/JoueurBiosphere7Test.java" />
-    <property name="netbeans.dynamic.classpath" value="C:\NetBeans\netbeans\platform\core\asm-all-5.0.1.jar;C:\NetBeans\netbeans\platform\core\core-base.jar;C:\NetBeans\netbeans\platform\core\core.jar;C:\NetBeans\netbeans\platform\core\org-netbeans-libs-asm.jar;C:\NetBeans\netbeans\platform\core\org-openide-filesystems-compat8.jar;C:\NetBeans\netbeans\platform\core\org-openide-filesystems.jar;C:\NetBeans\netbeans\nb\core\org-netbeans-upgrader.jar;C:\NetBeans\netbeans\nb\core\locale\core_nb.jar" />
-    <property name="libs.javaee-web-api-8.0.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\javaee-doc-api.jar" />
-    <property name="run.classpath" value=":build/classes" />
-    <property name="libs.jaxb.src" value="" />
-    <property name="libs.eclipselinkmodelgen.classpath" value="C:\NetBeans\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.modelgen.processor-2.5.2.jar" />
-    <property name="test.src.dir" value="test" />
-    <property name="sun.awt.enableExtraMouseButtons" value="true" />
-    <property name="org.openide.major.version" value="IDE/1" />
-    <property name="libs.spring-framework300.javadoc" value="" />
-    <property name="netbeans.buildnumber" value="11.2-d04fb24027334c4b6fd8397b5d0cdd33187a8f54" />
-    <property name="ap.proc.none.internal" value="" />
-    <property name="org.openide.specification.version" value="6.2" />
-    <property name="endorsed.classpath.cmd.line.arg" value="" />
-    <property name="libs.jpa20-persistence.maven-pom" value="" />
-    <property name="user.timezone" value="Europe/Paris" />
-    <property name="jar.index" value="false" />
-    <property name="libs.jpa20-persistence.classpath" value="C:\NetBeans\netbeans\java\modules\ext\eclipselink\javax.persistence-2.1.0.jar" />
-    <property name="build.sysclasspath" value="ignore" />
-    <property name="libs.CopyLibs.maven-pom" value="" />
-    <property name="libs.eclipselinkmodelgen.javadoc" value="" />
-    <property name="libs.junit_5.classpath" value="C:\NetBeans\netbeans\platform\modules\ext\junit-jupiter-api-5.3.1.jar;C:\NetBeans\netbeans\platform\modules\ext\junit-jupiter-params-5.3.1.jar;C:\NetBeans\netbeans\platform\modules\ext\junit-jupiter-engine-5.3.1.jar" />
-    <property name="java.vm.specification.version" value="13" />
-    <property name="os.name" value="Windows 10" />
-    <property name="javadoc.noindex" value="false" />
-    <property name="javadoc.private" value="false" />
-    <property name="jdkBug6558476" value="false" />
-    <property name="libs.spring-webmvc4.0.maven-pom" value="" />
-    <property name="ant.file.type.Biosphere7-impl" value="file" />
-    <property name="http.nonProxyHosts" value="localhost|127.0.0.1|MSI" />
-    <property name="javadoc.author" value="false" />
-    <property name="main.class" value="" />
-    <property name="libs.JAXB-ENDORSED.maven-pom" value="" />
-    <property name="libs.jsp-compilation-syscp.javadoc" value="" />
-    <property name="user.home" value="C:\Users\Zail3" />
-    <property name="source.encoding" value="UTF-8" />
-    <property name="libs.eclipselinkmodelgen.maven-pom" value="" />
-    <property name="jar.compress" value="false" />
-    <property name="have.sources" value="true" />
-    <property name="libs.javaee-api-7.0.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\javaee-doc-api.jar" />
-    <property name="annotation.processing.processors.list" value="" />
-    <property name="javac.deprecation" value="false" />
-    <property name="jlink.launcher" value="false" />
-    <property name="libs.jsf20.maven-pom" value="" />
-    <property name="libs.restlib.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\asm-all-repackaged-2.2.0-b21.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\cglib-2.2.0-b21.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\guava-14.0.1.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\hk2-api-2.2.0-b21.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\hk2-locator-2.2.0-b21.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\hk2-utils-2.2.0-b21.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\javax.annotation-api-1.2.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\javax.inject-2.2.0-b21.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\javax.servlet-api-3.0.1.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\jaxb-api-2.2.7.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\jersey-entity-filtering-2.5.1.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\jersey-media-moxy-2.5.1.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\org.osgi.core-4.2.0.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\osgi-resource-locator-1.0.1.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\persistence-api-1.0.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\ext\validation-api-1.1.0.Final.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\jersey-client.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\jersey-common.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\jersey-container-servlet.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\jersey-container-servlet-core.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jersey2\jersey-server.jar" />
-    <property name="build.generated.sources.dir" value="build/generated-sources" />
-    <property name="apple.awt.graphics.UseQuartz" value="true" />
-    <property name="plugin.manager.check.updates" value="false" />
-    <property name="run.jvmargs" value="" />
-    <property name="libs.primefaces.src" value="" />
-    <property name="netbeans.autoupdate.language" value="fr" />
-    <property name="libs.eclipselinkmodelgen.src" value="" />
-    <property name="build.compiler.emacs" value="true" />
-    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
-    <property name="dist.jar" value="dist/Biosphere7.jar" />
-    <property name="ant.file" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\build.xml" />
-    <property name="libs.spring-webmvc4.0.classpath" value="C:\NetBeans\netbeans\java\modules\ext\spring-4\spring-webmvc-4.0.1.RELEASE.jar" />
-    <property name="libs.struts.src" value="" />
-    <property name="path.separator" value=";" />
-    <property name="libs.javaee-endorsed-api-7.0.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\javaee-doc-api.jar" />
-    <property name="os.version" value="10.0" />
-    <property name="libs.JAXB-ENDORSED.classpath" value="C:\NetBeans\netbeans\ide\modules\ext\jaxb\api\jaxb-api.jar" />
-    <property name="netbeans.home" value="C:\NetBeans\netbeans\platform" />
-    <property name="libs.restlib.src" value="" />
-    <property name="libs.CopyLibs.javadoc" value="" />
-    <property name="debug-transport-by-os" value="dt_shmem" />
-    <property name="build.test.results.dir" value="build/test/results" />
-    <property name="libs.jsf20.src" value="" />
-    <property name="libs.javaee-api-8.0.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\javaee-doc-api.jar" />
-    <property name="libs.jaxws21.javadoc" value="C:\NetBeans\netbeans\java\docs\jaxws-api-doc.zip" />
-    <property name="libs.spring-framework400.maven-pom" value="" />
-    <property name="ap.processors.internal" value="" />
-    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
-    <property name="libs.jstl.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\javaee-doc-api.jar" />
-    <property name="libs.javaee-endorsed-api-7.0.maven-pom" value="" />
-    <property name="libs.jsf12.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\jsf-1_2\jsf-api.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jsf-1_2\jsf-impl.jar" />
-    <property name="libs.jaxws21.classpath" value="C:\NetBeans\netbeans\java\modules\ext\jaxws22\FastInfoset.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\gmbal-api-only.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\ha-api.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\javax.mail_1.4.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\jaxws-rt.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\jaxws-tools.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\management-api.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\mimepull.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\policy.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\saaj-impl.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\stax-ex.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\stax2-api.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\streambuffer.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\woodstox-core-asl.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\api\jaxws-api.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\api\jsr181-api.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\api\javax.annotation.jar;C:\NetBeans\netbeans\java\modules\ext\jaxws22\api\saaj-api.jar;C:\NetBeans\netbeans\ide\modules\ext\jaxb\activation.jar;C:\NetBeans\netbeans\ide\modules\ext\jaxb\api\jaxb-api.jar" />
-    <property name="libs.restapi.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\jaxrs-2.0\javax.ws.rs-api-2.0.jar" />
-    <property name="os.arch" value="amd64" />
-    <property name="build.generated.dir" value="build/generated" />
-    <property name="libs.hamcrest.javadoc" value="" />
-    <property name="libs.spring-framework400.javadoc" value="" />
-    <property name="libs.javac-api.src" value="" />
-    <property name="ant.file.Biosphere7-impl" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\nbproject\build-impl.xml" />
-    <property name="libs.groovy-all.javadoc" value="" />
-    <property name="libs.javaee-web-api-7.0.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\javaee-doc-api.jar" />
-    <property name="java.vm.info" value="mixed mode, sharing" />
-    <property name="libs.primefaces.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\primefaces\primefaces-5.0.jar" />
-    <property name="libs.jaxws21.maven-pom" value="" />
-    <property name="run.test.classpath" value=":build/classes:C:\NetBeans\netbeans\platform\modules\ext\hamcrest-core-1.3.jar:C:\NetBeans\netbeans\platform\modules\ext\junit-4.12.jar:build/test/classes" />
-    <property name="libs.jsf12.maven-pom" value="" />
-    <property name="libs.javaee-endorsed-api-7.0.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\javaee7-endorsed\javax.annotation-api.jar;C:\NetBeans\netbeans\enterprise\modules\ext\javaee7-endorsed\javax.xml.soap-api.jar;C:\NetBeans\netbeans\enterprise\modules\ext\javaee7-endorsed\jaxb-api-osgi.jar;C:\NetBeans\netbeans\enterprise\modules\ext\javaee7-endorsed\jaxws-api.jar;C:\NetBeans\netbeans\enterprise\modules\ext\javaee7-endorsed\jsr181-api.jar" />
-    <property name="javadoc.encoding.used" value="UTF-8" />
-    <property name="java.class.version" value="57.0" />
-    <property name="src.dir" value="src" />
-    <property name="libs.primefaces.maven-pom" value="" />
-    <property name="org.netbeans.io.suspend" value="0" />
-    <property name="ant.project.default-target" value="default" />
-    <property name="debug.classpath" value=":build/classes" />
-    <property name="excludes" value="" />
-    <property name="libs.javaee-api-7.0.src" value="" />
-    <property name="ant.project.name" value="Biosphere7" />
-    <property name="dist.javadoc.dir" value="dist/javadoc" />
-    <property name="run.test.jvmargs" value="" />
-    <property name="libs.junit_4.javadoc" value="C:\NetBeans\netbeans\platform\docs\junit-4.12-javadoc.jar" />
-    <property name="sun.jnu.encoding" value="Cp1252" />
-    <property name="default.javac.target" value="13" />
-    <property name="libs.spring-webmvc4.0.src" value="" />
-    <property name="javac.fork" value="true" />
-    <property name="sun.java2d.dpiaware" value="true" />
-    <property name="libs.eclipselink.classpath" value="C:\NetBeans\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.core-2.5.2.jar;C:\NetBeans\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.asm-2.5.2.jar;C:\NetBeans\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.antlr-2.5.2.jar;C:\NetBeans\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.jpa-2.5.2.jar;C:\NetBeans\netbeans\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql-2.5.2.jar;C:\NetBeans\netbeans\java\modules\ext\eclipselink\javax.persistence-2.1.0.jar" />
-    <property name="libs.javac-api.classpath" value="" />
-    <property name="libs.jsf20.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\javaee-doc-api.jar" />
-    <property name="libs.struts.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\struts\antlr-2.7.2.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\bsf-2.3.0.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\commons-beanutils-1.8.0.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\commons-chain-1.2.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\commons-digester-1.8.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\commons-fileupload-1.1.1.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\commons-io-1.1.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\commons-logging-1.0.4.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\commons-validator-1.3.1.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\jstl-1.0.2.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\oro-2.0.8.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\standard-1.0.6.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\struts-core-1.3.10.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\struts-el-1.3.10.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\struts-extras-1.3.10.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\struts-faces-1.3.10.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\struts-mailreader-dao-1.3.10.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\struts-scripting-1.3.10.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\struts-taglib-1.3.10.jar;C:\NetBeans\netbeans\enterprise\modules\ext\struts\struts-tiles-1.3.10.jar" />
-    <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
-    <property name="libs.PostgreSQLDriver.maven-pom" value="" />
-    <property name="libs.absolutelayout.src" value="" />
-    <property name="netbeans.autoupdate.version" value="1.23" />
-    <property name="empty.dir" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\build\empty" />
-    <property name="testng.mode" value="testng" />
-    <property name="annotation.processing.enabled.in.editor" value="false" />
-    <property name="netbeans.user" value="C:\Users\Zail3\AppData\Roaming\NetBeans\11.2" />
-    <property name="javac.includes.binary" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\build\test\classes\biosphere7\JoueurBiosphere7Test.class" />
-    <property name="file.separator" value="\" />
-    <property name="java.vm.compressedOopsMode" value="32-bit" />
-    <property name="line.separator" value="&#xd;&#xa;" />
-    <property name="javadoc.additionalparam" value="" />
-    <property name="jdk.lang.Process.allowAmbiguousCommands" value="true" />
-    <property name="netbeans.productversion" value="Apache NetBeans IDE 11.2" />
-    <property name="libs.restlib.maven-pom" value="" />
-    <property name="javac.debug" value="true" />
-    <property name="libs.testng.classpath" value="C:\NetBeans\netbeans\platform\modules\ext\testng-6.8.1-dist.jar" />
-    <property name="mkdist.disabled" value="false" />
-    <property name="libs.jsp-compiler.src" value="" />
-    <property name="libs.javaee-web-api-6.0.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\javaee-doc-api.jar" />
-    <property name="user.name" value="Zail3" />
-    <property name="libs.maven-dependencies.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\javaee-doc-api.jar" />
-    <property name="build.classes.dir" value="build/classes" />
-    <property name="nb.junit.single" value="false" />
-    <property name="javadoc.windowtitle" value="" />
-    <property name="nb.internal.action.name" value="test.single" />
-    <property name="libs.javaee-api-7.0.maven-pom" value="" />
-    <property name="libs.groovy-all.classpath" value="C:\NetBeans\netbeans\groovy\modules\ext\groovy.jar;C:\NetBeans\netbeans\groovy\modules\ext\groovy-ant.jar" />
-    <property name="libs.javaee-api-8.0.maven-pom" value="" />
-    <property name="libs.absolutelayout.javadoc" value="" />
-    <property name="libs.jaxws21.src" value="" />
-    <property name="libs.jaxb.maven-pom" value="" />
-    <property name="libs.maven-dependencies.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\javaee6-endorsed\javax.annotation.jar;C:\NetBeans\netbeans\enterprise\modules\ext\javaee6-endorsed\jaxb-api-osgi.jar;C:\NetBeans\netbeans\enterprise\modules\ext\javaee6-endorsed\webservices-api-osgi.jar" />
-    <property name="annotation.processing.processor.options" value="" />
-    <property name="libs.javaee-api-6.0.maven-pom" value="" />
-    <property name="dist.dir" value="dist" />
-    <property name="jna.loaded" value="true" />
-    <property name="build.dir" value="build" />
-    <property name="libs.junit_5.maven-pom" value="" />
-    <property name="netbeans.autoupdate.variant" value="" />
-    <property name="libs.jpa20-persistence.javadoc" value="" />
-    <property name="javadoc.version" value="false" />
-    <property name="libs.metro.classpath" value="C:\NetBeans\netbeans\ide\modules\ext\jaxb\activation.jar;C:\NetBeans\netbeans\enterprise\modules\ext\metro\webservices-api.jar;C:\NetBeans\netbeans\enterprise\modules\ext\metro\webservices-extra-api.jar;C:\NetBeans\netbeans\enterprise\modules\ext\metro\webservices-extra.jar;C:\NetBeans\netbeans\enterprise\modules\ext\metro\webservices-rt.jar;C:\NetBeans\netbeans\enterprise\modules\ext\metro\webservices-tools.jar" />
-    <property name="libs.metro.src" value="" />
-    <property name="ant.junit.enabletestlistenerevents" value="true" />
-    <property name="libs.JWSAntTasks.src" value="" />
-    <property name="ant.home" value="C:\NetBeans\netbeans\extide\ant" />
-    <property name="libs.spring-webmvc3.0.src" value="" />
-    <property name="libs.CopyLibs.classpath" value="C:\NetBeans\netbeans\java\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
-    <property name="have.tests" value="true" />
-    <property name="debug.test.classpath" value=":build/classes:C:\NetBeans\netbeans\platform\modules\ext\hamcrest-core-1.3.jar:C:\NetBeans\netbeans\platform\modules\ext\junit-4.12.jar:build/test/classes" />
-    <property name="javac.external.vm" value="true" />
-    <property name="sun.os.patch.level" value="" />
-    <property name="testng.debug.mode" value="" />
-    <property name="javac.target" value="1.8" />
-    <property name="ant.version" value="Apache Ant(TM) version 1.10.4 compiled on June 19 2018" />
-    <property name="libs.absolutelayout.maven-pom" value="" />
-    <property name="javadoc.html5" value="false" />
-    <property name="javac.test.processorpath" value=":build/classes:C:\NetBeans\netbeans\platform\modules\ext\hamcrest-core-1.3.jar:C:\NetBeans\netbeans\platform\modules\ext\junit-4.12.jar" />
-    <property name="jdk.gtk.version" value="2.2" />
-    <property name="libs.javaee-web-api-7.0.maven-pom" value="" />
-    <property name="java.failonerror" value="true" />
-    <property name="libs.javaee-web-api-8.0.maven-pom" value="" />
-    <property name="netbeans.dirs" value="C:\NetBeans\netbeans\nb;C:\NetBeans\netbeans\ergonomics;C:\NetBeans\netbeans\ide;C:\NetBeans\netbeans\extide;C:\NetBeans\netbeans\java;C:\NetBeans\netbeans\apisupport;C:\NetBeans\netbeans\webcommon;C:\NetBeans\netbeans\websvccommon;C:\NetBeans\netbeans\enterprise;C:\NetBeans\netbeans\mobility;C:\NetBeans\netbeans\profiler;C:\NetBeans\netbeans\python;C:\NetBeans\netbeans\php;C:\NetBeans\netbeans\identity;C:\NetBeans\netbeans\harness;C:\NetBeans\netbeans\cnd;C:\NetBeans\netbeans\cndext;C:\NetBeans\netbeans\dlight;C:\NetBeans\netbeans\groovy;C:\NetBeans\netbeans\extra;C:\NetBeans\netbeans\javacard;C:\NetBeans\netbeans\javafx" />
-    <property name="javac.modulepath" value="" />
-    <property name="libs.javaee-api-6.0.src" value="" />
-    <property name="user.properties.file" value="C:\Users\Zail3\AppData\Roaming\NetBeans\11.2\build.properties" />
-    <property name="javac.includes" value="biosphere7/JoueurBiosphere7Test.java" />
-    <property name="libs.hamcrest.maven-pom" value="" />
     <property name="netbeans.autoupdate.country" value="FR" />
-    <property name="javac.processorpath" value="" />
-    <property name="java.class.path" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\build\classes;C:\NetBeans\netbeans\platform\modules\ext\hamcrest-core-1.3.jar;C:\NetBeans\netbeans\platform\modules\ext\junit-4.12.jar;C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\build\test\classes;C:\NetBeans\netbeans\extide\ant\lib\ant-launcher.jar;C:\NetBeans\netbeans\extide\ant\lib\ant.jar;C:\NetBeans\netbeans\extide\ant\lib\ant-junit.jar;C:\NetBeans\netbeans\extide\ant\lib\ant-junit4.jar" />
-    <property name="libs.javaee-web-api-6.0.maven-pom" value="" />
-    <property name="libs.javaee-api-6.0.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\javaee-doc-api.jar" />
-    <property name="libs.JWSAntTasks.maven-pom" value="" />
-    <property name="java.vm.vendor" value="Oracle Corporation" />
-    <property name="ap.supported.internal" value="true" />
-    <property name="ant.file.Biosphere7" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\build.xml" />
-    <property name="user.variant" value="" />
-    <property name="netbeans.home+have.tests" value="true" />
-    <property name="run.modulepath" value="" />
-    <property name="test.binaryexcludes" value="" />
+    <property name="javac.test.classpath" value=":build/classes:C:\Program Files\NetBeans\platform\modules\ext\hamcrest-core-1.3.jar:C:\Program Files\NetBeans\platform\modules\ext\junit-4.12.jar" />
+    <property name="libs.jsf20.maven-pom" value="" />
+    <property name="libs.DataBindingME.src" value="C:\Program Files\NetBeans\mobility\sources\netbeans_databindingme-src.zip" />
+    <property name="javac.test.sourcepath" value="V:\Documents\projet\Git\biosphere7\biosphere7\build\empty" />
+    <property name="libs.spring-webmvc4.0.src" value="" />
+    <property name="javac.includes" value="biosphere7/JoueurBiosphere7Test.java" />
+    <property name="ant.core.lib" value="C:\Program Files\NetBeans\extide\ant\lib\ant.jar" />
+    <property name="javadoc.windowtitle" value="" />
+    <property name="libs.jsp-compilation.javadoc" value="" />
+    <property name="user.dir" value="V:\Documents\projet\Git\biosphere7\biosphere7" />
+    <property name="libs.javaee-api-7.0.src" value="" />
+    <property name="java.vm.version" value="25.212-b10" />
+    <property name="libs.DataBindingME.classpath" value="C:\Program Files\NetBeans\mobility\modules\ext\netbeans_databindingme.jar" />
+    <property name="libs.j2me_common_ant.src" value="" />
+    <property name="libs.MySQLDriver.classpath" value="C:\Program Files\NetBeans\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar" />
+    <property name="libs.eclipselinkmodelgen.src" value="" />
+    <property name="javadoc.notree" value="false" />
+    <property name="netbeans.autoupdate.version" value="1.23" />
+    <property name="libs.javaee-web-api-6.0.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\javaee-web-api-6.0.jar" />
+    <property name="libs.DataBindingME-PIM.maven-pom" value="" />
+    <property name="javac.profile.cmd.line.arg" value="" />
+    <property name="jdk.home" value="C:\Program Files\Java\jdk" />
+    <property name="libs.javac-api.src" value="" />
+    <property name="javadoc.noindex" value="false" />
+    <property name="libs.jpa2-persistence.classpath" value="C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-jpa-2.1-api-1.0.0.Final.jar" />
+    <property name="sun.os.patch.level" value="" />
     <property name="do.archive+manifest.available" value="true" />
-    <property name="javac.compilerargs" value="" />
-    <property name="apple.laf.useScreenMenuBar" value="true" />
-    <property name="libs.jstl.maven-pom" value="" />
-    <property name="user.country" value="FR" />
-    <property name="sun.java.launcher" value="SUN_STANDARD" />
-    <property name="libs.jpa20-persistence.src" value="" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="nb.show.statistics.ui" value="usageStatisticsEnabled" />
+    <property name="netbeans.autoupdate.variant" value="" />
+    <property name="have.tests" value="true" />
+    <property name="org.xml.sax.driver" value="com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser" />
+    <property name="libs.hamcrest.classpath" value="C:\Program Files\NetBeans\platform\modules\ext\hamcrest-core-1.3.jar" />
+    <property name="libs.javac-api.javadoc" value="" />
+    <property name="os.name" value="Windows 10" />
+    <property name="test.class" value="biosphere7.JoueurBiosphere7Test" />
+    <property name="libs.beans-binding.classpath" value="C:\Program Files\NetBeans\java\modules\ext\beansbinding-1.2.1.jar" />
+    <property name="libs.javaee-endorsed-api-7.0.maven-pom" value="" />
+    <property name="ap.proc.none.internal" value="" />
+    <property name="libs.DataBindingME-SVG.javadoc" value="C:\Program Files\NetBeans\mobility\modules\docs\netbeans_databindingme_svg-api.zip" />
     <property name="libs.restapi.javadoc" value="" />
-    <property name="endorsed.classpath" value="" />
-    <property name="javac.test.sourcepath" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7\build\empty" />
-    <property name="sun.cpu.endian" value="little" />
-    <property name="libs.junit_4.src" value="C:\NetBeans\netbeans\platform\docs\junit-4.12-sources.jar" />
-    <property name="libs.spring-webmvc3.0.maven-pom" value="" />
-    <property name="user.language" value="fr" />
+    <property name="libs.JWSAntTasks.maven-pom" value="" />
+    <property name="libs.jstl.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\jstl-impl.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jstl-api.jar" />
+    <property name="libs.testng.src" value="" />
+    <property name="libs.spring-webmvc3.0.src" value="" />
+    <property name="libs.restapi.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\jaxrs-2.0\javax.ws.rs-api-2.0.jar" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="libs.jaxb.maven-pom" value="" />
+    <property name="os.arch" value="amd64" />
+    <property name="libs.eclipselink.src" value="" />
+    <property name="user.name" value="aclaveau" />
+    <property name="libs.jsf12.javadoc" value="C:\Program Files\NetBeans\enterprise\docs\javaee-doc-api.jar" />
     <property name="copylibs.rebase" value="true" />
-    <property name="libs.javaee-web-api-6.0.src" value="" />
+    <property name="libs.j2me_common_ant.maven-pom" value="" />
+    <property name="libs.spring-webmvc3.0.maven-pom" value="" />
+    <property name="libs.swing-layout.maven-pom" value="" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner biosphere7.JoueurBiosphere7Test skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,V:\Documents\projet\Git\biosphere7\biosphere7\build\test\results\TEST-biosphere7.JoueurBiosphere7Test.xml crashfile=V:\Documents\projet\Git\biosphere7\biosphere7\build\junitvmwatcher8811911697195034351.properties propsfile=V:\Documents\projet\Git\biosphere7\biosphere7\build\junit7832007431478591306.properties" />
+    <property name="build.classes.dir" value="build/classes" />
+    <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
+    <property name="build.sysclasspath" value="ignore" />
+    <property name="manifest.encoding" value="UTF-8" />
+    <property name="ap.supported.internal" value="true" />
+    <property name="java.failonerror" value="true" />
+    <property name="run.modulepath" value="" />
+    <property name="libs.javaee-endorsed-api-7.0.javadoc" value="C:\Program Files\NetBeans\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.jaxws21.javadoc" value="C:\Program Files\NetBeans\java\docs\jaxws-api-doc.zip" />
+    <property name="libs.spring-webmvc4.0.javadoc" value="" />
     <property name="includes" value="**" />
-    <property name="javadoc.nonavbar" value="false" />
-    <property name="libs.javaee-api-8.0.src" value="" />
-    <property name="ant.java.version" value="13" />
-    <property name="libs.junit_4.classpath" value="C:\NetBeans\netbeans\platform\modules\ext\junit-4.12.jar" />
-    <property name="libs.jsf12.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\javaee-doc-api.jar" />
-    <property name="libs.hamcrest.classpath" value="C:\NetBeans\netbeans\platform\modules\ext\hamcrest-core-1.3.jar" />
-    <property name="jlink.launcher.name" value="Biosphere7" />
-    <property name="javadoc.splitindex" value="true" />
-    <property name="libs.JWSAntTasks.classpath" value="C:\NetBeans\netbeans\java\ant\extra\org-netbeans-modules-javawebstart-anttasks.jar" />
-    <property name="junit.available" value="true" />
-    <property name="test.binarytestincludes" value="" />
-    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
-    <property name="libs.junit_4.maven-pom" value="" />
-    <property name="javac.processormodulepath" value="" />
-    <property name="libs.jsp-compiler.maven-pom" value="" />
-    <property name="runtime.encoding" value="UTF-8" />
+    <property name="user.country" value="FR" />
+    <property name="manifest.file" value="manifest.mf" />
     <property name="javadoc.encoding" value="UTF-8" />
     <property name="javac.classpath" value="" />
-    <property name="libs.jstl.src" value="" />
-    <property name="libs.jsp-compilation-syscp.maven-pom" value="" />
-    <property name="netbeans.hash.code" value="unique=098e71342-7bec-4219-9269-288f3c193489_8b59b28b-6b8a-4158-bd5e-8232fa660db2" />
-    <property name="nb.junit.batch" value="true" />
-    <property name="libs.spring-webmvc3.0.classpath" value="C:\NetBeans\netbeans\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar" />
-    <property name="build.test.classes.dir" value="build/test/classes" />
-    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
-    <property name="manifest.available" value="true" />
-    <property name="libs.jaxb.javadoc" value="C:\NetBeans\netbeans\ide\docs\jaxb-api-2.2.5-javadoc.jar" />
-    <property name="libs.spring-framework300.maven-pom" value="" />
-    <property name="ant.project.invoked-targets" value="test-single" />
-    <property name="run.jvmargs.ide" value="" />
-    <property name="libs.jstl.classpath" value="C:\NetBeans\netbeans\enterprise\modules\ext\jstl-impl.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jstl-api.jar" />
-    <property name="ap.cmd.line.internal" value="" />
-    <property name="libs.PostgreSQLDriver.src" value="" />
-    <property name="ant.core.lib" value="C:\NetBeans\netbeans\extide\ant\lib\ant.jar" />
-    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/" />
-    <property name="libs.jsp-compilation.maven-pom" value="" />
-    <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
-    <property name="javac.profile.cmd.line.arg" value="" />
-    <property name="user.dir" value="C:\Users\Zail3\Desktop\Biosphere\biosphere7\biosphere7" />
-    <property name="platform.java" value="C:\Program Files\Java\jdk-13.0.1/bin/java" />
-    <property name="application.args" value="" />
+    <property name="libs.jsp-compilation-syscp.src" value="" />
+    <property name="libs.spring-framework400.classpath" value="C:\Program Files\NetBeans\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-aop-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-aspects-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-beans-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-build-src-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-context-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-context-support-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-core-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-expression-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-framework-bom-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-instrument-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-instrument-tomcat-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-jdbc-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-jms-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-messaging-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-orm-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-oxm-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-test-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-tx-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-web-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-webmvc-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-webmvc-portlet-4.0.1.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-websocket-4.0.1.RELEASE.jar" />
+    <property name="debug-transport" value="dt_shmem" />
+    <property name="netbeans.home" value="C:\Program Files\NetBeans\platform" />
+    <property name="build.compiler.emacs" value="true" />
+    <property name="libs.javaee-web-api-6.0.src" value="" />
+    <property name="libs.jsp-compilation-syscp.classpath" value="C:\Program Files\NetBeans\extide\ant\lib\ant.jar;C:\Program Files\NetBeans\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\Program Files\NetBeans\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jstl-impl.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar" />
+    <property name="javac.modulepath" value="" />
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk\jre\lib\endorsed" />
+    <property name="libs.groovy-all.src" value="" />
+    <property name="test.includes" value="biosphere7/JoueurBiosphere7Test.java" />
+    <property name="netbeans.dynamic.classpath" value="C:\Program Files\NetBeans\platform\core\asm-all-5.0.1.jar;C:\Program Files\NetBeans\platform\core\core-base.jar;C:\Program Files\NetBeans\platform\core\core.jar;C:\Program Files\NetBeans\platform\core\org-netbeans-libs-asm.jar;C:\Program Files\NetBeans\platform\core\org-openide-filesystems-compat8.jar;C:\Program Files\NetBeans\platform\core\org-openide-filesystems.jar;C:\Program Files\NetBeans\platform\core\locale\core-base_de.jar;C:\Program Files\NetBeans\platform\core\locale\core-base_es.jar;C:\Program Files\NetBeans\platform\core\locale\core-base_fr.jar;C:\Program Files\NetBeans\platform\core\locale\core-base_it.jar;C:\Program Files\NetBeans\platform\core\locale\core_ar_SA.jar;C:\Program Files\NetBeans\platform\core\locale\core_bg.jar;C:\Program Files\NetBeans\platform\core\locale\core_ca.jar;C:\Program Files\NetBeans\platform\core\locale\core_cs.jar;C:\Program Files\NetBeans\platform\core\locale\core_de.jar;C:\Program Files\NetBeans\platform\core\locale\core_es.jar;C:\Program Files\NetBeans\platform\core\locale\core_fr.jar;C:\Program Files\NetBeans\platform\core\locale\core_gl_ES.jar;C:\Program Files\NetBeans\platform\core\locale\core_in_ID.jar;C:\Program Files\NetBeans\platform\core\locale\core_it.jar;C:\Program Files\NetBeans\platform\core\locale\core_ko.jar;C:\Program Files\NetBeans\platform\core\locale\core_nl_NL.jar;C:\Program Files\NetBeans\platform\core\locale\core_pl.jar;C:\Program Files\NetBeans\platform\core\locale\core_pt_PT.jar;C:\Program Files\NetBeans\platform\core\locale\core_ro.jar;C:\Program Files\NetBeans\platform\core\locale\core_si.jar;C:\Program Files\NetBeans\platform\core\locale\core_sq.jar;C:\Program Files\NetBeans\platform\core\locale\core_sv.jar;C:\Program Files\NetBeans\platform\core\locale\core_tr.jar;C:\Program Files\NetBeans\platform\core\locale\core_zh_TW.jar;C:\Program Files\NetBeans\platform\core\locale\org-netbeans-libs-asm_de.jar;C:\Program Files\NetBeans\platform\core\locale\org-netbeans-libs-asm_es.jar;C:\Program Files\NetBeans\platform\core\locale\org-netbeans-libs-asm_fr.jar;C:\Program Files\NetBeans\platform\core\locale\org-netbeans-libs-asm_it.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems-compat8_de.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems-compat8_es.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems-compat8_fr.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems-compat8_it.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_ar_SA.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_bg.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_ca.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_cs.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_de.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_es.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_fr.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_gl_ES.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_in_ID.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_it.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_ko.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_nl_NL.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_pl.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_pt_PT.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_ro.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_si.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_sq.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_sv.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_tr.jar;C:\Program Files\NetBeans\platform\core\locale\org-openide-filesystems_zh_TW.jar;C:\Program Files\NetBeans\nb\core\org-netbeans-upgrader.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb_ca.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb_de.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb_es.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb_fr.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb_gl_ES.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb_it.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb_ko.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb_nl_NL.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb_sv.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb_tr.jar;C:\Program Files\NetBeans\nb\core\locale\core_nb_zh_TW.jar;C:\Program Files\NetBeans\nb\core\locale\org-netbeans-upgrader_ca.jar;C:\Program Files\NetBeans\nb\core\locale\org-netbeans-upgrader_de.jar;C:\Program Files\NetBeans\nb\core\locale\org-netbeans-upgrader_es.jar;C:\Program Files\NetBeans\nb\core\locale\org-netbeans-upgrader_fr.jar;C:\Program Files\NetBeans\nb\core\locale\org-netbeans-upgrader_gl_ES.jar;C:\Program Files\NetBeans\nb\core\locale\org-netbeans-upgrader_it.jar;C:\Program Files\NetBeans\nb\core\locale\org-netbeans-upgrader_ko.jar;C:\Program Files\NetBeans\nb\core\locale\org-netbeans-upgrader_nl_NL.jar;C:\Program Files\NetBeans\nb\core\locale\org-netbeans-upgrader_sv.jar;C:\Program Files\NetBeans\nb\core\locale\org-netbeans-upgrader_tr.jar;C:\Program Files\NetBeans\nb\core\locale\org-netbeans-upgrader_zh_TW.jar" />
+    <property name="java.vm.specification.version" value="1.8" />
+    <property name="libs.hibernate4-support.src" value="" />
+    <property name="libs.primefaces.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\primefaces\primefaces-5.0.jar" />
+    <property name="libs.javaee-api-6.0.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\javaee-api-6.0.jar" />
+    <property name="libs.groovy-all.maven-pom" value="" />
+    <property name="netbeans.productversion" value="NetBeans IDE 8.2 (Build 201610071157)" />
+    <property name="libs.jaxws21.src" value="" />
     <property name="application.title" value="Biosphere7" />
-    <property name="javac.test.modulepath" value="" />
-    <property name="org.xml.sax.driver" value="com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser" />
-    <property name="ignore.failing.tests" value="true" />
-    <property name="libs.PostgreSQLDriver.javadoc" value="" />
-    <property name="libs.eclipselink.src" value="" />
-    <property name="libs.jsp-compilation-syscp.classpath" value="C:\NetBeans\netbeans\extide\ant\lib\ant.jar;C:\NetBeans\netbeans\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\NetBeans\netbeans\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jstl-impl.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar" />
-    <property name="libs.jsp-compilation.classpath" value="C:\NetBeans\netbeans\extide\ant\lib\ant.jar;C:\NetBeans\netbeans\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\NetBeans\netbeans\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar;C:\NetBeans\netbeans\enterprise\modules\ext\jstl-api.jar;C:\NetBeans\netbeans\extide\ant\lib\ant-launcher.jar" />
-    <property name="java.vm.version" value="13.0.1+9" />
-    <property name="libs.metro.javadoc" value="C:\NetBeans\netbeans\enterprise\docs\webservices-api-javadoc.jar;C:\NetBeans\netbeans\enterprise\docs\webservices-extra-javadoc.jar;C:\NetBeans\netbeans\enterprise\docs\webservices-extra-api-javadoc.jar;C:\NetBeans\netbeans\enterprise\docs\webservices-rt-javadoc.jar;C:\NetBeans\netbeans\enterprise\docs\webservices-tools-javadoc.jar" />
-    <property name="sun.awt.datatransfer.timeout" value="1000" />
-    <property name="test.class" value="biosphere7.JoueurBiosphere7Test" />
-    <property name="libs.jsp-compiler.classpath" value="C:\NetBeans\netbeans\enterprise\ant\extra\jspcompile.jar" />
+    <property name="do.archive" value="true" />
+    <property name="netbeans.autoupdate.language" value="fr" />
+    <property name="ant.file.Biosphere7" value="V:\Documents\projet\Git\biosphere7\biosphere7\build.xml" />
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="libs.javaee-api-6.0.javadoc" value="C:\Program Files\NetBeans\enterprise\docs\javaee-doc-api.jar" />
+    <property name="jar.index.metainf" value="false" />
+    <property name="javac.debug" value="true" />
+    <property name="javadoc.splitindex" value="true" />
+    <property name="file.separator" value="\" />
+    <property name="javac.includesfile.binary" value="V:\Documents\projet\Git\biosphere7\biosphere7\null2036610759" />
+    <property name="libs.junit_4.maven-pom" value="" />
+    <property name="mkdist.disabled" value="false" />
+    <property name="javac.test.processorpath" value=":build/classes:C:\Program Files\NetBeans\platform\modules\ext\hamcrest-core-1.3.jar:C:\Program Files\NetBeans\platform\modules\ext\junit-4.12.jar" />
+    <property name="netbeans.buildnumber" value="201610071157" />
+    <property name="libs.JWSAntTasks.javadoc" value="" />
+    <property name="build.generated.sources.dir" value="build/generated-sources" />
+    <property name="user.variant" value="" />
+    <property name="libs.eclipselinkmodelgen.classpath" value="C:\Program Files\NetBeans\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.modelgen_2.5.2.v20140319-9ad6abd.jar" />
+    <property name="libs.javaee-endorsed-api-7.0.src" value="" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="libs.hibernate4-persistencemodelgen.javadoc" value="" />
+    <property name="libs.jaxb.javadoc" value="C:\Program Files\NetBeans\ide\docs\jaxb-api-doc.zip" />
+    <property name="libs.struts.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\struts\antlr-2.7.2.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\bsf-2.3.0.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\commons-beanutils-1.8.0.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\commons-chain-1.2.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\commons-digester-1.8.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\commons-fileupload-1.1.1.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\commons-io-1.1.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\commons-logging-1.0.4.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\commons-validator-1.3.1.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\jstl-1.0.2.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\oro-2.0.8.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\standard-1.0.6.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\struts-core-1.3.10.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\struts-el-1.3.10.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\struts-extras-1.3.10.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\struts-faces-1.3.10.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\struts-mailreader-dao-1.3.10.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\struts-scripting-1.3.10.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\struts-taglib-1.3.10.jar;C:\Program Files\NetBeans\enterprise\modules\ext\struts\struts-tiles-1.3.10.jar" />
+    <property name="javac.includes.binary" value="V:\Documents\projet\Git\biosphere7\biosphere7\build\test\classes\biosphere7\JoueurBiosphere7Test.class" />
+    <property name="ant.home" value="C:\Program Files\NetBeans\extide\ant" />
+    <property name="libs.junit_4.src" value="C:\Program Files\NetBeans\platform\docs\junit-4.12-sources.jar" />
+    <property name="libs.testng.classpath" value="C:\Program Files\NetBeans\platform\modules\ext\testng-6.8.1-dist.jar" />
+    <property name="libs.absolutelayout.maven-pom" value="" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="java.library.path" value="C:\Program Files\Java\jdk\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Ruby26-x64\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\wapt;C:\php;C:\Program Files\oracle;C:\program files\Java\jdk\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Java\jdk\bin;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\;C:\Program Files\Git\cmd;c:\cygwin64\bin;C:\Program Files\Common Files\Autodesk Shared\;c:\Program Files\PuTTY\;c:\Program Files\nodejs\;C:\Users\aclaveau\AppData\Local\Microsoft\WindowsApps;;." />
+    <property name="javadoc.author" value="false" />
+    <property name="libs.metro.maven-pom" value="" />
+    <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
+    <property name="libs.spring-framework400.src" value="" />
+    <property name="libs.PostgreSQLDriver.src" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="basedir" value="V:\Documents\projet\Git\biosphere7\biosphere7" />
+    <property name="libs.jpa20-persistence.maven-pom" value="" />
+    <property name="jar.compress" value="false" />
+    <property name="libs.javaee-web-api-7.0.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\javaee-web-api-7.0.jar" />
+    <property name="path.separator" value=";" />
+    <property name="libs.javaee-web-api-6.0.javadoc" value="C:\Program Files\NetBeans\enterprise\docs\javaee-doc-api.jar" />
+    <property name="ant.junit.enabletestlistenerevents" value="true" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="libs.jaxws21.classpath" value="C:\Program Files\NetBeans\ide\modules\ext\jaxb\jaxb-impl.jar;C:\Program Files\NetBeans\ide\modules\ext\jaxb\jaxb-xjc.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\FastInfoset.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\gmbal-api-only.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\ha-api.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\javax.mail_1.4.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\jaxws-rt.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\jaxws-tools.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\management-api.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\mimepull.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\policy.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\saaj-impl.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\stax-ex.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\stax2-api.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\streambuffer.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\woodstox-core-asl.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\api\jaxws-api.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\api\jsr181-api.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\api\javax.annotation.jar;C:\Program Files\NetBeans\java\modules\ext\jaxws22\api\saaj-api.jar;C:\Program Files\NetBeans\ide\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans\ide\modules\ext\jaxb\api\jaxb-api.jar;C:\Program Files\NetBeans\ide\modules\ext\jaxb\api\jsr173_1.0_api.jar" />
+    <property name="libs.struts.src" value="" />
+    <property name="apple.awt.graphics.UseQuartz" value="true" />
+    <property name="user.language" value="fr" />
+    <property name="testng.mode" value="testng" />
+    <property name="libs.JAXB-ENDORSED.maven-pom" value="" />
+    <property name="libs.eclipselink.maven-pom" value="" />
+    <property name="application.vendor" value="ogauwin" />
+    <property name="test.binaryincludes" value="&lt;nothing&gt;" />
+    <property name="manifest.available" value="true" />
+    <property name="libs.primefaces.javadoc" value="" />
+    <property name="libs.spring-framework300.maven-pom" value="" />
+    <property name="run.test.classpath" value=":build/classes:C:\Program Files\NetBeans\platform\modules\ext\hamcrest-core-1.3.jar:C:\Program Files\NetBeans\platform\modules\ext\junit-4.12.jar:build/test/classes" />
+    <property name="ant.project.invoked-targets" value="test-single" />
+    <property name="test.binaryexcludes" value="" />
+    <property name="libs.swing-layout.javadoc" value="C:\Program Files\NetBeans\platform\docs\swing-layout-1.0.4-doc.zip" />
+    <property name="sun.java2d.dpiaware" value="true" />
+    <property name="libs.hibernate4-persistence.maven-pom" value="" />
+    <property name="libs.DataBindingME-SVG.classpath" value="C:\Program Files\NetBeans\mobility\modules\ext\netbeans_databindingme_svg.jar" />
+    <property name="https.nonProxyHosts" value="localhost|127.0.0.1|info-314-09" />
+    <property name="libs.PostgreSQLDriver.maven-pom" value="" />
+    <property name="java.class.version" value="52.0" />
+    <property name="libs.hibernate4-persistencemodelgen.maven-pom" value="" />
+    <property name="libs.javaee-endorsed-api-6.0.src" value="" />
+    <property name="libs.eclipselink.javadoc" value="C:\Program Files\NetBeans\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
+    <property name="libs.jsp-compilation.maven-pom" value="" />
+    <property name="user.properties.file" value="\\iut.bx1\Etudiants\Home\aclaveau\AppData\Roaming\NetBeans\8.2\build.properties" />
+    <property name="runtime.encoding" value="UTF-8" />
+    <property name="libs.javac-api.maven-pom" value="" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="libs.JAXB-ENDORSED.javadoc" value="" />
+    <property name="libs.JWSAntTasks.classpath" value="C:\Program Files\NetBeans\java\ant\extra\org-netbeans-modules-javawebstart-anttasks.jar" />
+    <property name="libs.spring-webmvc4.0.maven-pom" value="" />
+    <property name="libs.spring-framework300.src" value="" />
+    <property name="libs.jstl.src" value="" />
+    <property name="empty.dir" value="V:\Documents\projet\Git\biosphere7\biosphere7\build\empty" />
+    <property name="test.binarytestincludes" value="" />
+    <property name="libs.hibernate4-persistencemodelgen.src" value="" />
+    <property name="javadoc.preview" value="true" />
+    <property name="libs.jpa20-persistence.javadoc" value="C:\Program Files\NetBeans\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
+    <property name="java.home" value="C:\Program Files\Java\jdk\jre" />
+    <property name="libs.jsp-compilation.src" value="" />
+    <property name="debug.test.classpath" value=":build/classes:C:\Program Files\NetBeans\platform\modules\ext\hamcrest-core-1.3.jar:C:\Program Files\NetBeans\platform\modules\ext\junit-4.12.jar:build/test/classes" />
+    <property name="libs.javaee-endorsed-api-6.0.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\javaee6-endorsed\javax.annotation.jar;C:\Program Files\NetBeans\enterprise\modules\ext\javaee6-endorsed\jaxb-api-osgi.jar;C:\Program Files\NetBeans\enterprise\modules\ext\javaee6-endorsed\webservices-api-osgi.jar" />
+    <property name="libs.javaee-api-6.0.src" value="" />
+    <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
+    <property name="ant.project.default-target" value="default" />
     <property name="annotation.processing.run.all.processors" value="true" />
+    <property name="libs.DataBindingME.maven-pom" value="" />
+    <property name="libs.PostgreSQLDriver.javadoc" value="" />
+    <property name="libs.restlib.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\asm-all-repackaged-2.2.0-b21.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\cglib-2.2.0-b21.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\guava-14.0.1.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\hk2-api-2.2.0-b21.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\hk2-locator-2.2.0-b21.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\hk2-utils-2.2.0-b21.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\javax.annotation-api-1.2.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\javax.inject-2.2.0-b21.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\javax.servlet-api-3.0.1.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\jaxb-api-2.2.7.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\jersey-entity-filtering-2.5.1.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\jersey-media-moxy-2.5.1.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\org.osgi.core-4.2.0.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\osgi-resource-locator-1.0.1.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\persistence-api-1.0.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\ext\validation-api-1.1.0.Final.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\jersey-client.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\jersey-common.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\jersey-container-servlet.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\jersey-container-servlet-core.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jersey2\jersey-server.jar;C:\Program Files\NetBeans\java\modules\ext\eclipselink\eclipselink.jar" />
+    <property name="libs.MySQLDriver.maven-pom" value="" />
+    <property name="libs.hibernate4-persistence.javadoc" value="C:\Program Files\NetBeans\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
+    <property name="http.nonProxyHosts" value="localhost|127.0.0.1|info-314-09" />
+    <property name="libs.junit_4.javadoc" value="C:\Program Files\NetBeans\platform\docs\junit-4.12-javadoc.jar" />
+    <property name="javac.test.modulepath" value="" />
+    <property name="libs.javaee-web-api-6.0.maven-pom" value="" />
+    <property name="run.classpath" value=":build/classes" />
+    <property name="jna.boot.library.name" value="jnidispatch-422" />
+    <property name="libs.javaee-endorsed-api-6.0.javadoc" value="C:\Program Files\NetBeans\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.javaee-api-7.0.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\javaee-api-7.0.jar" />
+    <property name="sun.awt.datatransfer.timeout" value="1000" />
+    <property name="libs.spring-webmvc3.0.javadoc" value="" />
+    <property name="libs.jpa2-persistence.maven-pom" value="" />
+    <property name="annotation.processing.enabled.in.editor" value="false" />
+    <property name="libs.hibernate4-support.classpath" value="C:\Program Files\NetBeans\java\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\slf4j-simple-1.6.1.jar" />
+    <property name="ant.file.type.Biosphere7" value="file" />
+    <property name="nb.native.filechooser" value="false" />
+    <property name="libs.restapi.src" value="" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="libs.j2me_common_ant.javadoc" value="" />
+    <property name="javac.deprecation" value="false" />
+    <property name="javadoc.use" value="true" />
+    <property name="sun.java2d.noddraw" value="true" />
+    <property name="libs.jsp-compiler.classpath" value="C:\Program Files\NetBeans\enterprise\ant\extra\jspcompile.jar" />
+    <property name="javac.processorpath" value="" />
+    <property name="libs.hamcrest.maven-pom" value="" />
+    <property name="javac.compilerargs" value="" />
+    <property name="ant.file" value="V:\Documents\projet\Git\biosphere7\biosphere7\build.xml" />
+    <property name="libs.beans-binding.maven-pom" value="" />
+    <property name="libs.hibernate4-support.javadoc" value="C:\Program Files\NetBeans\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
+    <property name="libs.jsf12.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\jsf-1_2\commons-beanutils.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jsf-1_2\commons-collections.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jsf-1_2\commons-digester.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jsf-1_2\commons-logging.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jsf-1_2\jsf-api.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jsf-1_2\jsf-impl.jar" />
+    <property name="libs.jstl.maven-pom" value="" />
+    <property name="libs.restapi.maven-pom" value="" />
+    <property name="libs.beans-binding.src" value="" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="libs.DataBindingME-PIM.javadoc" value="C:\Program Files\NetBeans\mobility\modules\docs\netbeans_databindingme_pim-api.zip" />
+    <property name="libs.swing-layout.src" value="C:\Program Files\NetBeans\platform\docs\swing-layout-1.0.4-src.zip" />
+    <property name="org.openide.major.version" value="IDE/1" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="netbeans.user" value="\\iut.bx1\Etudiants\Home\aclaveau\AppData\Roaming\NetBeans\8.2" />
+    <property name="javadoc.additionalparam" value="" />
+    <property name="java.io.tmpdir" value="C:\Users\aclaveau\AppData\Local\Temp\" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="endorsed.classpath.cmd.line.arg" value="" />
+    <property name="jna.loaded" value="true" />
+    <property name="junit.available" value="true" />
+    <property name="libs.jsp-compiler.src" value="" />
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk\jre\bin" />
+    <property name="have.sources" value="true" />
+    <property name="libs.hamcrest.javadoc" value="" />
+    <property name="debug.classpath" value=":build/classes" />
+    <property name="javac.external.vm" value="true" />
+    <property name="javadoc.private" value="false" />
+    <property name="test.src.dir" value="test" />
+    <property name="libs.jsf20.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar" />
+    <property name="ap.processors.internal" value="" />
+    <property name="meta.inf.dir" value="src/META-INF" />
+    <property name="javadoc.encoding.used" value="UTF-8" />
+    <property name="libs.DataBindingME-SVG.src" value="C:\Program Files\NetBeans\mobility\sources\netbeans_databindingme_svg-src.zip" />
+    <property name="dist.jar" value="dist/Biosphere7.jar" />
+    <property name="libs.spring-framework400.maven-pom" value="" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="debug.test.modulepath" value="" />
+    <property name="ant.project.name" value="Biosphere7" />
+    <property name="netbeans.hash.code" value="unique=NB_CND_EXTIDE_GFMOD_GROOVY_JAVA_JC_MOB_PHP_TOMCAT_WEBCOMMON_WEBEE0c5546084-1040-4e0b-bf20-676a035d7c88_4641e9a3-5729-47ac-aeb1-47e03384dc8f" />
+    <property name="netbeans.default_userdir_root" value="\\iut.bx1\Etudiants\Home\aclaveau\AppData\Roaming\NetBeans" />
+    <property name="libs.jsp-compilation-syscp.maven-pom" value="" />
+    <property name="sun.cpu.isalist" value="amd64" />
+    <property name="libs.spring-framework400.javadoc" value="" />
+    <property name="libs.CopyLibs.javadoc" value="" />
+    <property name="javadoc.html5" value="false" />
+    <property name="org.openide.specification.version" value="6.2" />
+    <property name="libs.DataBindingME-PIM.classpath" value="C:\Program Files\NetBeans\mobility\modules\ext\netbeans_databindingme_pim.jar" />
+    <property name="user.home" value="C:\Users\aclaveau" />
+    <property name="annotation.processing.processors.list" value="" />
+    <property name="libs.primefaces.maven-pom" value="" />
+    <property name="libs.javaee-api-6.0.maven-pom" value="" />
+    <property name="libs.JWSAntTasks.src" value="" />
+    <property name="jar.index" value="false" />
+    <property name="libs.CopyLibs.maven-pom" value="" />
+    <property name="libs.spring-framework300.javadoc" value="" />
+    <property name="libs.absolutelayout.javadoc" value="" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="libs.javac-api.classpath" value="C:\Program Files\NetBeans\java\modules\ext\nb-javac-api.jar" />
+    <property name="java.version" value="1.8.0_212" />
+    <property name="run.jvmargs.ide" value="" />
+    <property name="javadoc.version" value="false" />
+    <property name="javac.processormodulepath" value="" />
+    <property name="libs.MySQLDriver.javadoc" value="" />
+    <property name="org.openide.version" value="deprecated" />
+    <property name="platform.java" value="C:\Program Files\Java\jdk\jre/bin/java" />
+    <property name="source.encoding" value="UTF-8" />
+    <property name="ap.cmd.line.internal" value="" />
+    <property name="libs.eclipselinkmodelgen.maven-pom" value="" />
+    <property name="libs.jsp-compilation-syscp.javadoc" value="" />
+    <property name="libs.eclipselinkmodelgen.javadoc" value="" />
+    <property name="libs.javaee-endorsed-api-7.0.classpath" value="C:\Program Files\NetBeans\enterprise\modules\ext\javaee7-endorsed\javax.annotation-api.jar;C:\Program Files\NetBeans\enterprise\modules\ext\javaee7-endorsed\javax.xml.soap-api.jar;C:\Program Files\NetBeans\enterprise\modules\ext\javaee7-endorsed\jaxb-api-osgi.jar;C:\Program Files\NetBeans\enterprise\modules\ext\javaee7-endorsed\jaxws-api.jar;C:\Program Files\NetBeans\enterprise\modules\ext\javaee7-endorsed\jsr181-api.jar" />
+    <property name="libs.metro.javadoc" value="C:\Program Files\NetBeans\enterprise\docs\metro-1.4-doc.zip" />
+    <property name="libs.struts.maven-pom" value="" />
+    <property name="netbeans.home+have.tests" value="true" />
+    <property name="annotation.processing.processor.options" value="" />
+    <property name="libs.testng.maven-pom" value="" />
+    <property name="libs.jaxb.src" value="" />
+    <property name="jdk.launcher.addexports.5" value="java.management/sun.management=ALL-UNNAMED" />
+    <property name="jdk.launcher.addexports.4" value="java.desktop/com.sun.java.swing.plaf.windows=ALL-UNNAMED" />
+    <property name="work.dir" value="V:\Documents\projet\Git\biosphere7\biosphere7" />
+    <property name="jdk.launcher.addexports.3" value="java.desktop/sun.awt.im=ALL-UNNAMED" />
+    <property name="jdk.launcher.addexports.2" value="java.desktop/java.awt.peer=ALL-UNNAMED" />
+    <property name="libs.jaxb.classpath" value="C:\Program Files\NetBeans\ide\modules\ext\jaxb\jaxb-impl.jar;C:\Program Files\NetBeans\ide\modules\ext\jaxb\jaxb-xjc.jar;C:\Program Files\NetBeans\ide\modules\ext\jaxb\jaxb1-impl.jar;C:\Program Files\NetBeans\ide\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans\ide\modules\ext\jaxb\api\jaxb-api.jar;C:\Program Files\NetBeans\ide\modules\ext\jaxb\api\jsr173_1.0_api.jar" />
+    <property name="jdk.launcher.addexports.1" value="java.base/jdk.internal.jrtfs=ALL-UNNAMED" />
+    <property name="jdk.launcher.addexports.0" value="java.desktop/sun.awt=ALL-UNNAMED" />
+    <property name="do.depend" value="false" />
+    <property name="dist.javadoc.dir" value="dist/javadoc" />
+    <property name="libs.j2me_common_ant.classpath" value="C:\Program Files\NetBeans\mobility\modules\org-netbeans-modules-j2me-common-ant.jar;C:\Program Files\NetBeans\java\modules\org-netbeans-modules-classfile.jar" />
+    <property name="libs.spring-webmvc3.0.classpath" value="C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar" />
+    <property name="libs.swing-layout.classpath" value="C:\Program Files\NetBeans\platform\modules\ext\swing-layout-1.0.4.jar" />
+    <property name="libs.javaee-web-api-7.0.maven-pom" value="" />
+    <property name="libs.restlib.src" value="" />
+    <property name="javac.source" value="1.8" />
+    <property name="build.generated.dir" value="build/generated" />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="libs.jaxws21.maven-pom" value="" />
+    <property name="nb.junit.batch" value="true" />
     <property name="junit.forkmode" value="perTest" />
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk\jre\lib\resources.jar;C:\Program Files\Java\jdk\jre\lib\rt.jar;C:\Program Files\Java\jdk\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk\jre\lib\jsse.jar;C:\Program Files\Java\jdk\jre\lib\jce.jar;C:\Program Files\Java\jdk\jre\lib\charsets.jar;C:\Program Files\Java\jdk\jre\lib\jfr.jar;C:\Program Files\Java\jdk\jre\classes" />
+    <property name="javac.target" value="1.8" />
+    <property name="built-jar.properties" value="V:\Documents\projet\Git\biosphere7\biosphere7\build\built-jar.properties" />
+    <property name="build.test.classes.dir" value="build/test/classes" />
+    <property name="src.dir" value="src" />
+    <property name="javac.test.compilerargs" value="" />
+    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
+    <property name="libs.jpa2-persistence.src" value="" />
+    <property name="annotation.processing.enabled" value="true" />
+    <property name="libs.jsf20.src" value="" />
+    <property name="ant.file.Biosphere7-impl" value="V:\Documents\projet\Git\biosphere7\biosphere7\nbproject\build-impl.xml" />
+    <property name="libs.jpa20-persistence.src" value="" />
+    <property name="libs.DataBindingME-SVG.maven-pom" value="" />
+    <property name="libs.jsf12.src" value="" />
+    <property name="libs.struts.javadoc" value="C:\Program Files\NetBeans\enterprise\docs\struts-1.3.10-javadoc.zip" />
+    <property name="ignore.failing.tests" value="true" />
     <property name="libs.javaee-web-api-7.0.src" value="" />
+    <property name="libs.primefaces.src" value="" />
+    <property name="dist.dir" value="dist" />
+    <property name="libs.groovy-all.javadoc" value="" />
+    <property name="jlink.launcher" value="false" />
+    <property name="testng.debug.mode" value="" />
+    <property name="libs.groovy-all.classpath" value="C:\Program Files\NetBeans\groovy\modules\ext\groovy-all.jar" />
+    <property name="javac.fork" value="true" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="default.javac.source" value="1.8" />
+    <property name="debug-transport-by-os" value="dt_shmem" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="libs.MySQLDriver.src" value="" />
+    <property name="run.test.jvmargs" value="" />
+    <property name="java.runtime.version" value="1.8.0_212-b10" />
+    <property name="build.test.results.dir" value="build/test/results" />
+    <property name="default.javac.target" value="1.8" />
+    <property name="libs.junit_4.classpath" value="C:\Program Files\NetBeans\platform\modules\ext\junit-4.12.jar" />
+    <property name="user.timezone" value="" />
+    <property name="nb.junit.single" value="false" />
+    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
+    <property name="netbeans.dirs" value="C:\Program Files\NetBeans\nb;C:\Program Files\NetBeans\ergonomics;C:\Program Files\NetBeans\ide;C:\Program Files\NetBeans\extide;C:\Program Files\NetBeans\java;C:\Program Files\NetBeans\apisupport;C:\Program Files\NetBeans\webcommon;C:\Program Files\NetBeans\websvccommon;C:\Program Files\NetBeans\enterprise;C:\Program Files\NetBeans\mobility;C:\Program Files\NetBeans\profiler;C:\Program Files\NetBeans\python;C:\Program Files\NetBeans\php;C:\Program Files\NetBeans\identity;C:\Program Files\NetBeans\harness;C:\Program Files\NetBeans\cnd;C:\Program Files\NetBeans\cndext;C:\Program Files\NetBeans\dlight;C:\Program Files\NetBeans\groovy;C:\Program Files\NetBeans\extra;C:\Program Files\NetBeans\javacard;C:\Program Files\NetBeans\javafx" />
+    <property name="libs.jstl.javadoc" value="C:\Program Files\NetBeans\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.jsf20.javadoc" value="C:\Program Files\NetBeans\enterprise\docs\javaee-doc-api.jar" />
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+    <property name="libs.metro.src" value="" />
+    <property name="endorsed.classpath" value="" />
+    <property name="libs.absolutelayout.classpath" value="C:\Program Files\NetBeans\java\modules\ext\AbsoluteLayout.jar" />
+    <property name="excludes" value="" />
+    <property name="libs.metro.classpath" value="C:\Program Files\NetBeans\ide\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans\enterprise\modules\ext\metro\webservices-api.jar;C:\Program Files\NetBeans\enterprise\modules\ext\metro\webservices-extra-api.jar;C:\Program Files\NetBeans\enterprise\modules\ext\metro\webservices-extra.jar;C:\Program Files\NetBeans\enterprise\modules\ext\metro\webservices-rt.jar;C:\Program Files\NetBeans\enterprise\modules\ext\metro\webservices-tools.jar" />
+    <property name="libs.restlib.maven-pom" value="" />
+    <property name="libs.jpa2-persistence.javadoc" value="C:\Program Files\NetBeans\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
+    <property name="libs.DataBindingME.javadoc" value="C:\Program Files\NetBeans\mobility\modules\docs\netbeans_databindingme-api.zip" />
+    <property name="apple.laf.useScreenMenuBar" value="true" />
+    <property name="java.class.path" value="V:\Documents\projet\Git\biosphere7\biosphere7\build\classes;C:\Program Files\NetBeans\platform\modules\ext\hamcrest-core-1.3.jar;C:\Program Files\NetBeans\platform\modules\ext\junit-4.12.jar;V:\Documents\projet\Git\biosphere7\biosphere7\build\test\classes;C:\Program Files\NetBeans\extide\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans\extide\ant\lib\ant.jar;C:\Program Files\NetBeans\extide\ant\lib\ant-junit.jar;C:\Program Files\NetBeans\extide\ant\lib\ant-junit4.jar" />
+    <property name="libs.absolutelayout.src" value="" />
+    <property name="libs.jpa20-persistence.classpath" value="C:\Program Files\NetBeans\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar" />
+    <property name="os.version" value="10.0" />
+    <property name="application.args" value="" />
+    <property name="ant.file.type.Biosphere7-impl" value="file" />
+    <property name="libs.javaee-api-7.0.maven-pom" value="" />
+    <property name="sun.awt.enableExtraMouseButtons" value="true" />
+    <property name="jlink.launcher.name" value="Biosphere7" />
+    <property name="sun.desktop" value="windows" />
+    <property name="libs.hibernate4-persistence.src" value="" />
+    <property name="libs.hibernate4-support.maven-pom" value="" />
+    <property name="libs.restlib.javadoc" value="" />
+    <property name="libs.JAXB-ENDORSED.classpath" value="C:\Program Files\NetBeans\ide\modules\ext\jaxb\api\jaxb-api.jar" />
+    <property name="run.test.modulepath" value="" />
+    <property name="nb.internal.action.name" value="test.single" />
+    <property name="libs.javaee-api-7.0.javadoc" value="C:\Program Files\NetBeans\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.eclipselink.classpath" value="C:\Program Files\NetBeans\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar" />
+    <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans\java\docs\beansbinding-1.2.1-doc.zip" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="libs.CopyLibs.classpath" value="C:\Program Files\NetBeans\java\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
+    <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
+    <property name="libs.jsp-compiler.maven-pom" value="" />
+    <property name="libs.hamcrest.src" value="" />
+    <property name="run.jvmargs" value="" />
+    <property name="libs.hibernate4-persistence.classpath" value="C:\Program Files\NetBeans\java\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\slf4j-simple-1.6.1.jar;C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-jpa-2.1-api-1.0.0.Final.jar" />
+    <property name="libs.JAXB-ENDORSED.src" value="" />
+    <property name="dist.archive.excludes" value="" />
+    <property name="libs.DataBindingME-PIM.src" value="C:\Program Files\NetBeans\mobility\sources\netbeans_databindingme_pim-src.zip" />
+    <property name="libs.testng.javadoc" value="C:\Program Files\NetBeans\platform\docs\testng-6.8.1-javadoc.zip" />
+    <property name="user.script" value="" />
+    <property name="libs.PostgreSQLDriver.classpath" value="C:\Program Files\NetBeans\ide\modules\ext\postgresql-9.4.1209.jar" />
+    <property name="libs.jsf12.maven-pom" value="" />
+    <property name="libs.hibernate4-persistencemodelgen.classpath" value="C:\Program Files\NetBeans\java\modules\ext\hibernate4\hibernate-jpamodelgen-4.3.1.Final.jar" />
+    <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
+    <property name="main.class" value="" />
+    <property name="libs.CopyLibs.src" value="" />
+    <property name="build.dir" value="build" />
+    <property name="libs.jsp-compilation.classpath" value="C:\Program Files\NetBeans\extide\ant\lib\ant.jar;C:\Program Files\NetBeans\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\Program Files\NetBeans\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar;C:\Program Files\NetBeans\enterprise\modules\ext\jstl-api.jar;C:\Program Files\NetBeans\extide\ant\lib\ant-launcher.jar" />
+    <property name="debug.modulepath" value="" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.7 compiled on April 9 2016" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
+    <property name="jdkBug6558476" value="false" />
+    <property name="javadoc.nonavbar" value="false" />
+    <property name="libs.spring-webmvc4.0.classpath" value="C:\Program Files\NetBeans\java\modules\ext\spring-4\spring-webmvc-4.0.1.RELEASE.jar" />
+    <property name="platform.active" value="default_platform" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="biosphere7.JoueurBiosphere7Test" name="testEtouffe" time="0.0" />
-  <testcase classname="biosphere7.JoueurBiosphere7Test" name="testSymbiose" time="0.0" />
-  <testcase classname="biosphere7.JoueurBiosphere7Test" name="testArbresVoisins" time="0.006" />
+  <testcase classname="biosphere7.JoueurBiosphere7Test" name="testEtouffe" time="0.078" />
+  <testcase classname="biosphere7.JoueurBiosphere7Test" name="testSymbiose" time="0.015" />
+  <testcase classname="biosphere7.JoueurBiosphere7Test" name="testArbresVoisins" time="0.0" />
   <testcase classname="biosphere7.JoueurBiosphere7Test" name="testTest" time="0.0" />
-  <testcase classname="biosphere7.JoueurBiosphere7Test" name="testAjoutVitalite" time="0.0" />
   <testcase classname="biosphere7.JoueurBiosphere7Test" name="testAjoutActionCouper" time="0.0" />
   <testcase classname="biosphere7.JoueurBiosphere7Test" name="testAjoutActionPommier" time="0.0" />
-  <testcase classname="biosphere7.JoueurBiosphere7Test" name="testActionsPossibles" time="0.317" />
+  <testcase classname="biosphere7.JoueurBiosphere7Test" name="testActionsPossibles" time="0.297" />
   <testcase classname="biosphere7.JoueurBiosphere7Test" name="testRegardeSiArbre" time="0.0" />
   <system-out><![CDATA[0
-actionsPossibles : lancement le 28/11/2019 22:21:01.841
+actionsPossibles : lancement le 29/11/2019 08:30:09.979
 actionsPossibles : fin
-actionsPossibles : lancement le 28/11/2019 22:21:01.857
+actionsPossibles : lancement le 29/11/2019 08:30:10.026
 actionsPossibles : fin
-actionsPossibles : lancement le 28/11/2019 22:21:01.857
+actionsPossibles : lancement le 29/11/2019 08:30:10.026
 actionsPossibles : fin
-actionsPossibles : lancement le 28/11/2019 22:21:01.872
+actionsPossibles : lancement le 29/11/2019 08:30:10.026
 actionsPossibles : fin
-actionsPossibles : lancement le 28/11/2019 22:21:01.872
+actionsPossibles : lancement le 29/11/2019 08:30:10.041
 actionsPossibles : fin
 [PaA,13,6, SaA,13,6, BaA,13,6, DaA,13,6, TaA,13,6, HaA,13,6, PaB,13,6, SaB,13,6, BaB,13,6, DaB,13,6, TaB,13,6, HaB,13,6, PaC,13,6, SaC,13,6, BaC,13,6, DaC,13,6, TaC,13,6, HaC,13,6, PaD,13,6, SaD,13,6, BaD,13,6, DaD,13,6, TaD,13,6, HaD,13,6, PaE,13,6, SaE,13,6, BaE,13,6, DaE,13,6, TaE,13,6, HaE,13,6, PaF,13,6, SaF,13,6, BaF,13,6, DaF,13,6, TaF,13,6, HaF,13,6, PaG,13,6, SaG,13,6, BaG,13,6, DaG,13,6, TaG,13,6, HaG,13,6, PaH,13,6, SaH,13,6, BaH,13,6, DaH,13,6, TaH,13,6, HaH,13,6, PaI,13,6, SaI,13,6, BaI,13,6, DaI,13,6, TaI,13,6, HaI,13,6, PaJ,13,6, SaJ,13,6, BaJ,13,6, DaJ,13,6, TaJ,13,6, HaJ,13,6, PaK,13,6, SaK,13,6, BaK,13,6, DaK,13,6, TaK,13,6, HaK,13,6, PaL,13,7, SaL,13,7, BaL,13,7, DaL,13,7, TaL,13,7, HaL,13,7, CaM,13,4, FaM,13,6, PaN,13,7, SaN,13,7, BaN,13,7, DaN,13,7, TaN,13,7, HaN,13,7, PbA,13,6, SbA,13,6, BbA,13,6, DbA,13,6, TbA,13,6, HbA,13,6, PbB,13,6, SbB,13,6, BbB,13,6, DbB,13,6, TbB,13,6, HbB,13,6, PbC,13,6, SbC,13,6, BbC,13,6, DbC,13,6, TbC,13,6, HbC,13,6, PbD,13,6, SbD,13,6, BbD,13,6, DbD,13,6, TbD,13,6, HbD,13,6, PbE,13,6, SbE,13,6, BbE,13,6, DbE,13,6, TbE,13,6, HbE,13,6, PbF,13,6, SbF,13,6, BbF,13,6, DbF,13,6, TbF,13,6, HbF,13,6, PbG,13,6, SbG,13,6, BbG,13,6, DbG,13,6, TbG,13,6, HbG,13,6, PbH,13,6, SbH,13,6, BbH,13,6, DbH,13,6, TbH,13,6, HbH,13,6, PbI,13,6, SbI,13,6, BbI,13,6, DbI,13,6, TbI,13,6, HbI,13,6, PbJ,13,6, SbJ,13,6, BbJ,13,6, DbJ,13,6, TbJ,13,6, HbJ,13,6, PbK,13,6, SbK,13,6, BbK,13,6, DbK,13,6, TbK,13,6, HbK,13,6, PbL,13,6, SbL,13,6, BbL,13,6, DbL,13,6, TbL,13,6, HbL,13,6, PbM,13,7, SbM,13,7, BbM,13,7, DbM,13,7, TbM,13,7, HbM,13,7, PbN,13,6, SbN,13,6, BbN,13,6, DbN,13,6, TbN,13,6, HbN,13,6, PcA,13,6, ScA,13,6, BcA,13,6, DcA,13,6, TcA,13,6, HcA,13,6, PcB,13,6, ScB,13,6, BcB,13,6, DcB,13,6, TcB,13,6, HcB,13,6, PcC,13,6, ScC,13,6, BcC,13,6, DcC,13,6, TcC,13,6, HcC,13,6, PcD,13,6, ScD,13,6, BcD,13,6, DcD,13,6, TcD,13,6, HcD,13,6, PcE,13,6, ScE,13,6, BcE,13,6, DcE,13,6, TcE,13,6, HcE,13,6, PcF,13,6, ScF,13,6, BcF,13,6, DcF,13,6, TcF,13,6, HcF,13,6, PcG,13,6, ScG,13,6, BcG,13,6, DcG,13,6, TcG,13,6, HcG,13,6, PcH,13,6, ScH,13,6, BcH,13,6, DcH,13,6, TcH,13,6, HcH,13,6, PcI,13,6, ScI,13,6, BcI,13,6, DcI,13,6, TcI,13,6, HcI,13,6, PcJ,13,6, ScJ,13,6, BcJ,13,6, DcJ,13,6, TcJ,13,6, HcJ,13,6, PcK,13,6, ScK,13,6, BcK,13,6, DcK,13,6, TcK,13,6, HcK,13,6, PcL,13,6, ScL,13,6, BcL,13,6, DcL,13,6, TcL,13,6, HcL,13,6, PcM,13,6, ScM,13,6, BcM,13,6, DcM,13,6, TcM,13,6, HcM,13,6, PcN,13,6, ScN,13,6, BcN,13,6, DcN,13,6, TcN,13,6, HcN,13,6, PdA,13,7, SdA,13,7, BdA,13,7, DdA,13,7, TdA,13,7, HdA,13,7, PdB,13,6, SdB,13,6, BdB,13,6, DdB,13,6, TdB,13,6, HdB,13,6, PdC,13,6, SdC,13,6, BdC,13,6, DdC,13,6, TdC,13,6, HdC,13,6, PdD,13,6, SdD,13,6, BdD,13,6, DdD,13,6, TdD,13,6, HdD,13,6, PdE,13,6, SdE,13,6, BdE,13,6, DdE,13,6, TdE,13,6, HdE,13,6, PdF,13,6, SdF,13,6, BdF,13,6, DdF,13,6, TdF,13,6, HdF,13,6, PdG,13,6, SdG,13,6, BdG,13,6, DdG,13,6, TdG,13,6, HdG,13,6, PdH,13,6, SdH,13,6, BdH,13,6, DdH,13,6, TdH,13,6, HdH,13,6, CdI,12,5, FdI,14,5, PdJ,13,6, SdJ,13,6, BdJ,13,6, DdJ,13,6, TdJ,13,6, HdJ,13,6, PdK,13,6, SdK,13,6, BdK,13,6, DdK,13,6, TdK,13,6, HdK,13,6, PdL,13,6, SdL,13,6, BdL,13,6, DdL,13,6, TdL,13,6, HdL,13,6, PdM,13,6, SdM,13,6, BdM,13,6, DdM,13,6, TdM,13,6, HdM,13,6, PdN,13,6, SdN,13,6, BdN,13,6, DdN,13,6, TdN,13,6, HdN,13,6, CeA,13,4, FeA,13,6, PeB,13,8, SeB,13,8, BeB,13,8, DeB,13,8, TeB,13,8, HeB,13,8, PeC,13,6, SeC,13,6, BeC,13,6, DeC,13,6, TeC,13,6, HeC,13,6, PeD,13,6, SeD,13,6, BeD,13,6, DeD,13,6, TeD,13,6, HeD,13,6, PeE,13,6, SeE,13,6, BeE,13,6, DeE,13,6, TeE,13,6, HeE,13,6, PeF,13,6, SeF,13,6, BeF,13,6, DeF,13,6, TeF,13,6, HeF,13,6, PeG,13,6, SeG,13,6, BeG,13,6, DeG,13,6, TeG,13,6, HeG,13,6, CeH,12,5, FeH,14,5, PeI,13,6, SeI,13,6, BeI,13,6, DeI,13,6, TeI,13,6, HeI,13,6, PeJ,13,6, SeJ,13,6, BeJ,13,6, DeJ,13,6, TeJ,13,6, HeJ,13,6, PeK,13,6, SeK,13,6, BeK,13,6, DeK,13,6, TeK,13,6, HeK,13,6, PeL,13,6, SeL,13,6, BeL,13,6, DeL,13,6, TeL,13,6, HeL,13,6, PeM,13,6, SeM,13,6, BeM,13,6, DeM,13,6, TeM,13,6, HeM,13,6, PeN,13,6, SeN,13,6, BeN,13,6, DeN,13,6, TeN,13,6, HeN,13,6, PfA,13,8, SfA,13,8, BfA,13,8, DfA,13,8, TfA,13,8, HfA,13,8, CfB,13,4, FfB,13,6, PfC,13,7, SfC,13,7, BfC,13,7, DfC,13,7, TfC,13,7, HfC,13,7, PfD,13,6, SfD,13,6, BfD,13,6, DfD,13,6, TfD,13,6, HfD,13,6, PfE,13,6, SfE,13,6, BfE,13,6, DfE,13,6, TfE,13,6, HfE,13,6, PfF,13,6, SfF,13,6, BfF,13,6, DfF,13,6, TfF,13,6, HfF,13,6, PfG,13,6, SfG,13,6, BfG,13,6, DfG,13,6, TfG,13,6, HfG,13,6, PfH,13,6, SfH,13,6, BfH,13,6, DfH,13,6, TfH,13,6, HfH,13,6, CfI,12,5, FfI,14,5, PfJ,13,6, SfJ,13,6, BfJ,13,6, DfJ,13,6, TfJ,13,6, HfJ,13,6, PfK,13,6, SfK,13,6, BfK,13,6, DfK,13,6, TfK,13,6, HfK,13,6, PfL,13,6, SfL,13,6, BfL,13,6, DfL,13,6, TfL,13,6, HfL,13,6, PfM,13,6, SfM,13,6, BfM,13,6, DfM,13,6, TfM,13,6, HfM,13,6, PfN,13,6, SfN,13,6, BfN,13,6, DfN,13,6, TfN,13,6, HfN,13,6, PgA,13,6, SgA,13,6, BgA,13,6, DgA,13,6, TgA,13,6, HgA,13,6, PgB,13,7, SgB,13,7, BgB,13,7, DgB,13,7, TgB,13,7, HgB,13,7, PgC,13,6, SgC,13,6, BgC,13,6, DgC,13,6, TgC,13,6, HgC,13,6, PgD,13,6, SgD,13,6, BgD,13,6, DgD,13,6, TgD,13,6, HgD,13,6, PgE,13,6, SgE,13,6, BgE,13,6, DgE,13,6, TgE,13,6, HgE,13,6, PgF,13,6, SgF,13,6, BgF,13,6, DgF,13,6, TgF,13,6, HgF,13,6, PgG,13,6, SgG,13,6, BgG,13,6, DgG,13,6, TgG,13,6, HgG,13,6, PgH,13,6, SgH,13,6, BgH,13,6, DgH,13,6, TgH,13,6, HgH,13,6, PgI,13,6, SgI,13,6, BgI,13,6, DgI,13,6, TgI,13,6, HgI,13,6, PgJ,13,6, SgJ,13,6, BgJ,13,6, DgJ,13,6, TgJ,13,6, HgJ,13,6, PgK,13,6, SgK,13,6, BgK,13,6, DgK,13,6, TgK,13,6, HgK,13,6, PgL,13,6, SgL,13,6, BgL,13,6, DgL,13,6, TgL,13,6, HgL,13,6, PgM,13,6, SgM,13,6, BgM,13,6, DgM,13,6, TgM,13,6, HgM,13,6, PgN,13,6, SgN,13,6, BgN,13,6, DgN,13,6, TgN,13,6, HgN,13,6, PhA,13,6, ShA,13,6, BhA,13,6, DhA,13,6, ThA,13,6, HhA,13,6, PhB,13,6, ShB,13,6, BhB,13,6, DhB,13,6, ThB,13,6, HhB,13,6, PhC,13,6, ShC,13,6, BhC,13,6, DhC,13,6, ThC,13,6, HhC,13,6, PhD,13,6, ShD,13,6, BhD,13,6, DhD,13,6, ThD,13,6, HhD,13,6, PhE,13,6, ShE,13,6, BhE,13,6, DhE,13,6, ThE,13,6, HhE,13,6, PhF,13,6, ShF,13,6, BhF,13,6, DhF,13,6, ThF,13,6, HhF,13,6, PhG,13,6, ShG,13,6, BhG,13,6, DhG,13,6, ThG,13,6, HhG,13,6, PhH,13,6, ShH,13,6, BhH,13,6, DhH,13,6, ThH,13,6, HhH,13,6, PhI,13,6, ShI,13,6, BhI,13,6, DhI,13,6, ThI,13,6, HhI,13,6, PhJ,13,6, ShJ,13,6, BhJ,13,6, DhJ,13,6, ThJ,13,6, HhJ,13,6, PhK,13,6, ShK,13,6, BhK,13,6, DhK,13,6, ThK,13,6, HhK,13,6, PhL,13,6, ShL,13,6, BhL,13,6, DhL,13,6, ThL,13,6, HhL,13,6, PhM,13,6, ShM,13,6, BhM,13,6, DhM,13,6, ThM,13,6, HhM,13,6, PhN,13,6, ShN,13,6, BhN,13,6, DhN,13,6, ThN,13,6, HhN,13,6, PiA,13,6, SiA,13,6, BiA,13,6, DiA,13,6, TiA,13,6, HiA,13,6, PiB,13,6, SiB,13,6, BiB,13,6, DiB,13,6, TiB,13,6, HiB,13,6, PiC,13,6, SiC,13,6, BiC,13,6, DiC,13,6, TiC,13,6, HiC,13,6, PiD,13,6, SiD,13,6, BiD,13,6, DiD,13,6, TiD,13,6, HiD,13,6, PiE,13,6, SiE,13,6, BiE,13,6, DiE,13,6, TiE,13,6, HiE,13,6, PiF,13,6, SiF,13,6, BiF,13,6, DiF,13,6, TiF,13,6, HiF,13,6, PiG,13,6, SiG,13,6, BiG,13,6, DiG,13,6, TiG,13,6, HiG,13,6, PiH,13,6, SiH,13,6, BiH,13,6, DiH,13,6, TiH,13,6, HiH,13,6, PiI,13,6, SiI,13,6, BiI,13,6, DiI,13,6, TiI,13,6, HiI,13,6, PiJ,13,6, SiJ,13,6, BiJ,13,6, DiJ,13,6, TiJ,13,6, HiJ,13,6, PiK,13,6, SiK,13,6, BiK,13,6, DiK,13,6, TiK,13,6, HiK,13,6, PiL,13,6, SiL,13,6, BiL,13,6, DiL,13,6, TiL,13,6, HiL,13,6, PiM,13,6, SiM,13,6, BiM,13,6, DiM,13,6, TiM,13,6, HiM,13,6, PiN,13,6, SiN,13,6, BiN,13,6, DiN,13,6, TiN,13,6, HiN,13,6, PjA,13,6, SjA,13,6, BjA,13,6, DjA,13,6, TjA,13,6, HjA,13,6, PjB,13,6, SjB,13,6, BjB,13,6, DjB,13,6, TjB,13,6, HjB,13,6, PjC,13,6, SjC,13,6, BjC,13,6, DjC,13,6, TjC,13,6, HjC,13,6, PjD,13,6, SjD,13,6, BjD,13,6, DjD,13,6, TjD,13,6, HjD,13,6, PjE,13,6, SjE,13,6, BjE,13,6, DjE,13,6, TjE,13,6, HjE,13,6, PjF,13,6, SjF,13,6, BjF,13,6, DjF,13,6, TjF,13,6, HjF,13,6, PjG,13,6, SjG,13,6, BjG,13,6, DjG,13,6, TjG,13,6, HjG,13,6, PjH,13,6, SjH,13,6, BjH,13,6, DjH,13,6, TjH,13,6, HjH,13,6, PjI,13,6, SjI,13,6, BjI,13,6, DjI,13,6, TjI,13,6, HjI,13,6, PjJ,13,6, SjJ,13,6, BjJ,13,6, DjJ,13,6, TjJ,13,6, HjJ,13,6, PjK,13,6, SjK,13,6, BjK,13,6, DjK,13,6, TjK,13,6, HjK,13,6, PjL,13,6, SjL,13,6, BjL,13,6, DjL,13,6, TjL,13,6, HjL,13,6, PjM,13,6, SjM,13,6, BjM,13,6, DjM,13,6, TjM,13,6, HjM,13,6, PjN,13,6, SjN,13,6, BjN,13,6, DjN,13,6, TjN,13,6, HjN,13,6, PkA,13,6, SkA,13,6, BkA,13,6, DkA,13,6, TkA,13,6, HkA,13,6, PkB,13,6, SkB,13,6, BkB,13,6, DkB,13,6, TkB,13,6, HkB,13,6, PkC,13,6, SkC,13,6, BkC,13,6, DkC,13,6, TkC,13,6, HkC,13,6, PkD,13,6, SkD,13,6, BkD,13,6, DkD,13,6, TkD,13,6, HkD,13,6, PkE,13,6, SkE,13,6, BkE,13,6, DkE,13,6, TkE,13,6, HkE,13,6, PkF,13,6, SkF,13,6, BkF,13,6, DkF,13,6, TkF,13,6, HkF,13,6, PkG,13,6, SkG,13,6, BkG,13,6, DkG,13,6, TkG,13,6, HkG,13,6, PkH,13,6, SkH,13,6, BkH,13,6, DkH,13,6, TkH,13,6, HkH,13,6, PkI,13,6, SkI,13,6, BkI,13,6, DkI,13,6, TkI,13,6, HkI,13,6, PkJ,13,6, SkJ,13,6, BkJ,13,6, DkJ,13,6, TkJ,13,6, HkJ,13,6, PkK,13,6, SkK,13,6, BkK,13,6, DkK,13,6, TkK,13,6, HkK,13,6, PkL,13,6, SkL,13,6, BkL,13,6, DkL,13,6, TkL,13,6, HkL,13,6, PkM,13,6, SkM,13,6, BkM,13,6, DkM,13,6, TkM,13,6, HkM,13,6, PkN,13,6, SkN,13,6, BkN,13,6, DkN,13,6, TkN,13,6, HkN,13,6, PlA,13,6, SlA,13,6, BlA,13,6, DlA,13,6, TlA,13,6, HlA,13,6, PlB,13,6, SlB,13,6, BlB,13,6, DlB,13,6, TlB,13,6, HlB,13,6, PlC,13,6, SlC,13,6, BlC,13,6, DlC,13,6, TlC,13,6, HlC,13,6, PlD,13,7, SlD,13,7, BlD,13,7, DlD,13,7, TlD,13,7, HlD,13,7, ClE,12,5, FlE,14,5, PlF,13,6, SlF,13,6, BlF,13,6, DlF,13,6, TlF,13,6, HlF,13,6, PlG,13,6, SlG,13,6, BlG,13,6, DlG,13,6, TlG,13,6, HlG,13,6, PlH,13,6, SlH,13,6, BlH,13,6, DlH,13,6, TlH,13,6, HlH,13,6, PlI,13,6, SlI,13,6, BlI,13,6, DlI,13,6, TlI,13,6, HlI,13,6, PlJ,13,6, SlJ,13,6, BlJ,13,6, DlJ,13,6, TlJ,13,6, HlJ,13,6, PlK,13,6, SlK,13,6, BlK,13,6, DlK,13,6, TlK,13,6, HlK,13,6, PlL,13,6, SlL,13,6, BlL,13,6, DlL,13,6, TlL,13,6, HlL,13,6, PlM,13,6, SlM,13,6, BlM,13,6, DlM,13,6, TlM,13,6, HlM,13,6, PlN,13,6, SlN,13,6, BlN,13,6, DlN,13,6, TlN,13,6, HlN,13,6, PmA,13,6, SmA,13,6, BmA,13,6, DmA,13,6, TmA,13,6, HmA,13,6, PmB,13,6, SmB,13,6, BmB,13,6, DmB,13,6, TmB,13,6, HmB,13,6, PmC,13,7, SmC,13,7, BmC,13,7, DmC,13,7, TmC,13,7, HmC,13,7, CmD,13,4, FmD,13,6, CmF,4,5, FmF,13,5, PmG,13,6, SmG,13,6, BmG,13,6, DmG,13,6, TmG,13,6, HmG,13,6, PmH,13,6, SmH,13,6, BmH,13,6, DmH,13,6, TmH,13,6, HmH,13,6, PmI,13,6, SmI,13,6, BmI,13,6, DmI,13,6, TmI,13,6, HmI,13,6, PmJ,13,6, SmJ,13,6, BmJ,13,6, DmJ,13,6, TmJ,13,6, HmJ,13,6, PmK,13,6, SmK,13,6, BmK,13,6, DmK,13,6, TmK,13,6, HmK,13,6, PmL,13,6, SmL,13,6, BmL,13,6, DmL,13,6, TmL,13,6, HmL,13,6, PmM,13,6, SmM,13,6, BmM,13,6, DmM,13,6, TmM,13,6, HmM,13,6, PmN,13,6, SmN,13,6, BmN,13,6, DmN,13,6, TmN,13,6, HmN,13,6, PnA,13,6, SnA,13,6, BnA,13,6, DnA,13,6, TnA,13,6, HnA,13,6, PnB,13,6, SnB,13,6, BnB,13,6, DnB,13,6, TnB,13,6, HnB,13,6, PnC,13,6, SnC,13,6, BnC,13,6, DnC,13,6, TnC,13,6, HnC,13,6, PnD,13,8, SnD,13,8, BnD,13,8, DnD,13,8, TnD,13,8, HnD,13,8, CnE,13,4, FnE,13,6, PnF,13,7, SnF,13,7, BnF,13,7, DnF,13,7, TnF,13,7, HnF,13,7, PnG,13,6, SnG,13,6, BnG,13,6, DnG,13,6, TnG,13,6, HnG,13,6, PnH,13,6, SnH,13,6, BnH,13,6, DnH,13,6, TnH,13,6, HnH,13,6, PnI,13,6, SnI,13,6, BnI,13,6, DnI,13,6, TnI,13,6, HnI,13,6, PnJ,13,6, SnJ,13,6, BnJ,13,6, DnJ,13,6, TnJ,13,6, HnJ,13,6, PnK,13,6, SnK,13,6, BnK,13,6, DnK,13,6, TnK,13,6, HnK,13,6, PnL,13,6, SnL,13,6, BnL,13,6, DnL,13,6, TnL,13,6, HnL,13,6, PnM,13,6, SnM,13,6, BnM,13,6, DnM,13,6, TnM,13,6, HnM,13,6, PnN,13,6, SnN,13,6, BnN,13,6, DnN,13,6, TnN,13,6, HnN,13,6]
-actionsPossibles : lancement le 28/11/2019 22:21:01.957
+actionsPossibles : lancement le 29/11/2019 08:30:10.057
 actionsPossibles : fin
-[PaA,21,12, SaA,21,12, BaA,21,12, DaA,21,12, TaA,21,12, HaA,21,12, PaB,21,12, SaB,21,12, BaB,21,12, DaB,21,12, TaB,21,12, HaB,21,12, PaC,21,12, SaC,21,12, BaC,21,12, DaC,21,12, TaC,21,12, HaC,21,12, PaD,21,12, SaD,21,12, BaD,21,12, DaD,21,12, TaD,21,12, HaD,21,12, PaE,21,12, SaE,21,12, BaE,21,12, DaE,21,12, TaE,21,12, HaE,21,12, PaF,21,12, SaF,21,12, BaF,21,12, DaF,21,12, TaF,21,12, HaF,21,12, PaG,21,12, SaG,21,12, BaG,21,12, DaG,21,12, TaG,21,12, HaG,21,12, PaH,21,12, SaH,21,12, BaH,21,12, DaH,21,12, TaH,21,12, HaH,21,12, PaI,21,12, SaI,21,12, BaI,21,12, DaI,21,12, TaI,21,12, HaI,21,12, PaJ,21,12, SaJ,21,12, BaJ,21,12, DaJ,21,12, TaJ,21,12, HaJ,21,12, PaK,21,12, SaK,21,12, BaK,21,12, DaK,21,12, TaK,21,12, HaK,21,12, PaL,21,12, SaL,21,12, BaL,21,12, DaL,21,12, TaL,21,12, HaL,21,12, CaM,20,11, FaM,20,13, PaN,21,12, SaN,21,12, BaN,21,12, DaN,21,12, TaN,21,12, HaN,21,12, PbA,21,12, SbA,21,12, BbA,21,12, DbA,21,12, TbA,21,12, HbA,21,12, PbB,21,12, SbB,21,12, BbB,21,12, DbB,21,12, TbB,21,12, HbB,21,12, PbC,21,12, SbC,21,12, BbC,21,12, DbC,21,12, TbC,21,12, HbC,21,12, PbD,21,12, SbD,21,12, BbD,21,12, DbD,21,12, TbD,21,12, HbD,21,12, PbE,21,12, SbE,21,12, BbE,21,12, DbE,21,12, TbE,21,12, HbE,21,12, PbF,21,12, SbF,21,12, BbF,21,12, DbF,21,12, TbF,21,12, HbF,21,12, PbG,21,12, SbG,21,12, BbG,21,12, DbG,21,12, TbG,21,12, HbG,21,12, PbH,21,12, SbH,21,12, BbH,21,12, DbH,21,12, TbH,21,12, HbH,21,12, PbI,21,12, SbI,21,12, BbI,21,12, DbI,21,12, TbI,21,12, HbI,21,12, PbJ,21,12, SbJ,21,12, BbJ,21,12, DbJ,21,12, TbJ,21,12, HbJ,21,12, PbK,21,12, SbK,21,12, BbK,21,12, DbK,21,12, TbK,21,12, HbK,21,12, PbL,21,12, SbL,21,12, BbL,21,12, DbL,21,12, TbL,21,12, HbL,21,12, PbM,21,12, SbM,21,12, BbM,21,12, DbM,21,12, TbM,21,12, HbM,21,12, PbN,21,12, SbN,21,12, BbN,21,12, DbN,21,12, TbN,21,12, HbN,21,12, PcA,21,12, ScA,21,12, BcA,21,12, DcA,21,12, TcA,21,12, HcA,21,12, PcB,21,12, ScB,21,12, BcB,21,12, DcB,21,12, TcB,21,12, HcB,21,12, PcC,21,12, ScC,21,12, BcC,21,12, DcC,21,12, TcC,21,12, HcC,21,12, PcD,21,12, ScD,21,12, BcD,21,12, DcD,21,12, TcD,21,12, HcD,21,12, PcE,21,12, ScE,21,12, BcE,21,12, DcE,21,12, TcE,21,12, HcE,21,12, PcF,21,12, ScF,21,12, BcF,21,12, DcF,21,12, TcF,21,12, HcF,21,12, PcG,21,12, ScG,21,12, BcG,21,12, DcG,21,12, TcG,21,12, HcG,21,12, PcH,21,12, ScH,21,12, BcH,21,12, DcH,21,12, TcH,21,12, HcH,21,12, CcI,21,11, FcI,20,13, PcJ,21,12, ScJ,21,12, BcJ,21,12, DcJ,21,12, TcJ,21,12, HcJ,21,12, PcK,21,12, ScK,21,12, BcK,21,12, DcK,21,12, TcK,21,12, HcK,21,12, PcL,21,12, ScL,21,12, BcL,21,12, DcL,21,12, TcL,21,12, HcL,21,12, PcM,21,12, ScM,21,12, BcM,21,12, DcM,21,12, TcM,21,12, HcM,21,12, PcN,21,12, ScN,21,12, BcN,21,12, DcN,21,12, TcN,21,12, HcN,21,12, PdA,21,12, SdA,21,12, BdA,21,12, DdA,21,12, TdA,21,12, HdA,21,12, PdB,21,12, SdB,21,12, BdB,21,12, DdB,21,12, TdB,21,12, HdB,21,12, PdC,21,12, SdC,21,12, BdC,21,12, DdC,21,12, TdC,21,12, HdC,21,12, PdD,21,12, SdD,21,12, BdD,21,12, DdD,21,12, TdD,21,12, HdD,21,12, PdE,21,12, SdE,21,12, BdE,21,12, DdE,21,12, TdE,21,12, HdE,21,12, PdF,21,12, SdF,21,12, BdF,21,12, DdF,21,12, TdF,21,12, HdF,21,12, PdG,21,12, SdG,21,12, BdG,21,12, DdG,21,12, TdG,21,12, HdG,21,12, CdH,22,11, FdH,20,13, CdI,19,15, FdI,21,12, CdJ,21,11, FdJ,20,13, PdK,21,12, SdK,21,12, BdK,21,12, DdK,21,12, TdK,21,12, HdK,21,12, PdL,21,12, SdL,21,12, BdL,21,12, DdL,21,12, TdL,21,12, HdL,21,12, PdM,21,12, SdM,21,12, BdM,21,12, DdM,21,12, TdM,21,12, HdM,21,12, PdN,21,12, SdN,21,12, BdN,21,12, DdN,21,12, TdN,21,12, HdN,21,12, CeA,20,11, FeA,20,13, PeB,21,12, SeB,21,12, BeB,21,12, DeB,21,12, TeB,21,12, HeB,21,12, PeC,21,12, SeC,21,12, BeC,21,12, DeC,21,12, TeC,21,12, HeC,21,12, PeD,21,12, SeD,21,12, BeD,21,12, DeD,21,12, TeD,21,12, HeD,21,12, PeE,21,12, SeE,21,12, BeE,21,12, DeE,21,12, TeE,21,12, HeE,21,12, PeF,21,12, SeF,21,12, BeF,21,12, DeF,21,12, TeF,21,12, HeF,21,12, PeG,22,12, SeG,22,12, BeG,22,12, DeG,22,12, TeG,22,12, HeG,22,12, CeH,19,13, FeH,21,12, PeI,23,12, SeI,23,12, BeI,23,12, DeI,23,12, TeI,23,12, HeI,23,12, PeJ,21,12, SeJ,21,12, BeJ,21,12, DeJ,21,12, TeJ,21,12, HeJ,21,12, PeK,21,12, SeK,21,12, BeK,21,12, DeK,21,12, TeK,21,12, HeK,21,12, PeL,21,12, SeL,21,12, BeL,21,12, DeL,21,12, TeL,21,12, HeL,21,12, PeM,21,12, SeM,21,12, BeM,21,12, DeM,21,12, TeM,21,12, HeM,21,12, PeN,21,12, SeN,21,12, BeN,21,12, DeN,21,12, TeN,21,12, HeN,21,12, PfA,21,12, SfA,21,12, BfA,21,12, DfA,21,12, TfA,21,12, HfA,21,12, CfB,20,11, FfB,20,13, PfC,21,12, SfC,21,12, BfC,21,12, DfC,21,12, TfC,21,12, HfC,21,12, PfD,21,12, SfD,21,12, BfD,21,12, DfD,21,12, TfD,21,12, HfD,21,12, PfE,21,12, SfE,21,12, BfE,21,12, DfE,21,12, TfE,21,12, HfE,21,12, PfF,21,12, SfF,21,12, BfF,21,12, DfF,21,12, TfF,21,12, HfF,21,12, PfG,21,12, SfG,21,12, BfG,21,12, DfG,21,12, TfG,21,12, HfG,21,12, PfH,23,12, SfH,23,12, BfH,23,12, DfH,23,12, TfH,23,12, HfH,23,12, CfI,19,12, FfI,21,12, PfJ,22,12, SfJ,22,12, BfJ,22,12, DfJ,22,12, TfJ,22,12, HfJ,22,12, PfK,21,12, SfK,21,12, BfK,21,12, DfK,21,12, TfK,21,12, HfK,21,12, PfL,21,12, SfL,21,12, BfL,21,12, DfL,21,12, TfL,21,12, HfL,21,12, PfM,21,12, SfM,21,12, BfM,21,12, DfM,21,12, TfM,21,12, HfM,21,12, PfN,21,12, SfN,21,12, BfN,21,12, DfN,21,12, TfN,21,12, HfN,21,12, PgA,21,12, SgA,21,12, BgA,21,12, DgA,21,12, TgA,21,12, HgA,21,12, PgB,21,12, SgB,21,12, BgB,21,12, DgB,21,12, TgB,21,12, HgB,21,12, PgC,21,12, SgC,21,12, BgC,21,12, DgC,21,12, TgC,21,12, HgC,21,12, PgD,21,12, SgD,21,12, BgD,21,12, DgD,21,12, TgD,21,12, HgD,21,12, PgE,21,12, SgE,21,12, BgE,21,12, DgE,21,12, TgE,21,12, HgE,21,12, PgF,21,12, SgF,21,12, BgF,21,12, DgF,21,12, TgF,21,12, HgF,21,12, PgG,21,12, SgG,21,12, BgG,21,12, DgG,21,12, TgG,21,12, HgG,21,12, PgH,21,12, SgH,21,12, BgH,21,12, DgH,21,12, TgH,21,12, HgH,21,12, PgI,22,12, SgI,22,12, BgI,22,12, DgI,22,12, TgI,22,12, HgI,22,12, PgJ,21,12, SgJ,21,12, BgJ,21,12, DgJ,21,12, TgJ,21,12, HgJ,21,12, PgK,21,12, SgK,21,12, BgK,21,12, DgK,21,12, TgK,21,12, HgK,21,12, PgL,21,12, SgL,21,12, BgL,21,12, DgL,21,12, TgL,21,12, HgL,21,12, PgM,21,12, SgM,21,12, BgM,21,12, DgM,21,12, TgM,21,12, HgM,21,12, PgN,21,12, SgN,21,12, BgN,21,12, DgN,21,12, TgN,21,12, HgN,21,12, PhA,21,12, ShA,21,12, BhA,21,12, DhA,21,12, ThA,21,12, HhA,21,12, PhB,21,12, ShB,21,12, BhB,21,12, DhB,21,12, ThB,21,12, HhB,21,12, PhC,21,12, ShC,21,12, BhC,21,12, DhC,21,12, ThC,21,12, HhC,21,12, PhD,21,12, ShD,21,12, BhD,21,12, DhD,21,12, ThD,21,12, HhD,21,12, PhE,21,12, ShE,21,12, BhE,21,12, DhE,21,12, ThE,21,12, HhE,21,12, PhF,21,12, ShF,21,12, BhF,21,12, DhF,21,12, ThF,21,12, HhF,21,12, PhG,21,12, ShG,21,12, BhG,21,12, DhG,21,12, ThG,21,12, HhG,21,12, PhH,21,12, ShH,21,12, BhH,21,12, DhH,21,12, ThH,21,12, HhH,21,12, PhI,21,12, ShI,21,12, BhI,21,12, DhI,21,12, ThI,21,12, HhI,21,12, PhJ,21,12, ShJ,21,12, BhJ,21,12, DhJ,21,12, ThJ,21,12, HhJ,21,12, PhK,21,12, ShK,21,12, BhK,21,12, DhK,21,12, ThK,21,12, HhK,21,12, PhL,21,12, ShL,21,12, BhL,21,12, DhL,21,12, ThL,21,12, HhL,21,12, PhM,21,12, ShM,21,12, BhM,21,12, DhM,21,12, ThM,21,12, HhM,21,12, PhN,21,12, ShN,21,12, BhN,21,12, DhN,21,12, ThN,21,12, HhN,21,12, PiA,21,12, SiA,21,12, BiA,21,12, DiA,21,12, TiA,21,12, HiA,21,12, PiB,21,12, SiB,21,12, BiB,21,12, DiB,21,12, TiB,21,12, HiB,21,12, PiC,21,12, SiC,21,12, BiC,21,12, DiC,21,12, TiC,21,12, HiC,21,12, PiD,21,12, SiD,21,12, BiD,21,12, DiD,21,12, TiD,21,12, HiD,21,12, PiE,21,12, SiE,21,12, BiE,21,12, DiE,21,12, TiE,21,12, HiE,21,12, PiF,21,12, SiF,21,12, BiF,21,12, DiF,21,12, TiF,21,12, HiF,21,12, PiG,21,12, SiG,21,12, BiG,21,12, DiG,21,12, TiG,21,12, HiG,21,12, PiH,21,12, SiH,21,12, BiH,21,12, DiH,21,12, TiH,21,12, HiH,21,12, PiI,21,12, SiI,21,12, BiI,21,12, DiI,21,12, TiI,21,12, HiI,21,12, PiJ,21,12, SiJ,21,12, BiJ,21,12, DiJ,21,12, TiJ,21,12, HiJ,21,12, CiK,20,11, FiK,20,13, PiL,21,12, SiL,21,12, BiL,21,12, DiL,21,12, TiL,21,12, HiL,21,12, PiM,21,12, SiM,21,12, BiM,21,12, DiM,21,12, TiM,21,12, HiM,21,12, PiN,21,12, SiN,21,12, BiN,21,12, DiN,21,12, TiN,21,12, HiN,21,12, PjA,21,12, SjA,21,12, BjA,21,12, DjA,21,12, TjA,21,12, HjA,21,12, PjB,21,12, SjB,21,12, BjB,21,12, DjB,21,12, TjB,21,12, HjB,21,12, PjC,21,12, SjC,21,12, BjC,21,12, DjC,21,12, TjC,21,12, HjC,21,12, PjD,21,12, SjD,21,12, BjD,21,12, DjD,21,12, TjD,21,12, HjD,21,12, PjE,22,12, SjE,22,12, BjE,22,12, DjE,22,12, TjE,22,12, HjE,22,12, PjF,21,12, SjF,21,12, BjF,21,12, DjF,21,12, TjF,21,12, HjF,21,12, PjG,21,12, SjG,21,12, BjG,21,12, DjG,21,12, TjG,21,12, HjG,21,12, PjH,21,12, SjH,21,12, BjH,21,12, DjH,21,12, TjH,21,12, HjH,21,12, PjI,21,12, SjI,21,12, BjI,21,12, DjI,21,12, TjI,21,12, HjI,21,12, CjJ,20,11, FjJ,20,13, CjL,20,11, FjL,20,13, PjM,21,12, SjM,21,12, BjM,21,12, DjM,21,12, TjM,21,12, HjM,21,12, PjN,21,12, SjN,21,12, BjN,21,12, DjN,21,12, TjN,21,12, HjN,21,12, PkA,21,12, SkA,21,12, BkA,21,12, DkA,21,12, TkA,21,12, HkA,21,12, PkB,21,12, SkB,21,12, BkB,21,12, DkB,21,12, TkB,21,12, HkB,21,12, PkC,21,12, SkC,21,12, BkC,21,12, DkC,21,12, TkC,21,12, HkC,21,12, PkD,23,12, SkD,23,12, BkD,23,12, DkD,23,12, TkD,23,12, HkD,23,12, CkE,20,12, FkE,21,12, PkF,23,12, SkF,23,12, BkF,23,12, DkF,23,12, TkF,23,12, HkF,23,12, PkG,21,12, SkG,21,12, BkG,21,12, DkG,21,12, TkG,21,12, HkG,21,12, PkH,21,12, SkH,21,12, BkH,21,12, DkH,21,12, TkH,21,12, HkH,21,12, PkI,21,12, SkI,21,12, BkI,21,12, DkI,21,12, TkI,21,12, HkI,21,12, PkJ,21,12, SkJ,21,12, BkJ,21,12, DkJ,21,12, TkJ,21,12, HkJ,21,12, CkK,20,11, FkK,20,13, PkL,21,12, SkL,21,12, BkL,21,12, DkL,21,12, TkL,21,12, HkL,21,12, PkM,21,12, SkM,21,12, BkM,21,12, DkM,21,12, TkM,21,12, HkM,21,12, PkN,21,12, SkN,21,12, BkN,21,12, DkN,21,12, TkN,21,12, HkN,21,12, PlA,21,12, SlA,21,12, BlA,21,12, DlA,21,12, TlA,21,12, HlA,21,12, PlB,21,12, SlB,21,12, BlB,21,12, DlB,21,12, TlB,21,12, HlB,21,12, PlC,23,12, SlC,23,12, BlC,23,12, DlC,23,12, TlC,23,12, HlC,23,12, ClD,20,13, FlD,21,12, ClE,22,12, FlE,21,12, ClF,20,12, FlF,21,12, PlG,23,12, SlG,23,12, BlG,23,12, DlG,23,12, TlG,23,12, HlG,23,12, PlH,21,12, SlH,21,12, BlH,21,12, DlH,21,12, TlH,21,12, HlH,21,12, PlI,21,12, SlI,21,12, BlI,21,12, DlI,21,12, TlI,21,12, HlI,21,12, PlJ,21,12, SlJ,21,12, BlJ,21,12, DlJ,21,12, TlJ,21,12, HlJ,21,12, PlK,21,12, SlK,21,12, BlK,21,12, DlK,21,12, TlK,21,12, HlK,21,12, PlL,21,12, SlL,21,12, BlL,21,12, DlL,21,12, TlL,21,12, HlL,21,12, PlM,21,12, SlM,21,12, BlM,21,12, DlM,21,12, TlM,21,12, HlM,21,12, PlN,21,12, SlN,21,12, BlN,21,12, DlN,21,12, TlN,21,12, HlN,21,12, PmA,21,12, SmA,21,12, BmA,21,12, DmA,21,12, TmA,21,12, HmA,21,12, PmB,22,12, SmB,22,12, BmB,22,12, DmB,22,12, TmB,22,12, HmB,22,12, CmC,19,13, FmC,21,12, CmD,23,10, FmD,20,13, PmE,13,10, SmE,13,10, BmE,13,10, DmE,13,10, TmE,13,10, HmE,13,10, CmF,14,12, FmF,20,12, CmG,19,12, FmG,21,12, PmH,22,12, SmH,22,12, BmH,22,12, DmH,22,12, TmH,22,12, HmH,22,12, PmI,21,12, SmI,21,12, BmI,21,12, DmI,21,12, TmI,21,12, HmI,21,12, PmJ,21,12, SmJ,21,12, BmJ,21,12, DmJ,21,12, TmJ,21,12, HmJ,21,12, PmK,21,12, SmK,21,12, BmK,21,12, DmK,21,12, TmK,21,12, HmK,21,12, PmL,21,12, SmL,21,12, BmL,21,12, DmL,21,12, TmL,21,12, HmL,21,12, PmM,21,12, SmM,21,12, BmM,21,12, DmM,21,12, TmM,21,12, HmM,21,12, PmN,21,12, SmN,21,12, BmN,21,12, DmN,21,12, TmN,21,12, HmN,21,12, PnA,21,12, SnA,21,12, BnA,21,12, DnA,21,12, TnA,21,12, HnA,21,12, PnB,21,12, SnB,21,12, BnB,21,12, DnB,21,12, TnB,21,12, HnB,21,12, PnC,23,12, SnC,23,12, BnC,23,12, DnC,23,12, TnC,23,12, HnC,23,12, CnD,19,13, FnD,21,12, PnE,23,12, SnE,23,12, BnE,23,12, DnE,23,12, TnE,23,12, HnE,23,12, CnF,19,12, FnF,21,12, PnG,23,12, SnG,23,12, BnG,23,12, DnG,23,12, TnG,23,12, HnG,23,12, PnH,21,12, SnH,21,12, BnH,21,12, DnH,21,12, TnH,21,12, HnH,21,12, PnI,21,12, SnI,21,12, BnI,21,12, DnI,21,12, TnI,21,12, HnI,21,12, PnJ,21,12, SnJ,21,12, BnJ,21,12, DnJ,21,12, TnJ,21,12, HnJ,21,12, PnK,21,12, SnK,21,12, BnK,21,12, DnK,21,12, TnK,21,12, HnK,21,12, PnL,21,12, SnL,21,12, BnL,21,12, DnL,21,12, TnL,21,12, HnL,21,12, PnM,21,12, SnM,21,12, BnM,21,12, DnM,21,12, TnM,21,12, HnM,21,12, PnN,21,12, SnN,21,12, BnN,21,12, DnN,21,12, TnN,21,12, HnN,21,12]
-actionsPossibles : lancement le 28/11/2019 22:21:02.057
+[PaA,21,12, SaA,21,12, BaA,21,12, DaA,21,12, TaA,21,12, HaA,21,12, PaB,21,12, SaB,21,12, BaB,21,12, DaB,21,12, TaB,21,12, HaB,21,12, PaC,21,12, SaC,21,12, BaC,21,12, DaC,21,12, TaC,21,12, HaC,21,12, PaD,21,12, SaD,21,12, BaD,21,12, DaD,21,12, TaD,21,12, HaD,21,12, PaE,21,12, SaE,21,12, BaE,21,12, DaE,21,12, TaE,21,12, HaE,21,12, PaF,21,12, SaF,21,12, BaF,21,12, DaF,21,12, TaF,21,12, HaF,21,12, PaG,21,12, SaG,21,12, BaG,21,12, DaG,21,12, TaG,21,12, HaG,21,12, PaH,21,12, SaH,21,12, BaH,21,12, DaH,21,12, TaH,21,12, HaH,21,12, PaI,21,12, SaI,21,12, BaI,21,12, DaI,21,12, TaI,21,12, HaI,21,12, PaJ,21,12, SaJ,21,12, BaJ,21,12, DaJ,21,12, TaJ,21,12, HaJ,21,12, PaK,21,12, SaK,21,12, BaK,21,12, DaK,21,12, TaK,21,12, HaK,21,12, PaL,21,12, SaL,21,12, BaL,21,12, DaL,21,12, TaL,21,12, HaL,21,12, CaM,20,11, FaM,20,13, PaN,21,12, SaN,21,12, BaN,21,12, DaN,21,12, TaN,21,12, HaN,21,12, PbA,21,12, SbA,21,12, BbA,21,12, DbA,21,12, TbA,21,12, HbA,21,12, PbB,21,12, SbB,21,12, BbB,21,12, DbB,21,12, TbB,21,12, HbB,21,12, PbC,21,12, SbC,21,12, BbC,21,12, DbC,21,12, TbC,21,12, HbC,21,12, PbD,21,12, SbD,21,12, BbD,21,12, DbD,21,12, TbD,21,12, HbD,21,12, PbE,21,12, SbE,21,12, BbE,21,12, DbE,21,12, TbE,21,12, HbE,21,12, PbF,21,12, SbF,21,12, BbF,21,12, DbF,21,12, TbF,21,12, HbF,21,12, PbG,21,12, SbG,21,12, BbG,21,12, DbG,21,12, TbG,21,12, HbG,21,12, PbH,21,12, SbH,21,12, BbH,21,12, DbH,21,12, TbH,21,12, HbH,21,12, PbI,21,12, SbI,21,12, BbI,21,12, DbI,21,12, TbI,21,12, HbI,21,12, PbJ,21,12, SbJ,21,12, BbJ,21,12, DbJ,21,12, TbJ,21,12, HbJ,21,12, PbK,21,12, SbK,21,12, BbK,21,12, DbK,21,12, TbK,21,12, HbK,21,12, PbL,21,12, SbL,21,12, BbL,21,12, DbL,21,12, TbL,21,12, HbL,21,12, PbM,21,12, SbM,21,12, BbM,21,12, DbM,21,12, TbM,21,12, HbM,21,12, PbN,21,12, SbN,21,12, BbN,21,12, DbN,21,12, TbN,21,12, HbN,21,12, PcA,21,12, ScA,21,12, BcA,21,12, DcA,21,12, TcA,21,12, HcA,21,12, PcB,21,12, ScB,21,12, BcB,21,12, DcB,21,12, TcB,21,12, HcB,21,12, PcC,21,12, ScC,21,12, BcC,21,12, DcC,21,12, TcC,21,12, HcC,21,12, PcD,21,12, ScD,21,12, BcD,21,12, DcD,21,12, TcD,21,12, HcD,21,12, PcE,21,12, ScE,21,12, BcE,21,12, DcE,21,12, TcE,21,12, HcE,21,12, PcF,21,12, ScF,21,12, BcF,21,12, DcF,21,12, TcF,21,12, HcF,21,12, PcG,21,12, ScG,21,12, BcG,21,12, DcG,21,12, TcG,21,12, HcG,21,12, PcH,21,12, ScH,21,12, BcH,21,12, DcH,21,12, TcH,21,12, HcH,21,12, IcI,20,12, IcI,20,12, IcI,20,12, IcI,20,12, IcI,20,12, IcI,20,12, CcI,21,11, FcI,20,13, PcJ,21,12, ScJ,21,12, BcJ,21,12, DcJ,21,12, TcJ,21,12, HcJ,21,12, PcK,21,12, ScK,21,12, BcK,21,12, DcK,21,12, TcK,21,12, HcK,21,12, PcL,21,12, ScL,21,12, BcL,21,12, DcL,21,12, TcL,21,12, HcL,21,12, PcM,21,12, ScM,21,12, BcM,21,12, DcM,21,12, TcM,21,12, HcM,21,12, PcN,21,12, ScN,21,12, BcN,21,12, DcN,21,12, TcN,21,12, HcN,21,12, PdA,21,12, SdA,21,12, BdA,21,12, DdA,21,12, TdA,21,12, HdA,21,12, PdB,21,12, SdB,21,12, BdB,21,12, DdB,21,12, TdB,21,12, HdB,21,12, PdC,21,12, SdC,21,12, BdC,21,12, DdC,21,12, TdC,21,12, HdC,21,12, PdD,21,12, SdD,21,12, BdD,21,12, DdD,21,12, TdD,21,12, HdD,21,12, PdE,21,12, SdE,21,12, BdE,21,12, DdE,21,12, TdE,21,12, HdE,21,12, PdF,21,12, SdF,21,12, BdF,21,12, DdF,21,12, TdF,21,12, HdF,21,12, PdG,21,12, SdG,21,12, BdG,21,12, DdG,21,12, TdG,21,12, HdG,21,12, IdH,20,12, IdH,20,12, IdH,20,12, IdH,20,12, IdH,20,12, IdH,20,12, CdH,22,11, FdH,20,13, IdI,20,12, IdI,20,12, IdI,20,12, IdI,20,12, IdI,20,12, IdI,20,12, CdI,19,15, FdI,21,12, IdJ,20,12, IdJ,20,12, IdJ,20,12, IdJ,20,12, IdJ,20,12, IdJ,20,12, CdJ,21,11, FdJ,20,13, PdK,21,12, SdK,21,12, BdK,21,12, DdK,21,12, TdK,21,12, HdK,21,12, PdL,21,12, SdL,21,12, BdL,21,12, DdL,21,12, TdL,21,12, HdL,21,12, PdM,21,12, SdM,21,12, BdM,21,12, DdM,21,12, TdM,21,12, HdM,21,12, PdN,21,12, SdN,21,12, BdN,21,12, DdN,21,12, TdN,21,12, HdN,21,12, CeA,20,11, FeA,20,13, PeB,21,12, SeB,21,12, BeB,21,12, DeB,21,12, TeB,21,12, HeB,21,12, PeC,21,12, SeC,21,12, BeC,21,12, DeC,21,12, TeC,21,12, HeC,21,12, PeD,21,12, SeD,21,12, BeD,21,12, DeD,21,12, TeD,21,12, HeD,21,12, PeE,21,12, SeE,21,12, BeE,21,12, DeE,21,12, TeE,21,12, HeE,21,12, PeF,21,12, SeF,21,12, BeF,21,12, DeF,21,12, TeF,21,12, HeF,21,12, PeG,22,12, SeG,22,12, BeG,22,12, DeG,22,12, TeG,22,12, HeG,22,12, IeH,20,12, IeH,20,12, IeH,20,12, IeH,20,12, IeH,20,12, IeH,20,12, CeH,19,13, FeH,21,12, PeI,23,12, SeI,23,12, BeI,23,12, DeI,23,12, TeI,23,12, HeI,23,12, PeJ,21,12, SeJ,21,12, BeJ,21,12, DeJ,21,12, TeJ,21,12, HeJ,21,12, PeK,21,12, SeK,21,12, BeK,21,12, DeK,21,12, TeK,21,12, HeK,21,12, PeL,21,12, SeL,21,12, BeL,21,12, DeL,21,12, TeL,21,12, HeL,21,12, PeM,21,12, SeM,21,12, BeM,21,12, DeM,21,12, TeM,21,12, HeM,21,12, PeN,21,12, SeN,21,12, BeN,21,12, DeN,21,12, TeN,21,12, HeN,21,12, PfA,21,12, SfA,21,12, BfA,21,12, DfA,21,12, TfA,21,12, HfA,21,12, CfB,20,11, FfB,20,13, PfC,21,12, SfC,21,12, BfC,21,12, DfC,21,12, TfC,21,12, HfC,21,12, PfD,21,12, SfD,21,12, BfD,21,12, DfD,21,12, TfD,21,12, HfD,21,12, PfE,21,12, SfE,21,12, BfE,21,12, DfE,21,12, TfE,21,12, HfE,21,12, PfF,21,12, SfF,21,12, BfF,21,12, DfF,21,12, TfF,21,12, HfF,21,12, PfG,21,12, SfG,21,12, BfG,21,12, DfG,21,12, TfG,21,12, HfG,21,12, PfH,23,12, SfH,23,12, BfH,23,12, DfH,23,12, TfH,23,12, HfH,23,12, CfI,19,12, FfI,21,12, PfJ,22,12, SfJ,22,12, BfJ,22,12, DfJ,22,12, TfJ,22,12, HfJ,22,12, PfK,21,12, SfK,21,12, BfK,21,12, DfK,21,12, TfK,21,12, HfK,21,12, PfL,21,12, SfL,21,12, BfL,21,12, DfL,21,12, TfL,21,12, HfL,21,12, PfM,21,12, SfM,21,12, BfM,21,12, DfM,21,12, TfM,21,12, HfM,21,12, PfN,21,12, SfN,21,12, BfN,21,12, DfN,21,12, TfN,21,12, HfN,21,12, PgA,21,12, SgA,21,12, BgA,21,12, DgA,21,12, TgA,21,12, HgA,21,12, PgB,21,12, SgB,21,12, BgB,21,12, DgB,21,12, TgB,21,12, HgB,21,12, PgC,21,12, SgC,21,12, BgC,21,12, DgC,21,12, TgC,21,12, HgC,21,12, PgD,21,12, SgD,21,12, BgD,21,12, DgD,21,12, TgD,21,12, HgD,21,12, PgE,21,12, SgE,21,12, BgE,21,12, DgE,21,12, TgE,21,12, HgE,21,12, PgF,21,12, SgF,21,12, BgF,21,12, DgF,21,12, TgF,21,12, HgF,21,12, PgG,21,12, SgG,21,12, BgG,21,12, DgG,21,12, TgG,21,12, HgG,21,12, PgH,21,12, SgH,21,12, BgH,21,12, DgH,21,12, TgH,21,12, HgH,21,12, PgI,22,12, SgI,22,12, BgI,22,12, DgI,22,12, TgI,22,12, HgI,22,12, PgJ,21,12, SgJ,21,12, BgJ,21,12, DgJ,21,12, TgJ,21,12, HgJ,21,12, PgK,21,12, SgK,21,12, BgK,21,12, DgK,21,12, TgK,21,12, HgK,21,12, PgL,21,12, SgL,21,12, BgL,21,12, DgL,21,12, TgL,21,12, HgL,21,12, PgM,21,12, SgM,21,12, BgM,21,12, DgM,21,12, TgM,21,12, HgM,21,12, PgN,21,12, SgN,21,12, BgN,21,12, DgN,21,12, TgN,21,12, HgN,21,12, PhA,21,12, ShA,21,12, BhA,21,12, DhA,21,12, ThA,21,12, HhA,21,12, PhB,21,12, ShB,21,12, BhB,21,12, DhB,21,12, ThB,21,12, HhB,21,12, PhC,21,12, ShC,21,12, BhC,21,12, DhC,21,12, ThC,21,12, HhC,21,12, PhD,21,12, ShD,21,12, BhD,21,12, DhD,21,12, ThD,21,12, HhD,21,12, PhE,21,12, ShE,21,12, BhE,21,12, DhE,21,12, ThE,21,12, HhE,21,12, PhF,21,12, ShF,21,12, BhF,21,12, DhF,21,12, ThF,21,12, HhF,21,12, PhG,21,12, ShG,21,12, BhG,21,12, DhG,21,12, ThG,21,12, HhG,21,12, PhH,21,12, ShH,21,12, BhH,21,12, DhH,21,12, ThH,21,12, HhH,21,12, PhI,21,12, ShI,21,12, BhI,21,12, DhI,21,12, ThI,21,12, HhI,21,12, PhJ,21,12, ShJ,21,12, BhJ,21,12, DhJ,21,12, ThJ,21,12, HhJ,21,12, PhK,21,12, ShK,21,12, BhK,21,12, DhK,21,12, ThK,21,12, HhK,21,12, PhL,21,12, ShL,21,12, BhL,21,12, DhL,21,12, ThL,21,12, HhL,21,12, PhM,21,12, ShM,21,12, BhM,21,12, DhM,21,12, ThM,21,12, HhM,21,12, PhN,21,12, ShN,21,12, BhN,21,12, DhN,21,12, ThN,21,12, HhN,21,12, PiA,21,12, SiA,21,12, BiA,21,12, DiA,21,12, TiA,21,12, HiA,21,12, PiB,21,12, SiB,21,12, BiB,21,12, DiB,21,12, TiB,21,12, HiB,21,12, PiC,21,12, SiC,21,12, BiC,21,12, DiC,21,12, TiC,21,12, HiC,21,12, PiD,21,12, SiD,21,12, BiD,21,12, DiD,21,12, TiD,21,12, HiD,21,12, PiE,21,12, SiE,21,12, BiE,21,12, DiE,21,12, TiE,21,12, HiE,21,12, PiF,21,12, SiF,21,12, BiF,21,12, DiF,21,12, TiF,21,12, HiF,21,12, PiG,21,12, SiG,21,12, BiG,21,12, DiG,21,12, TiG,21,12, HiG,21,12, PiH,21,12, SiH,21,12, BiH,21,12, DiH,21,12, TiH,21,12, HiH,21,12, PiI,21,12, SiI,21,12, BiI,21,12, DiI,21,12, TiI,21,12, HiI,21,12, PiJ,21,12, SiJ,21,12, BiJ,21,12, DiJ,21,12, TiJ,21,12, HiJ,21,12, CiK,20,11, FiK,20,13, PiL,21,12, SiL,21,12, BiL,21,12, DiL,21,12, TiL,21,12, HiL,21,12, PiM,21,12, SiM,21,12, BiM,21,12, DiM,21,12, TiM,21,12, HiM,21,12, PiN,21,12, SiN,21,12, BiN,21,12, DiN,21,12, TiN,21,12, HiN,21,12, PjA,21,12, SjA,21,12, BjA,21,12, DjA,21,12, TjA,21,12, HjA,21,12, PjB,21,12, SjB,21,12, BjB,21,12, DjB,21,12, TjB,21,12, HjB,21,12, PjC,21,12, SjC,21,12, BjC,21,12, DjC,21,12, TjC,21,12, HjC,21,12, PjD,21,12, SjD,21,12, BjD,21,12, DjD,21,12, TjD,21,12, HjD,21,12, PjE,22,12, SjE,22,12, BjE,22,12, DjE,22,12, TjE,22,12, HjE,22,12, PjF,21,12, SjF,21,12, BjF,21,12, DjF,21,12, TjF,21,12, HjF,21,12, PjG,21,12, SjG,21,12, BjG,21,12, DjG,21,12, TjG,21,12, HjG,21,12, PjH,21,12, SjH,21,12, BjH,21,12, DjH,21,12, TjH,21,12, HjH,21,12, PjI,21,12, SjI,21,12, BjI,21,12, DjI,21,12, TjI,21,12, HjI,21,12, CjJ,20,11, FjJ,20,13, CjL,20,11, FjL,20,13, PjM,21,12, SjM,21,12, BjM,21,12, DjM,21,12, TjM,21,12, HjM,21,12, PjN,21,12, SjN,21,12, BjN,21,12, DjN,21,12, TjN,21,12, HjN,21,12, PkA,21,12, SkA,21,12, BkA,21,12, DkA,21,12, TkA,21,12, HkA,21,12, PkB,21,12, SkB,21,12, BkB,21,12, DkB,21,12, TkB,21,12, HkB,21,12, PkC,21,12, SkC,21,12, BkC,21,12, DkC,21,12, TkC,21,12, HkC,21,12, PkD,23,12, SkD,23,12, BkD,23,12, DkD,23,12, TkD,23,12, HkD,23,12, IkE,20,12, IkE,20,12, IkE,20,12, IkE,20,12, IkE,20,12, IkE,20,12, CkE,20,12, FkE,21,12, PkF,23,12, SkF,23,12, BkF,23,12, DkF,23,12, TkF,23,12, HkF,23,12, PkG,21,12, SkG,21,12, BkG,21,12, DkG,21,12, TkG,21,12, HkG,21,12, PkH,21,12, SkH,21,12, BkH,21,12, DkH,21,12, TkH,21,12, HkH,21,12, PkI,21,12, SkI,21,12, BkI,21,12, DkI,21,12, TkI,21,12, HkI,21,12, PkJ,21,12, SkJ,21,12, BkJ,21,12, DkJ,21,12, TkJ,21,12, HkJ,21,12, CkK,20,11, FkK,20,13, PkL,21,12, SkL,21,12, BkL,21,12, DkL,21,12, TkL,21,12, HkL,21,12, PkM,21,12, SkM,21,12, BkM,21,12, DkM,21,12, TkM,21,12, HkM,21,12, PkN,21,12, SkN,21,12, BkN,21,12, DkN,21,12, TkN,21,12, HkN,21,12, PlA,21,12, SlA,21,12, BlA,21,12, DlA,21,12, TlA,21,12, HlA,21,12, PlB,21,12, SlB,21,12, BlB,21,12, DlB,21,12, TlB,21,12, HlB,21,12, PlC,23,12, SlC,23,12, BlC,23,12, DlC,23,12, TlC,23,12, HlC,23,12, IlD,20,12, IlD,20,12, IlD,20,12, IlD,20,12, IlD,20,12, IlD,20,12, ClD,20,13, FlD,21,12, IlE,20,12, IlE,20,12, IlE,20,12, IlE,20,12, IlE,20,12, IlE,20,12, ClE,22,12, FlE,21,12, IlF,20,12, IlF,20,12, IlF,20,12, IlF,20,12, IlF,20,12, IlF,20,12, ClF,20,12, FlF,21,12, PlG,23,12, SlG,23,12, BlG,23,12, DlG,23,12, TlG,23,12, HlG,23,12, PlH,21,12, SlH,21,12, BlH,21,12, DlH,21,12, TlH,21,12, HlH,21,12, PlI,21,12, SlI,21,12, BlI,21,12, DlI,21,12, TlI,21,12, HlI,21,12, PlJ,21,12, SlJ,21,12, BlJ,21,12, DlJ,21,12, TlJ,21,12, HlJ,21,12, PlK,21,12, SlK,21,12, BlK,21,12, DlK,21,12, TlK,21,12, HlK,21,12, PlL,21,12, SlL,21,12, BlL,21,12, DlL,21,12, TlL,21,12, HlL,21,12, PlM,21,12, SlM,21,12, BlM,21,12, DlM,21,12, TlM,21,12, HlM,21,12, PlN,21,12, SlN,21,12, BlN,21,12, DlN,21,12, TlN,21,12, HlN,21,12, PmA,21,12, SmA,21,12, BmA,21,12, DmA,21,12, TmA,21,12, HmA,21,12, PmB,22,12, SmB,22,12, BmB,22,12, DmB,22,12, TmB,22,12, HmB,22,12, ImC,20,12, ImC,20,12, ImC,20,12, ImC,20,12, ImC,20,12, ImC,20,12, CmC,19,13, FmC,21,12, ImD,20,12, ImD,20,12, ImD,20,12, ImD,20,12, ImD,20,12, ImD,20,12, CmD,23,10, FmD,20,13, PmE,13,10, SmE,13,10, BmE,13,10, DmE,13,10, TmE,13,10, HmE,13,10, ImF,20,12, ImF,20,12, ImF,20,12, ImF,20,12, ImF,20,12, ImF,20,12, CmF,14,12, FmF,20,12, ImG,20,12, ImG,20,12, ImG,20,12, ImG,20,12, ImG,20,12, ImG,20,12, CmG,19,12, FmG,21,12, PmH,22,12, SmH,22,12, BmH,22,12, DmH,22,12, TmH,22,12, HmH,22,12, PmI,21,12, SmI,21,12, BmI,21,12, DmI,21,12, TmI,21,12, HmI,21,12, PmJ,21,12, SmJ,21,12, BmJ,21,12, DmJ,21,12, TmJ,21,12, HmJ,21,12, PmK,21,12, SmK,21,12, BmK,21,12, DmK,21,12, TmK,21,12, HmK,21,12, PmL,21,12, SmL,21,12, BmL,21,12, DmL,21,12, TmL,21,12, HmL,21,12, PmM,21,12, SmM,21,12, BmM,21,12, DmM,21,12, TmM,21,12, HmM,21,12, PmN,21,12, SmN,21,12, BmN,21,12, DmN,21,12, TmN,21,12, HmN,21,12, PnA,21,12, SnA,21,12, BnA,21,12, DnA,21,12, TnA,21,12, HnA,21,12, PnB,21,12, SnB,21,12, BnB,21,12, DnB,21,12, TnB,21,12, HnB,21,12, PnC,23,12, SnC,23,12, BnC,23,12, DnC,23,12, TnC,23,12, HnC,23,12, InD,20,12, InD,20,12, InD,20,12, InD,20,12, InD,20,12, InD,20,12, CnD,19,13, FnD,21,12, PnE,23,12, SnE,23,12, BnE,23,12, DnE,23,12, TnE,23,12, HnE,23,12, InF,20,12, InF,20,12, InF,20,12, InF,20,12, InF,20,12, InF,20,12, CnF,19,12, FnF,21,12, PnG,23,12, SnG,23,12, BnG,23,12, DnG,23,12, TnG,23,12, HnG,23,12, PnH,21,12, SnH,21,12, BnH,21,12, DnH,21,12, TnH,21,12, HnH,21,12, PnI,21,12, SnI,21,12, BnI,21,12, DnI,21,12, TnI,21,12, HnI,21,12, PnJ,21,12, SnJ,21,12, BnJ,21,12, DnJ,21,12, TnJ,21,12, HnJ,21,12, PnK,21,12, SnK,21,12, BnK,21,12, DnK,21,12, TnK,21,12, HnK,21,12, PnL,21,12, SnL,21,12, BnL,21,12, DnL,21,12, TnL,21,12, HnL,21,12, PnM,21,12, SnM,21,12, BnM,21,12, DnM,21,12, TnM,21,12, HnM,21,12, PnN,21,12, SnN,21,12, BnN,21,12, DnN,21,12, TnN,21,12, HnN,21,12]
+actionsPossibles : lancement le 29/11/2019 08:30:10.166
 actionsPossibles : fin
-[PaA,21,12, SaA,21,12, BaA,21,12, DaA,21,12, TaA,21,12, HaA,21,12, PaB,21,12, SaB,21,12, BaB,21,12, DaB,21,12, TaB,21,12, HaB,21,12, PaC,21,12, SaC,21,12, BaC,21,12, DaC,21,12, TaC,21,12, HaC,21,12, PaD,21,12, SaD,21,12, BaD,21,12, DaD,21,12, TaD,21,12, HaD,21,12, PaE,21,12, SaE,21,12, BaE,21,12, DaE,21,12, TaE,21,12, HaE,21,12, PaF,21,12, SaF,21,12, BaF,21,12, DaF,21,12, TaF,21,12, HaF,21,12, PaG,21,12, SaG,21,12, BaG,21,12, DaG,21,12, TaG,21,12, HaG,21,12, PaH,21,12, SaH,21,12, BaH,21,12, DaH,21,12, TaH,21,12, HaH,21,12, PaI,21,12, SaI,21,12, BaI,21,12, DaI,21,12, TaI,21,12, HaI,21,12, PaJ,21,12, SaJ,21,12, BaJ,21,12, DaJ,21,12, TaJ,21,12, HaJ,21,12, PaK,21,12, SaK,21,12, BaK,21,12, DaK,21,12, TaK,21,12, HaK,21,12, PaL,21,12, SaL,21,12, BaL,21,12, DaL,21,12, TaL,21,12, HaL,21,12, CaM,20,11, FaM,20,13, PaN,21,12, SaN,21,12, BaN,21,12, DaN,21,12, TaN,21,12, HaN,21,12, PbA,21,12, SbA,21,12, BbA,21,12, DbA,21,12, TbA,21,12, HbA,21,12, PbB,21,12, SbB,21,12, BbB,21,12, DbB,21,12, TbB,21,12, HbB,21,12, PbC,21,12, SbC,21,12, BbC,21,12, DbC,21,12, TbC,21,12, HbC,21,12, PbD,21,12, SbD,21,12, BbD,21,12, DbD,21,12, TbD,21,12, HbD,21,12, PbE,21,12, SbE,21,12, BbE,21,12, DbE,21,12, TbE,21,12, HbE,21,12, PbF,21,12, SbF,21,12, BbF,21,12, DbF,21,12, TbF,21,12, HbF,21,12, PbG,21,12, SbG,21,12, BbG,21,12, DbG,21,12, TbG,21,12, HbG,21,12, PbH,21,12, SbH,21,12, BbH,21,12, DbH,21,12, TbH,21,12, HbH,21,12, PbI,21,12, SbI,21,12, BbI,21,12, DbI,21,12, TbI,21,12, HbI,21,12, PbJ,21,12, SbJ,21,12, BbJ,21,12, DbJ,21,12, TbJ,21,12, HbJ,21,12, PbK,21,12, SbK,21,12, BbK,21,12, DbK,21,12, TbK,21,12, HbK,21,12, PbL,21,12, SbL,21,12, BbL,21,12, DbL,21,12, TbL,21,12, HbL,21,12, PbM,21,12, SbM,21,12, BbM,21,12, DbM,21,12, TbM,21,12, HbM,21,12, PbN,21,12, SbN,21,12, BbN,21,12, DbN,21,12, TbN,21,12, HbN,21,12, PcA,21,12, ScA,21,12, BcA,21,12, DcA,21,12, TcA,21,12, HcA,21,12, PcB,21,12, ScB,21,12, BcB,21,12, DcB,21,12, TcB,21,12, HcB,21,12, PcC,21,12, ScC,21,12, BcC,21,12, DcC,21,12, TcC,21,12, HcC,21,12, PcD,21,12, ScD,21,12, BcD,21,12, DcD,21,12, TcD,21,12, HcD,21,12, PcE,21,12, ScE,21,12, BcE,21,12, DcE,21,12, TcE,21,12, HcE,21,12, PcF,21,12, ScF,21,12, BcF,21,12, DcF,21,12, TcF,21,12, HcF,21,12, PcG,21,12, ScG,21,12, BcG,21,12, DcG,21,12, TcG,21,12, HcG,21,12, PcH,21,12, ScH,21,12, BcH,21,12, DcH,21,12, TcH,21,12, HcH,21,12, IcI,20,12, IcI,20,12, IcI,20,12, IcI,20,12, IcI,20,12, IcI,20,12, CcI,21,11, FcI,20,12, PcJ,21,12, ScJ,21,12, BcJ,21,12, DcJ,21,12, TcJ,21,12, HcJ,21,12, PcK,21,12, ScK,21,12, BcK,21,12, DcK,21,12, TcK,21,12, HcK,21,12, PcL,21,12, ScL,21,12, BcL,21,12, DcL,21,12, TcL,21,12, HcL,21,12, PcM,21,12, ScM,21,12, BcM,21,12, DcM,21,12, TcM,21,12, HcM,21,12, PcN,21,12, ScN,21,12, BcN,21,12, DcN,21,12, TcN,21,12, HcN,21,12, PdA,21,12, SdA,21,12, BdA,21,12, DdA,21,12, TdA,21,12, HdA,21,12, PdB,21,12, SdB,21,12, BdB,21,12, DdB,21,12, TdB,21,12, HdB,21,12, PdC,21,12, SdC,21,12, BdC,21,12, DdC,21,12, TdC,21,12, HdC,21,12, PdD,21,12, SdD,21,12, BdD,21,12, DdD,21,12, TdD,21,12, HdD,21,12, PdE,21,12, SdE,21,12, BdE,21,12, DdE,21,12, TdE,21,12, HdE,21,12, PdF,21,12, SdF,21,12, BdF,21,12, DdF,21,12, TdF,21,12, HdF,21,12, PdG,21,12, SdG,21,12, BdG,21,12, DdG,21,12, TdG,21,12, HdG,21,12, IdH,20,12, IdH,20,12, IdH,20,12, IdH,20,12, IdH,20,12, IdH,20,12, CdH,22,11, FdH,20,15, CdI,19,15, FdI,21,12, CdJ,21,11, FdJ,20,13, PdK,21,12, SdK,21,12, BdK,21,12, DdK,21,12, TdK,21,12, HdK,21,12, PdL,21,12, SdL,21,12, BdL,21,12, DdL,21,12, TdL,21,12, HdL,21,12, PdM,21,12, SdM,21,12, BdM,21,12, DdM,21,12, TdM,21,12, HdM,21,12, PdN,21,12, SdN,21,12, BdN,21,12, DdN,21,12, TdN,21,12, HdN,21,12, CeA,20,11, FeA,20,15, PeB,21,12, SeB,21,12, BeB,21,12, DeB,21,12, TeB,21,12, HeB,21,12, PeC,21,12, SeC,21,12, BeC,21,12, DeC,21,12, TeC,21,12, HeC,21,12, PeD,21,12, SeD,21,12, BeD,21,12, DeD,21,12, TeD,21,12, HeD,21,12, PeE,21,12, SeE,21,12, BeE,21,12, DeE,21,12, TeE,21,12, HeE,21,12, PeF,21,12, SeF,21,12, BeF,21,12, DeF,21,12, TeF,21,12, HeF,21,12, PeG,22,12, SeG,22,12, BeG,22,12, DeG,22,12, TeG,22,12, HeG,22,12, CeH,19,13, FeH,21,12, PeI,23,12, SeI,23,12, BeI,23,12, DeI,23,12, TeI,23,12, HeI,23,12, PeJ,21,12, SeJ,21,12, BeJ,21,12, DeJ,21,12, TeJ,21,12, HeJ,21,12, PeK,21,12, SeK,21,12, BeK,21,12, DeK,21,12, TeK,21,12, HeK,21,12, PeL,21,12, SeL,21,12, BeL,21,12, DeL,21,12, TeL,21,12, HeL,21,12, PeM,21,12, SeM,21,12, BeM,21,12, DeM,21,12, TeM,21,12, HeM,21,12, PeN,21,12, SeN,21,12, BeN,21,12, DeN,21,12, TeN,21,12, HeN,21,12, PfA,21,12, SfA,21,12, BfA,21,12, DfA,21,12, TfA,21,12, HfA,21,12, CfB,20,11, FfB,20,13, PfC,21,12, SfC,21,12, BfC,21,12, DfC,21,12, TfC,21,12, HfC,21,12, PfD,21,12, SfD,21,12, BfD,21,12, DfD,21,12, TfD,21,12, HfD,21,12, PfE,21,12, SfE,21,12, BfE,21,12, DfE,21,12, TfE,21,12, HfE,21,12, PfF,21,12, SfF,21,12, BfF,21,12, DfF,21,12, TfF,21,12, HfF,21,12, PfG,21,12, SfG,21,12, BfG,21,12, DfG,21,12, TfG,21,12, HfG,21,12, PfH,23,12, SfH,23,12, BfH,23,12, DfH,23,12, TfH,23,12, HfH,23,12, CfI,19,12, FfI,21,12, PfJ,22,12, SfJ,22,12, BfJ,22,12, DfJ,22,12, TfJ,22,12, HfJ,22,12, PfK,21,12, SfK,21,12, BfK,21,12, DfK,21,12, TfK,21,12, HfK,21,12, PfL,21,12, SfL,21,12, BfL,21,12, DfL,21,12, TfL,21,12, HfL,21,12, PfM,21,12, SfM,21,12, BfM,21,12, DfM,21,12, TfM,21,12, HfM,21,12, PfN,21,12, SfN,21,12, BfN,21,12, DfN,21,12, TfN,21,12, HfN,21,12, PgA,21,12, SgA,21,12, BgA,21,12, DgA,21,12, TgA,21,12, HgA,21,12, PgB,21,12, SgB,21,12, BgB,21,12, DgB,21,12, TgB,21,12, HgB,21,12, PgC,21,12, SgC,21,12, BgC,21,12, DgC,21,12, TgC,21,12, HgC,21,12, PgD,21,12, SgD,21,12, BgD,21,12, DgD,21,12, TgD,21,12, HgD,21,12, PgE,21,12, SgE,21,12, BgE,21,12, DgE,21,12, TgE,21,12, HgE,21,12, PgF,21,12, SgF,21,12, BgF,21,12, DgF,21,12, TgF,21,12, HgF,21,12, PgG,21,12, SgG,21,12, BgG,21,12, DgG,21,12, TgG,21,12, HgG,21,12, PgH,21,12, SgH,21,12, BgH,21,12, DgH,21,12, TgH,21,12, HgH,21,12, PgI,22,12, SgI,22,12, BgI,22,12, DgI,22,12, TgI,22,12, HgI,22,12, PgJ,21,12, SgJ,21,12, BgJ,21,12, DgJ,21,12, TgJ,21,12, HgJ,21,12, PgK,21,12, SgK,21,12, BgK,21,12, DgK,21,12, TgK,21,12, HgK,21,12, PgL,21,12, SgL,21,12, BgL,21,12, DgL,21,12, TgL,21,12, HgL,21,12, PgM,21,12, SgM,21,12, BgM,21,12, DgM,21,12, TgM,21,12, HgM,21,12, PgN,21,12, SgN,21,12, BgN,21,12, DgN,21,12, TgN,21,12, HgN,21,12, PhA,21,12, ShA,21,12, BhA,21,12, DhA,21,12, ThA,21,12, HhA,21,12, PhB,21,12, ShB,21,12, BhB,21,12, DhB,21,12, ThB,21,12, HhB,21,12, PhC,21,12, ShC,21,12, BhC,21,12, DhC,21,12, ThC,21,12, HhC,21,12, PhD,21,12, ShD,21,12, BhD,21,12, DhD,21,12, ThD,21,12, HhD,21,12, PhE,21,12, ShE,21,12, BhE,21,12, DhE,21,12, ThE,21,12, HhE,21,12, PhF,21,12, ShF,21,12, BhF,21,12, DhF,21,12, ThF,21,12, HhF,21,12, PhG,21,12, ShG,21,12, BhG,21,12, DhG,21,12, ThG,21,12, HhG,21,12, PhH,21,12, ShH,21,12, BhH,21,12, DhH,21,12, ThH,21,12, HhH,21,12, PhI,21,12, ShI,21,12, BhI,21,12, DhI,21,12, ThI,21,12, HhI,21,12, PhJ,21,12, ShJ,21,12, BhJ,21,12, DhJ,21,12, ThJ,21,12, HhJ,21,12, PhK,21,12, ShK,21,12, BhK,21,12, DhK,21,12, ThK,21,12, HhK,21,12, PhL,21,12, ShL,21,12, BhL,21,12, DhL,21,12, ThL,21,12, HhL,21,12, PhM,21,12, ShM,21,12, BhM,21,12, DhM,21,12, ThM,21,12, HhM,21,12, PhN,21,12, ShN,21,12, BhN,21,12, DhN,21,12, ThN,21,12, HhN,21,12, PiA,21,12, SiA,21,12, BiA,21,12, DiA,21,12, TiA,21,12, HiA,21,12, PiB,21,12, SiB,21,12, BiB,21,12, DiB,21,12, TiB,21,12, HiB,21,12, PiC,21,12, SiC,21,12, BiC,21,12, DiC,21,12, TiC,21,12, HiC,21,12, PiD,21,12, SiD,21,12, BiD,21,12, DiD,21,12, TiD,21,12, HiD,21,12, PiE,21,12, SiE,21,12, BiE,21,12, DiE,21,12, TiE,21,12, HiE,21,12, PiF,21,12, SiF,21,12, BiF,21,12, DiF,21,12, TiF,21,12, HiF,21,12, PiG,21,12, SiG,21,12, BiG,21,12, DiG,21,12, TiG,21,12, HiG,21,12, PiH,21,12, SiH,21,12, BiH,21,12, DiH,21,12, TiH,21,12, HiH,21,12, PiI,21,12, SiI,21,12, BiI,21,12, DiI,21,12, TiI,21,12, HiI,21,12, PiJ,21,12, SiJ,21,12, BiJ,21,12, DiJ,21,12, TiJ,21,12, HiJ,21,12, CiK,20,11, FiK,20,13, PiL,21,12, SiL,21,12, BiL,21,12, DiL,21,12, TiL,21,12, HiL,21,12, PiM,21,12, SiM,21,12, BiM,21,12, DiM,21,12, TiM,21,12, HiM,21,12, PiN,21,12, SiN,21,12, BiN,21,12, DiN,21,12, TiN,21,12, HiN,21,12, PjA,21,12, SjA,21,12, BjA,21,12, DjA,21,12, TjA,21,12, HjA,21,12, PjB,21,12, SjB,21,12, BjB,21,12, DjB,21,12, TjB,21,12, HjB,21,12, PjC,21,12, SjC,21,12, BjC,21,12, DjC,21,12, TjC,21,12, HjC,21,12, PjD,21,12, SjD,21,12, BjD,21,12, DjD,21,12, TjD,21,12, HjD,21,12, PjE,22,12, SjE,22,12, BjE,22,12, DjE,22,12, TjE,22,12, HjE,22,12, PjF,21,12, SjF,21,12, BjF,21,12, DjF,21,12, TjF,21,12, HjF,21,12, PjG,21,12, SjG,21,12, BjG,21,12, DjG,21,12, TjG,21,12, HjG,21,12, PjH,21,12, SjH,21,12, BjH,21,12, DjH,21,12, TjH,21,12, HjH,21,12, PjI,21,12, SjI,21,12, BjI,21,12, DjI,21,12, TjI,21,12, HjI,21,12, CjJ,20,11, FjJ,20,13, CjL,20,11, FjL,20,13, PjM,21,12, SjM,21,12, BjM,21,12, DjM,21,12, TjM,21,12, HjM,21,12, PjN,21,12, SjN,21,12, BjN,21,12, DjN,21,12, TjN,21,12, HjN,21,12, PkA,21,12, SkA,21,12, BkA,21,12, DkA,21,12, TkA,21,12, HkA,21,12, PkB,21,12, SkB,21,12, BkB,21,12, DkB,21,12, TkB,21,12, HkB,21,12, PkC,21,12, SkC,21,12, BkC,21,12, DkC,21,12, TkC,21,12, HkC,21,12, PkD,23,12, SkD,23,12, BkD,23,12, DkD,23,12, TkD,23,12, HkD,23,12, CkE,20,12, FkE,21,12, PkF,23,12, SkF,23,12, BkF,23,12, DkF,23,12, TkF,23,12, HkF,23,12, PkG,21,12, SkG,21,12, BkG,21,12, DkG,21,12, TkG,21,12, HkG,21,12, PkH,21,12, SkH,21,12, BkH,21,12, DkH,21,12, TkH,21,12, HkH,21,12, PkI,21,12, SkI,21,12, BkI,21,12, DkI,21,12, TkI,21,12, HkI,21,12, PkJ,21,12, SkJ,21,12, BkJ,21,12, DkJ,21,12, TkJ,21,12, HkJ,21,12, CkK,20,11, FkK,20,13, PkL,21,12, SkL,21,12, BkL,21,12, DkL,21,12, TkL,21,12, HkL,21,12, PkM,21,12, SkM,21,12, BkM,21,12, DkM,21,12, TkM,21,12, HkM,21,12, PkN,21,12, SkN,21,12, BkN,21,12, DkN,21,12, TkN,21,12, HkN,21,12, PlA,21,12, SlA,21,12, BlA,21,12, DlA,21,12, TlA,21,12, HlA,21,12, PlB,21,12, SlB,21,12, BlB,21,12, DlB,21,12, TlB,21,12, HlB,21,12, PlC,23,12, SlC,23,12, BlC,23,12, DlC,23,12, TlC,23,12, HlC,23,12, ClD,20,13, FlD,21,12, ClE,22,12, FlE,21,12, ClF,20,12, FlF,21,12, PlG,23,12, SlG,23,12, BlG,23,12, DlG,23,12, TlG,23,12, HlG,23,12, PlH,21,12, SlH,21,12, BlH,21,12, DlH,21,12, TlH,21,12, HlH,21,12, PlI,21,12, SlI,21,12, BlI,21,12, DlI,21,12, TlI,21,12, HlI,21,12, PlJ,21,12, SlJ,21,12, BlJ,21,12, DlJ,21,12, TlJ,21,12, HlJ,21,12, PlK,21,12, SlK,21,12, BlK,21,12, DlK,21,12, TlK,21,12, HlK,21,12, PlL,21,12, SlL,21,12, BlL,21,12, DlL,21,12, TlL,21,12, HlL,21,12, PlM,21,12, SlM,21,12, BlM,21,12, DlM,21,12, TlM,21,12, HlM,21,12, PlN,21,12, SlN,21,12, BlN,21,12, DlN,21,12, TlN,21,12, HlN,21,12, PmA,21,12, SmA,21,12, BmA,21,12, DmA,21,12, TmA,21,12, HmA,21,12, PmB,22,12, SmB,22,12, BmB,22,12, DmB,22,12, TmB,22,12, HmB,22,12, CmC,19,13, FmC,21,12, CmD,23,10, FmD,20,13, PmE,13,10, SmE,13,10, BmE,13,10, DmE,13,10, TmE,13,10, HmE,13,10, CmF,14,12, FmF,20,12, CmG,19,12, FmG,21,12, PmH,22,12, SmH,22,12, BmH,22,12, DmH,22,12, TmH,22,12, HmH,22,12, PmI,21,12, SmI,21,12, BmI,21,12, DmI,21,12, TmI,21,12, HmI,21,12, PmJ,21,12, SmJ,21,12, BmJ,21,12, DmJ,21,12, TmJ,21,12, HmJ,21,12, PmK,21,12, SmK,21,12, BmK,21,12, DmK,21,12, TmK,21,12, HmK,21,12, PmL,21,12, SmL,21,12, BmL,21,12, DmL,21,12, TmL,21,12, HmL,21,12, PmM,21,12, SmM,21,12, BmM,21,12, DmM,21,12, TmM,21,12, HmM,21,12, PmN,21,12, SmN,21,12, BmN,21,12, DmN,21,12, TmN,21,12, HmN,21,12, PnA,21,12, SnA,21,12, BnA,21,12, DnA,21,12, TnA,21,12, HnA,21,12, PnB,21,12, SnB,21,12, BnB,21,12, DnB,21,12, TnB,21,12, HnB,21,12, PnC,23,12, SnC,23,12, BnC,23,12, DnC,23,12, TnC,23,12, HnC,23,12, CnD,19,13, FnD,21,12, PnE,23,12, SnE,23,12, BnE,23,12, DnE,23,12, TnE,23,12, HnE,23,12, CnF,19,12, FnF,21,12, PnG,23,12, SnG,23,12, BnG,23,12, DnG,23,12, TnG,23,12, HnG,23,12, PnH,21,12, SnH,21,12, BnH,21,12, DnH,21,12, TnH,21,12, HnH,21,12, PnI,21,12, SnI,21,12, BnI,21,12, DnI,21,12, TnI,21,12, HnI,21,12, PnJ,21,12, SnJ,21,12, BnJ,21,12, DnJ,21,12, TnJ,21,12, HnJ,21,12, PnK,21,12, SnK,21,12, BnK,21,12, DnK,21,12, TnK,21,12, HnK,21,12, PnL,21,12, SnL,21,12, BnL,21,12, DnL,21,12, TnL,21,12, HnL,21,12, PnM,21,12, SnM,21,12, BnM,21,12, DnM,21,12, TnM,21,12, HnM,21,12, PnN,21,12, SnN,21,12, BnN,21,12, DnN,21,12, TnN,21,12, HnN,21,12]
+[PaA,21,12, SaA,21,12, BaA,21,12, DaA,21,12, TaA,21,12, HaA,21,12, PaB,21,12, SaB,21,12, BaB,21,12, DaB,21,12, TaB,21,12, HaB,21,12, PaC,21,12, SaC,21,12, BaC,21,12, DaC,21,12, TaC,21,12, HaC,21,12, PaD,21,12, SaD,21,12, BaD,21,12, DaD,21,12, TaD,21,12, HaD,21,12, PaE,21,12, SaE,21,12, BaE,21,12, DaE,21,12, TaE,21,12, HaE,21,12, PaF,21,12, SaF,21,12, BaF,21,12, DaF,21,12, TaF,21,12, HaF,21,12, PaG,21,12, SaG,21,12, BaG,21,12, DaG,21,12, TaG,21,12, HaG,21,12, PaH,21,12, SaH,21,12, BaH,21,12, DaH,21,12, TaH,21,12, HaH,21,12, PaI,21,12, SaI,21,12, BaI,21,12, DaI,21,12, TaI,21,12, HaI,21,12, PaJ,21,12, SaJ,21,12, BaJ,21,12, DaJ,21,12, TaJ,21,12, HaJ,21,12, PaK,21,12, SaK,21,12, BaK,21,12, DaK,21,12, TaK,21,12, HaK,21,12, PaL,21,12, SaL,21,12, BaL,21,12, DaL,21,12, TaL,21,12, HaL,21,12, CaM,20,11, FaM,20,13, PaN,21,12, SaN,21,12, BaN,21,12, DaN,21,12, TaN,21,12, HaN,21,12, PbA,21,12, SbA,21,12, BbA,21,12, DbA,21,12, TbA,21,12, HbA,21,12, PbB,21,12, SbB,21,12, BbB,21,12, DbB,21,12, TbB,21,12, HbB,21,12, PbC,21,12, SbC,21,12, BbC,21,12, DbC,21,12, TbC,21,12, HbC,21,12, PbD,21,12, SbD,21,12, BbD,21,12, DbD,21,12, TbD,21,12, HbD,21,12, PbE,21,12, SbE,21,12, BbE,21,12, DbE,21,12, TbE,21,12, HbE,21,12, PbF,21,12, SbF,21,12, BbF,21,12, DbF,21,12, TbF,21,12, HbF,21,12, PbG,21,12, SbG,21,12, BbG,21,12, DbG,21,12, TbG,21,12, HbG,21,12, PbH,21,12, SbH,21,12, BbH,21,12, DbH,21,12, TbH,21,12, HbH,21,12, PbI,21,12, SbI,21,12, BbI,21,12, DbI,21,12, TbI,21,12, HbI,21,12, PbJ,21,12, SbJ,21,12, BbJ,21,12, DbJ,21,12, TbJ,21,12, HbJ,21,12, PbK,21,12, SbK,21,12, BbK,21,12, DbK,21,12, TbK,21,12, HbK,21,12, PbL,21,12, SbL,21,12, BbL,21,12, DbL,21,12, TbL,21,12, HbL,21,12, PbM,21,12, SbM,21,12, BbM,21,12, DbM,21,12, TbM,21,12, HbM,21,12, PbN,21,12, SbN,21,12, BbN,21,12, DbN,21,12, TbN,21,12, HbN,21,12, PcA,21,12, ScA,21,12, BcA,21,12, DcA,21,12, TcA,21,12, HcA,21,12, PcB,21,12, ScB,21,12, BcB,21,12, DcB,21,12, TcB,21,12, HcB,21,12, PcC,21,12, ScC,21,12, BcC,21,12, DcC,21,12, TcC,21,12, HcC,21,12, PcD,21,12, ScD,21,12, BcD,21,12, DcD,21,12, TcD,21,12, HcD,21,12, PcE,21,12, ScE,21,12, BcE,21,12, DcE,21,12, TcE,21,12, HcE,21,12, PcF,21,12, ScF,21,12, BcF,21,12, DcF,21,12, TcF,21,12, HcF,21,12, PcG,21,12, ScG,21,12, BcG,21,12, DcG,21,12, TcG,21,12, HcG,21,12, PcH,21,12, ScH,21,12, BcH,21,12, DcH,21,12, TcH,21,12, HcH,21,12, IcI,20,12, IcI,20,12, IcI,20,12, IcI,20,12, IcI,20,12, IcI,20,12, CcI,21,11, FcI,20,12, PcJ,21,12, ScJ,21,12, BcJ,21,12, DcJ,21,12, TcJ,21,12, HcJ,21,12, PcK,21,12, ScK,21,12, BcK,21,12, DcK,21,12, TcK,21,12, HcK,21,12, PcL,21,12, ScL,21,12, BcL,21,12, DcL,21,12, TcL,21,12, HcL,21,12, PcM,21,12, ScM,21,12, BcM,21,12, DcM,21,12, TcM,21,12, HcM,21,12, PcN,21,12, ScN,21,12, BcN,21,12, DcN,21,12, TcN,21,12, HcN,21,12, PdA,21,12, SdA,21,12, BdA,21,12, DdA,21,12, TdA,21,12, HdA,21,12, PdB,21,12, SdB,21,12, BdB,21,12, DdB,21,12, TdB,21,12, HdB,21,12, PdC,21,12, SdC,21,12, BdC,21,12, DdC,21,12, TdC,21,12, HdC,21,12, PdD,21,12, SdD,21,12, BdD,21,12, DdD,21,12, TdD,21,12, HdD,21,12, PdE,21,12, SdE,21,12, BdE,21,12, DdE,21,12, TdE,21,12, HdE,21,12, PdF,21,12, SdF,21,12, BdF,21,12, DdF,21,12, TdF,21,12, HdF,21,12, PdG,21,12, SdG,21,12, BdG,21,12, DdG,21,12, TdG,21,12, HdG,21,12, IdH,20,12, IdH,20,12, IdH,20,12, IdH,20,12, IdH,20,12, IdH,20,12, CdH,22,11, FdH,20,15, IdI,20,12, IdI,20,12, IdI,20,12, IdI,20,12, IdI,20,12, IdI,20,12, CdI,19,15, FdI,21,12, IdJ,20,12, IdJ,20,12, IdJ,20,12, IdJ,20,12, IdJ,20,12, IdJ,20,12, CdJ,21,11, FdJ,20,13, PdK,21,12, SdK,21,12, BdK,21,12, DdK,21,12, TdK,21,12, HdK,21,12, PdL,21,12, SdL,21,12, BdL,21,12, DdL,21,12, TdL,21,12, HdL,21,12, PdM,21,12, SdM,21,12, BdM,21,12, DdM,21,12, TdM,21,12, HdM,21,12, PdN,21,12, SdN,21,12, BdN,21,12, DdN,21,12, TdN,21,12, HdN,21,12, CeA,20,11, FeA,20,15, PeB,21,12, SeB,21,12, BeB,21,12, DeB,21,12, TeB,21,12, HeB,21,12, PeC,21,12, SeC,21,12, BeC,21,12, DeC,21,12, TeC,21,12, HeC,21,12, PeD,21,12, SeD,21,12, BeD,21,12, DeD,21,12, TeD,21,12, HeD,21,12, PeE,21,12, SeE,21,12, BeE,21,12, DeE,21,12, TeE,21,12, HeE,21,12, PeF,21,12, SeF,21,12, BeF,21,12, DeF,21,12, TeF,21,12, HeF,21,12, PeG,22,12, SeG,22,12, BeG,22,12, DeG,22,12, TeG,22,12, HeG,22,12, CeH,19,13, FeH,21,12, PeI,23,12, SeI,23,12, BeI,23,12, DeI,23,12, TeI,23,12, HeI,23,12, PeJ,21,12, SeJ,21,12, BeJ,21,12, DeJ,21,12, TeJ,21,12, HeJ,21,12, PeK,21,12, SeK,21,12, BeK,21,12, DeK,21,12, TeK,21,12, HeK,21,12, PeL,21,12, SeL,21,12, BeL,21,12, DeL,21,12, TeL,21,12, HeL,21,12, PeM,21,12, SeM,21,12, BeM,21,12, DeM,21,12, TeM,21,12, HeM,21,12, PeN,21,12, SeN,21,12, BeN,21,12, DeN,21,12, TeN,21,12, HeN,21,12, PfA,21,12, SfA,21,12, BfA,21,12, DfA,21,12, TfA,21,12, HfA,21,12, CfB,20,11, FfB,20,13, PfC,21,12, SfC,21,12, BfC,21,12, DfC,21,12, TfC,21,12, HfC,21,12, PfD,21,12, SfD,21,12, BfD,21,12, DfD,21,12, TfD,21,12, HfD,21,12, PfE,21,12, SfE,21,12, BfE,21,12, DfE,21,12, TfE,21,12, HfE,21,12, PfF,21,12, SfF,21,12, BfF,21,12, DfF,21,12, TfF,21,12, HfF,21,12, PfG,21,12, SfG,21,12, BfG,21,12, DfG,21,12, TfG,21,12, HfG,21,12, PfH,23,12, SfH,23,12, BfH,23,12, DfH,23,12, TfH,23,12, HfH,23,12, CfI,19,12, FfI,21,12, PfJ,22,12, SfJ,22,12, BfJ,22,12, DfJ,22,12, TfJ,22,12, HfJ,22,12, PfK,21,12, SfK,21,12, BfK,21,12, DfK,21,12, TfK,21,12, HfK,21,12, PfL,21,12, SfL,21,12, BfL,21,12, DfL,21,12, TfL,21,12, HfL,21,12, PfM,21,12, SfM,21,12, BfM,21,12, DfM,21,12, TfM,21,12, HfM,21,12, PfN,21,12, SfN,21,12, BfN,21,12, DfN,21,12, TfN,21,12, HfN,21,12, PgA,21,12, SgA,21,12, BgA,21,12, DgA,21,12, TgA,21,12, HgA,21,12, PgB,21,12, SgB,21,12, BgB,21,12, DgB,21,12, TgB,21,12, HgB,21,12, PgC,21,12, SgC,21,12, BgC,21,12, DgC,21,12, TgC,21,12, HgC,21,12, PgD,21,12, SgD,21,12, BgD,21,12, DgD,21,12, TgD,21,12, HgD,21,12, PgE,21,12, SgE,21,12, BgE,21,12, DgE,21,12, TgE,21,12, HgE,21,12, PgF,21,12, SgF,21,12, BgF,21,12, DgF,21,12, TgF,21,12, HgF,21,12, PgG,21,12, SgG,21,12, BgG,21,12, DgG,21,12, TgG,21,12, HgG,21,12, PgH,21,12, SgH,21,12, BgH,21,12, DgH,21,12, TgH,21,12, HgH,21,12, PgI,22,12, SgI,22,12, BgI,22,12, DgI,22,12, TgI,22,12, HgI,22,12, PgJ,21,12, SgJ,21,12, BgJ,21,12, DgJ,21,12, TgJ,21,12, HgJ,21,12, PgK,21,12, SgK,21,12, BgK,21,12, DgK,21,12, TgK,21,12, HgK,21,12, PgL,21,12, SgL,21,12, BgL,21,12, DgL,21,12, TgL,21,12, HgL,21,12, PgM,21,12, SgM,21,12, BgM,21,12, DgM,21,12, TgM,21,12, HgM,21,12, PgN,21,12, SgN,21,12, BgN,21,12, DgN,21,12, TgN,21,12, HgN,21,12, PhA,21,12, ShA,21,12, BhA,21,12, DhA,21,12, ThA,21,12, HhA,21,12, PhB,21,12, ShB,21,12, BhB,21,12, DhB,21,12, ThB,21,12, HhB,21,12, PhC,21,12, ShC,21,12, BhC,21,12, DhC,21,12, ThC,21,12, HhC,21,12, PhD,21,12, ShD,21,12, BhD,21,12, DhD,21,12, ThD,21,12, HhD,21,12, PhE,21,12, ShE,21,12, BhE,21,12, DhE,21,12, ThE,21,12, HhE,21,12, PhF,21,12, ShF,21,12, BhF,21,12, DhF,21,12, ThF,21,12, HhF,21,12, PhG,21,12, ShG,21,12, BhG,21,12, DhG,21,12, ThG,21,12, HhG,21,12, PhH,21,12, ShH,21,12, BhH,21,12, DhH,21,12, ThH,21,12, HhH,21,12, PhI,21,12, ShI,21,12, BhI,21,12, DhI,21,12, ThI,21,12, HhI,21,12, PhJ,21,12, ShJ,21,12, BhJ,21,12, DhJ,21,12, ThJ,21,12, HhJ,21,12, PhK,21,12, ShK,21,12, BhK,21,12, DhK,21,12, ThK,21,12, HhK,21,12, PhL,21,12, ShL,21,12, BhL,21,12, DhL,21,12, ThL,21,12, HhL,21,12, PhM,21,12, ShM,21,12, BhM,21,12, DhM,21,12, ThM,21,12, HhM,21,12, PhN,21,12, ShN,21,12, BhN,21,12, DhN,21,12, ThN,21,12, HhN,21,12, PiA,21,12, SiA,21,12, BiA,21,12, DiA,21,12, TiA,21,12, HiA,21,12, PiB,21,12, SiB,21,12, BiB,21,12, DiB,21,12, TiB,21,12, HiB,21,12, PiC,21,12, SiC,21,12, BiC,21,12, DiC,21,12, TiC,21,12, HiC,21,12, PiD,21,12, SiD,21,12, BiD,21,12, DiD,21,12, TiD,21,12, HiD,21,12, PiE,21,12, SiE,21,12, BiE,21,12, DiE,21,12, TiE,21,12, HiE,21,12, PiF,21,12, SiF,21,12, BiF,21,12, DiF,21,12, TiF,21,12, HiF,21,12, PiG,21,12, SiG,21,12, BiG,21,12, DiG,21,12, TiG,21,12, HiG,21,12, PiH,21,12, SiH,21,12, BiH,21,12, DiH,21,12, TiH,21,12, HiH,21,12, PiI,21,12, SiI,21,12, BiI,21,12, DiI,21,12, TiI,21,12, HiI,21,12, PiJ,21,12, SiJ,21,12, BiJ,21,12, DiJ,21,12, TiJ,21,12, HiJ,21,12, CiK,20,11, FiK,20,13, PiL,21,12, SiL,21,12, BiL,21,12, DiL,21,12, TiL,21,12, HiL,21,12, PiM,21,12, SiM,21,12, BiM,21,12, DiM,21,12, TiM,21,12, HiM,21,12, PiN,21,12, SiN,21,12, BiN,21,12, DiN,21,12, TiN,21,12, HiN,21,12, PjA,21,12, SjA,21,12, BjA,21,12, DjA,21,12, TjA,21,12, HjA,21,12, PjB,21,12, SjB,21,12, BjB,21,12, DjB,21,12, TjB,21,12, HjB,21,12, PjC,21,12, SjC,21,12, BjC,21,12, DjC,21,12, TjC,21,12, HjC,21,12, PjD,21,12, SjD,21,12, BjD,21,12, DjD,21,12, TjD,21,12, HjD,21,12, PjE,22,12, SjE,22,12, BjE,22,12, DjE,22,12, TjE,22,12, HjE,22,12, PjF,21,12, SjF,21,12, BjF,21,12, DjF,21,12, TjF,21,12, HjF,21,12, PjG,21,12, SjG,21,12, BjG,21,12, DjG,21,12, TjG,21,12, HjG,21,12, PjH,21,12, SjH,21,12, BjH,21,12, DjH,21,12, TjH,21,12, HjH,21,12, PjI,21,12, SjI,21,12, BjI,21,12, DjI,21,12, TjI,21,12, HjI,21,12, CjJ,20,11, FjJ,20,13, CjL,20,11, FjL,20,13, PjM,21,12, SjM,21,12, BjM,21,12, DjM,21,12, TjM,21,12, HjM,21,12, PjN,21,12, SjN,21,12, BjN,21,12, DjN,21,12, TjN,21,12, HjN,21,12, PkA,21,12, SkA,21,12, BkA,21,12, DkA,21,12, TkA,21,12, HkA,21,12, PkB,21,12, SkB,21,12, BkB,21,12, DkB,21,12, TkB,21,12, HkB,21,12, PkC,21,12, SkC,21,12, BkC,21,12, DkC,21,12, TkC,21,12, HkC,21,12, PkD,23,12, SkD,23,12, BkD,23,12, DkD,23,12, TkD,23,12, HkD,23,12, IkE,20,12, IkE,20,12, IkE,20,12, IkE,20,12, IkE,20,12, IkE,20,12, CkE,20,12, FkE,21,12, PkF,23,12, SkF,23,12, BkF,23,12, DkF,23,12, TkF,23,12, HkF,23,12, PkG,21,12, SkG,21,12, BkG,21,12, DkG,21,12, TkG,21,12, HkG,21,12, PkH,21,12, SkH,21,12, BkH,21,12, DkH,21,12, TkH,21,12, HkH,21,12, PkI,21,12, SkI,21,12, BkI,21,12, DkI,21,12, TkI,21,12, HkI,21,12, PkJ,21,12, SkJ,21,12, BkJ,21,12, DkJ,21,12, TkJ,21,12, HkJ,21,12, CkK,20,11, FkK,20,13, PkL,21,12, SkL,21,12, BkL,21,12, DkL,21,12, TkL,21,12, HkL,21,12, PkM,21,12, SkM,21,12, BkM,21,12, DkM,21,12, TkM,21,12, HkM,21,12, PkN,21,12, SkN,21,12, BkN,21,12, DkN,21,12, TkN,21,12, HkN,21,12, PlA,21,12, SlA,21,12, BlA,21,12, DlA,21,12, TlA,21,12, HlA,21,12, PlB,21,12, SlB,21,12, BlB,21,12, DlB,21,12, TlB,21,12, HlB,21,12, PlC,23,12, SlC,23,12, BlC,23,12, DlC,23,12, TlC,23,12, HlC,23,12, IlD,20,12, IlD,20,12, IlD,20,12, IlD,20,12, IlD,20,12, IlD,20,12, ClD,20,13, FlD,21,12, IlE,20,12, IlE,20,12, IlE,20,12, IlE,20,12, IlE,20,12, IlE,20,12, ClE,22,12, FlE,21,12, IlF,20,12, IlF,20,12, IlF,20,12, IlF,20,12, IlF,20,12, IlF,20,12, ClF,20,12, FlF,21,12, PlG,23,12, SlG,23,12, BlG,23,12, DlG,23,12, TlG,23,12, HlG,23,12, PlH,21,12, SlH,21,12, BlH,21,12, DlH,21,12, TlH,21,12, HlH,21,12, PlI,21,12, SlI,21,12, BlI,21,12, DlI,21,12, TlI,21,12, HlI,21,12, PlJ,21,12, SlJ,21,12, BlJ,21,12, DlJ,21,12, TlJ,21,12, HlJ,21,12, PlK,21,12, SlK,21,12, BlK,21,12, DlK,21,12, TlK,21,12, HlK,21,12, PlL,21,12, SlL,21,12, BlL,21,12, DlL,21,12, TlL,21,12, HlL,21,12, PlM,21,12, SlM,21,12, BlM,21,12, DlM,21,12, TlM,21,12, HlM,21,12, PlN,21,12, SlN,21,12, BlN,21,12, DlN,21,12, TlN,21,12, HlN,21,12, PmA,21,12, SmA,21,12, BmA,21,12, DmA,21,12, TmA,21,12, HmA,21,12, PmB,22,12, SmB,22,12, BmB,22,12, DmB,22,12, TmB,22,12, HmB,22,12, ImC,20,12, ImC,20,12, ImC,20,12, ImC,20,12, ImC,20,12, ImC,20,12, CmC,19,13, FmC,21,12, ImD,20,12, ImD,20,12, ImD,20,12, ImD,20,12, ImD,20,12, ImD,20,12, CmD,23,10, FmD,20,13, PmE,13,10, SmE,13,10, BmE,13,10, DmE,13,10, TmE,13,10, HmE,13,10, ImF,20,12, ImF,20,12, ImF,20,12, ImF,20,12, ImF,20,12, ImF,20,12, CmF,14,12, FmF,20,12, ImG,20,12, ImG,20,12, ImG,20,12, ImG,20,12, ImG,20,12, ImG,20,12, CmG,19,12, FmG,21,12, PmH,22,12, SmH,22,12, BmH,22,12, DmH,22,12, TmH,22,12, HmH,22,12, PmI,21,12, SmI,21,12, BmI,21,12, DmI,21,12, TmI,21,12, HmI,21,12, PmJ,21,12, SmJ,21,12, BmJ,21,12, DmJ,21,12, TmJ,21,12, HmJ,21,12, PmK,21,12, SmK,21,12, BmK,21,12, DmK,21,12, TmK,21,12, HmK,21,12, PmL,21,12, SmL,21,12, BmL,21,12, DmL,21,12, TmL,21,12, HmL,21,12, PmM,21,12, SmM,21,12, BmM,21,12, DmM,21,12, TmM,21,12, HmM,21,12, PmN,21,12, SmN,21,12, BmN,21,12, DmN,21,12, TmN,21,12, HmN,21,12, PnA,21,12, SnA,21,12, BnA,21,12, DnA,21,12, TnA,21,12, HnA,21,12, PnB,21,12, SnB,21,12, BnB,21,12, DnB,21,12, TnB,21,12, HnB,21,12, PnC,23,12, SnC,23,12, BnC,23,12, DnC,23,12, TnC,23,12, HnC,23,12, InD,20,12, InD,20,12, InD,20,12, InD,20,12, InD,20,12, InD,20,12, CnD,19,13, FnD,21,12, PnE,23,12, SnE,23,12, BnE,23,12, DnE,23,12, TnE,23,12, HnE,23,12, InF,20,12, InF,20,12, InF,20,12, InF,20,12, InF,20,12, InF,20,12, CnF,19,12, FnF,21,12, PnG,23,12, SnG,23,12, BnG,23,12, DnG,23,12, TnG,23,12, HnG,23,12, PnH,21,12, SnH,21,12, BnH,21,12, DnH,21,12, TnH,21,12, HnH,21,12, PnI,21,12, SnI,21,12, BnI,21,12, DnI,21,12, TnI,21,12, HnI,21,12, PnJ,21,12, SnJ,21,12, BnJ,21,12, DnJ,21,12, TnJ,21,12, HnJ,21,12, PnK,21,12, SnK,21,12, BnK,21,12, DnK,21,12, TnK,21,12, HnK,21,12, PnL,21,12, SnL,21,12, BnL,21,12, DnL,21,12, TnL,21,12, HnL,21,12, PnM,21,12, SnM,21,12, BnM,21,12, DnM,21,12, TnM,21,12, HnM,21,12, PnN,21,12, SnN,21,12, BnN,21,12, DnN,21,12, TnN,21,12, HnN,21,12]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
