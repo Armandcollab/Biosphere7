@@ -163,28 +163,25 @@ public class JoueurBiosphere7Test {
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
 
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "FaM"));
-        
-        
+
         niveau = 9;
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU9);
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "O,16,22"));
-        
+
         plateau = Utils.plateauDepuisTexte(PLATEAU_VIDE);
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         Utils.afficherActionsPossibles(actionsPossibles);
+        assertFalse(Utils.uneActionPossibleCommencePar(actionsPossibles, "O"));
         assertFalse(Utils.actionsPossiblesContient(actionsPossibles, "O,0,0"));
-        
-        
-        /*// log
+
+        // log
         niveau = 8;
         plateau = Utils.plateauDepuisTexte(PLATEAU_log);
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
-        Utils.afficherActionsPossibles(actionsPossibles);*/
-        
-
+        Utils.afficherActionsPossibles(actionsPossibles);
     }
 
     /**
@@ -480,34 +477,34 @@ public class JoueurBiosphere7Test {
      * le plateau du dernier sortie.log
      */ //7 rouges 6 bleus 
     final String PLATEAU_log
-            = " A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
+            = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "a|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + "a|   |   |   |   |   |   |   |   |   |TR1|   |PB1|   |DR1|\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "b|   |   |   |   |   |   |   |   |HR1|   |   |   |   |   |\n"
+            + "b|   |   |   |   |   |   |   |TR2|DR1|   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "c|   |   |   |   |   |   |   |   |   |   |   |   |   |PB1|\n"
+            + "c|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "d|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + "d|BR1|   |   |   |   |   |   |   |   |DR1|BB1|   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "e|   |   |   |   |   |HR1|   |   |   |   |   |   |   |   |\n"
+            + "e|   |   |TR1|   |   |   |   |   |   |   |SB2|   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "f|   |   |TB1|   |BR1|   |   |TB1|   |   |   |   |   |   |\n"
+            + "f|SR1|   |   |   |   |   |DB1|   |SB1|   |   |   |   |PB1|\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "g|   |   |   |   |   |DR1|   |   |   |   |   |   |   |   |\n"
+            + "g|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "h|   |   |SB1|   |   |PR2|   |   |   |   |   |   |   |   |\n"
+            + "h|   |   |   |   |   |   |   |   |   |   |   |   |DR1|   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "i|   |   |   |   |   |   |DB1|   |   |   |   |   |   |   |\n"
+            + "i|   |   |   |   |   |   |   |   |   |PR1|   |   |SB1|   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "j|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "k|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "l|   |   |   |   |   |   |   |   |   |   |   |   |SR1|   |\n"
+            + "l|PR1|   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "m|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + "m|   |PB1|   |DR1|   |SB2|   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "n|   |   |   |   |   |   |   |SB1|   |   |   |   |   |   |\n"
-            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+";
+            + "n|   |   |   |   |   |PB1|   |   |   |SB1|   |   |TB1|   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+ ";
 }

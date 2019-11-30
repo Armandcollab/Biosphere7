@@ -71,10 +71,15 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
 
         Vitalite vit = new Vitalite();
         Coordonnees coordNULL = new Coordonnees(0, 0);
+        vit.calculVitalite(plateau, couleurJoueur, ' ', coordNULL, niveau);
+        System.out.println("base " + vit.vitalite[0]);
         int[] vitAvant = {vit.vitalite[0], vit.vitalite[1]};
         vit.calculVitalite(plateau, couleurJoueur, 'O', coordNULL, niveau);
         if (vitAvant[0] != vit.vitalite[0] || vitAvant[1] != vit.vitalite[1]) {
             ajoutAction(coordNULL, actions, 'O', vit);
+            System.out.println("différentes valeurs " + vit.vitalite[0]);
+        } else {
+            System.out.println("meme valeurs " + vit.vitalite[1]);
         }
 
         System.out.println("actionsPossibles : fin");
