@@ -140,30 +140,31 @@ public class Vitalite {
                 }
                 break;
             case 'O':
+                // quand on applique l'Ombre
                 for (int lig = 0; lig < Coordonnees.NB_LIGNES; lig++) {
                     for (int col = 0; col < Coordonnees.NB_COLONNES; col++) {
                         if (plateau[lig][col].espece != CAR_VIDE) {
-                            int vitaliteInitiale = plateau[lig][col].vitalite;
                             int vitaliteAEnlever = 0;
                             for (int distance = 1; distance < 10; distance++) {
-                                vitaliteAEnlever = 0;
                                 if (Utils.estDansPlateau(plateau, new Coordonnees(lig + distance, col))) {
-                                    if ((plateau[lig + distance][col].espece == 'S' || plateau[lig + distance][col].espece == 'P') && distance < plateau[lig + distance][col].vitalite) {
-                                        vitaliteAEnlever = (plateau[lig + distance][col].vitalite - distance) / 2;
+                                    if ((plateau[lig + distance][col].espece == 'S' || plateau[lig + distance][col].espece == 'P')
+                                            && distance < plateau[lig + distance][col].vitalite) {
+                                        vitaliteAEnlever += (plateau[lig + distance][col].vitalite - (distance)) / 2;
                                     }
                                 }
-
-                                if ((vitaliteInitiale - vitaliteAEnlever) > 0) {
-                                    ajoutVitalite(plateau, new Coordonnees(lig, col), couleurJoueur, false, -vitaliteAEnlever);
-                                } else {
-                                    ajoutVitalite(plateau, new Coordonnees(lig, col), couleurJoueur, false, -vitaliteInitiale);
-                                }
+                            }
+                            if ((plateau[lig][col].vitalite - vitaliteAEnlever) > 0) {
+                                ajoutVitalite(plateau, new Coordonnees(lig, col), couleurJoueur, false, -vitaliteAEnlever);
+                            } else {
+                                ajoutVitalite(plateau, new Coordonnees(lig, col), couleurJoueur, false, -plateau[lig][col].vitalite);
                             }
                         }
                     }
                 }
                 break;
-
+            case ' ':
+                //pour simplement calculer les vitalités présentes sur le tableau
+                break;
             default:
                 System.out.println("Action non valide pour le calcule de vitalité");
                 break;
