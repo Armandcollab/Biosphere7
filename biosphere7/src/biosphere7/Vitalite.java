@@ -148,9 +148,8 @@ public class Vitalite {
                             for (int distance = 1; distance < 10; distance++) {
                                 vitaliteAEnlever = 0;
                                 if (Utils.estDansPlateau(plateau, new Coordonnees(lig + distance, col))) {
-                                    if ((plateau[lig + distance][col].espece == 'S' || plateau[lig + distance][col].espece == 'P') && distance <= plateau[lig + distance][col].vitalite) {
+                                    if ((plateau[lig + distance][col].espece == 'S' || plateau[lig + distance][col].espece == 'P') && distance < plateau[lig + distance][col].vitalite) {
                                         vitaliteAEnlever = (plateau[lig + distance][col].vitalite - distance) / 2;
-                                        System.out.println(vitaliteAEnlever);
                                     }
                                 }
 
