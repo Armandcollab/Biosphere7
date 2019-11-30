@@ -161,7 +161,6 @@ public class JoueurBiosphere7Test {
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU7);
         couleur = 'R';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
-        Utils.afficherActionsPossibles(actionsPossibles);
 
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "FaM"));
         
@@ -170,14 +169,15 @@ public class JoueurBiosphere7Test {
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU9);
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
+        Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "O,16,22"));
         
-        // log
+        /*// log
         niveau = 8;
         plateau = Utils.plateauDepuisTexte(PLATEAU_log);
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
-        Utils.afficherActionsPossibles(actionsPossibles);
+        Utils.afficherActionsPossibles(actionsPossibles);*/
         
 
     }

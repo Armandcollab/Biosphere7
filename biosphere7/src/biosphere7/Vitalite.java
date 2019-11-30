@@ -145,17 +145,20 @@ public class Vitalite {
                         if (plateau[lig][col].espece != CAR_VIDE) {
                             int vitaliteInitiale = plateau[lig][col].vitalite;
                             int vitaliteAEnlever = 0;
-                            for (int i = 0; i < 9; i++) {
-                                if (Utils.estDansPlateau(plateau, new Coordonnees(lig - i, col))) {
-                                    if ((plateau[lig - i][col].espece == 'S' || plateau[lig - i][col].espece == 'P') && i + 1 < plateau[lig - i][col].vitalite) {
-                                        vitaliteAEnlever = plateau[lig][col].vitalite - (plateau[lig - i][col].vitalite-i+1);
+                            for (int distance = 1; distance < 10; distance++) {
+                                vitaliteAEnlever = 0;
+                                if (Utils.estDansPlateau(plateau, new Coordonnees(lig + distance, col))) {
+                                    if ((plateau[lig + distance][col].espece == 'S' || plateau[lig + distance][col].espece == 'P') && distance <= plateau[lig + distance][col].vitalite) {
+                                        vitaliteAEnlever = (plateau[lig + distance][col].vitalite - distance) / 2;
+                                        System.out.println(vitaliteAEnlever);
                                     }
                                 }
-                            }
-                            if ((vitaliteInitiale - vitaliteAEnlever)/2 > 0){
-                                ajoutVitalite(plateau, coordCase, couleurJoueur, false, -vitaliteAEnlever);
-                            }else{
-                                ajoutVitalite(plateau, coordCase, couleurJoueur, false, -vitaliteInitiale);
+
+                                if ((vitaliteInitiale - vitaliteAEnlever) > 0) {
+                                    ajoutVitalite(plateau, new Coordonnees(lig, col), couleurJoueur, false, -vitaliteAEnlever);
+                                } else {
+                                    ajoutVitalite(plateau, new Coordonnees(lig, col), couleurJoueur, false, -vitaliteInitiale);
+                                }
                             }
                         }
                     }
