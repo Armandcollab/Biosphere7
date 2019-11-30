@@ -169,8 +169,13 @@ public class JoueurBiosphere7Test {
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU9);
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
-        Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "O,16,22"));
+        
+        plateau = Utils.plateauDepuisTexte(PLATEAU_VIDE);
+        actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
+        Utils.afficherActionsPossibles(actionsPossibles);
+        assertFalse(Utils.actionsPossiblesContient(actionsPossibles, "O,0,0"));
+        
         
         /*// log
         niveau = 8;
