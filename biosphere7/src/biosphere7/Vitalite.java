@@ -116,15 +116,14 @@ public class Vitalite {
                 break;
             case 'I':
                 // quand on dissémine
-                if (plateau[coordCase.ligne][coordCase.colonne].espece == Utils.CAR_VIDE && Utils.estAutoSterile(plateau, coordCase) && Utils.unVoisinDeLaMemeEspece(plateau, coordCase)) {
+                if (plateau[coordCase.ligne][coordCase.colonne].espece == Utils.CAR_VIDE && !Utils.estAutoSterile(plateau, coordCase) && Utils.unVoisinDeLaMemeEspece(plateau, coordCase)) {
                     //quand on a des plantes autoStériles
                     for (int i = 0; i < coordsVoisinVide.length; i++) {
                         if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1) {
-                            int ajoutVit = Utils.vitaliteVoisinPlusFaible(plateau, coordCase);
-                            ajoutVitalite(plateau, coordCase, couleurJoueur, true, ajoutVit);
+                            ajoutVitalite(plateau, coordCase, couleurJoueur, true, Utils.vitaliteVoisinPlusFaible(plateau, coordCase));
                         }
                     }
-                } else if (plateau[coordCase.ligne][coordCase.colonne].espece == Utils.CAR_VIDE && !Utils.estAutoSterile(plateau, coordCase)) {
+                } else if (plateau[coordCase.ligne][coordCase.colonne].espece == Utils.CAR_VIDE && Utils.estAutoSterile(plateau, coordCase)) {
                     //quand on a des plantes autoFécondes 
                     for (int i = 0; i < coordsVoisinVide.length; i++) {
                         if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1) {
