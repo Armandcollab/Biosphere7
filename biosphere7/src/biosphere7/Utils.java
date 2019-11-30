@@ -331,7 +331,7 @@ public class Utils {
         Coordonnees[] coordsVoisins = plantesVoisines(plateau, coord, false);
         int valMin = plateau[coord.ligne][coord.colonne].vitalite;
         for (int i = 0; i < 4; i++) {
-            if (coordsVoisins[i].ligne != -1 && coordsVoisins[i].colonne != -1) {
+            if (coordsVoisins[i].ligne != -1 && coordsVoisins[i].colonne != -1 && plateau[coordsVoisins[i].ligne][coordsVoisins[i].colonne].espece == plateau[coord.ligne][coord.colonne].espece) {
                 if (plateau[coordsVoisins[i].ligne][coordsVoisins[i].colonne].vitalite < valMin) {
                     valMin = plateau[coordsVoisins[i].ligne][coordsVoisins[i].colonne].vitalite;
                 }

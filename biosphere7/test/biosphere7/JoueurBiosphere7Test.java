@@ -209,96 +209,7 @@ public class JoueurBiosphere7Test {
         assertFalse(Utils.actionsPossiblesContient(actions, "PbH,0,0"));
 
     }
-
-    /**
-     * Test de la fonction ArbreVoisins
-     */
-    @Test
-    public void testArbresVoisins() {
-        Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU3);
-
-        Coordonnees[] coordsAttendu = new Coordonnees[4];
-        for (int i = 0; i < 4; i++) {
-            coordsAttendu[i] = new Coordonnees(-1, -1);
-        }
-
-        Coordonnees coord = new Coordonnees(1, 1);
-        Assert.assertArrayEquals(coordsAttendu, Utils.plantesVoisines(plateau, coord, false));
-
-        coord.ligne = 0;
-        coord.colonne = 12;
-        coordsAttendu[2].ligne = 0;
-        coordsAttendu[2].colonne = 13;
-        //Assert.assertArrayEquals(coordsAttendu, joueur.arbreVoisins(plateau, coord));
-        Assert.assertEquals(coordsAttendu[2].colonne, Utils.plantesVoisines(plateau, coord, false)[2].colonne);
-
-        coord.ligne = 12;
-        coord.colonne = 4;
-        coordsAttendu[0].ligne = 13;
-        coordsAttendu[0].colonne = 4;
-        coordsAttendu[1].ligne = 11;
-        coordsAttendu[1].colonne = 4;
-        coordsAttendu[2].ligne = 12;
-        coordsAttendu[2].colonne = 5;
-        coordsAttendu[3].ligne = 12;
-        coordsAttendu[3].colonne = 3;
-        Assert.assertArrayEquals(coordsAttendu, Utils.plantesVoisines(plateau, coord, false));
-
-        plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU6);
-        coord.ligne = 12;
-        coord.colonne = 4;
-        coordsAttendu[0].ligne = -1;
-        coordsAttendu[0].colonne = -1;
-        coordsAttendu[1].ligne = 11;
-        coordsAttendu[1].colonne = 4;
-        coordsAttendu[2].ligne = 12;
-        coordsAttendu[2].colonne = 5;
-        coordsAttendu[3].ligne = 12;
-        coordsAttendu[3].colonne = 3;
-        Assert.assertArrayEquals(coordsAttendu, Utils.plantesVoisines(plateau, coord, false));
-        //Assert.assertEquals(coordsAttendu[0].ligne, joueur.arbreVoisins(plateau, coord)[0].ligne);
-    }
-
-    /**
-     * Test de la fonction RegardeSiArbre
-     */
-    @Test
-    public void testRegardeSiArbre() {
-        Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU3);
-
-        Coordonnees coordTest = new Coordonnees(0, 0);
-        Coordonnees coordNull = new Coordonnees(-1, -1);
-        Assert.assertEquals(coordNull, Utils.regardeSiArbre(plateau, coordTest, false));
-
-        coordTest.colonne = 1;
-        coordTest.ligne = 1;
-        Assert.assertEquals(coordTest, Utils.regardeSiArbre(plateau, coordTest, false));
-    }
-
-    /**
-     * Test de la fonction etouffe
-     */
-    @Test
-    public void testEtouffe() {
-        JoueurBiosphere7 joueur = new JoueurBiosphere7();
-        Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU4);
-
-        Coordonnees coord = new Coordonnees(0, 0);
-        Assert.assertEquals(false, Utils.etouffe(plateau, coord, 4));
-        coord.ligne = 12;
-        coord.colonne = 4;
-        Assert.assertEquals(true, Utils.etouffe(plateau, coord, 4));
-        coord.ligne = 0;
-        coord.colonne = 13;
-        Assert.assertEquals(false, Utils.etouffe(plateau, coord, 4));
-
-        plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU6);
-        Assert.assertEquals(false, Utils.etouffe(plateau, Coordonnees.depuisCars('m', 'E'), 4));
-        Assert.assertEquals(false, Utils.etouffe(plateau, Coordonnees.depuisCars('f', 'A'), 4));
-        Assert.assertEquals(false, Utils.etouffe(plateau, Coordonnees.depuisCars('f', 'B'), 3));
-
-    }
-
+    
     /**
      * Un plateau de base, sous forme de chaîne. Pour construire une telle
      * chaîne depuis votre sortie.log, déclarez simplement : final String
@@ -442,7 +353,7 @@ public class JoueurBiosphere7Test {
             + "n|   |   |   |   |PB1|   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
     /**
-     * Un plateau pour tester le niveau 4.
+     * Un plateau pour tester le niveau 6.
      */ // 12 vitalitées bleu et 20 rouge
     final String PLATEAU_NIVEAU6
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N \n"
@@ -477,7 +388,7 @@ public class JoueurBiosphere7Test {
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
 
     /**
-     * Un plateau pour tester le niveau 4.
+     * Un plateau pour tester le niveau 7.
      */ // 12 vitalitées bleu et 20 rouge
     final String PLATEAU_NIVEAU7
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N \n"
