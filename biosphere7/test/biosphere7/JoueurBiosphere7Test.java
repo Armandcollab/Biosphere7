@@ -191,7 +191,9 @@ public class JoueurBiosphere7Test {
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "FaD,26,30"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "FnI,24,28"));
         
+        niveau = 12;
         
         
         

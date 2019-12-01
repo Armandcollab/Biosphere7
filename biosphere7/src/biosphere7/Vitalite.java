@@ -6,6 +6,7 @@
 package biosphere7;
 
 import static biosphere7.Utils.CAR_VIDE;
+import jdk.jshell.execution.Util;
 
 /**
  *
@@ -70,9 +71,12 @@ public class Vitalite {
             case 'H':
                 // quand on plante une plante
                 if (!Utils.etouffe(plateau, coordCase, 4) && plateau[coordCase.ligne][coordCase.colonne].espece == CAR_VIDE) {
-                    ajoutVitalite(plateau, coordCase, couleurJoueur, true,
-                            vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur) + 1 // car on plante
-                            + Utils.regardeSiVoisinEau(plateau, coordCase));
+                    int vitAAjouter = vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur) + 1;
+                
+                    if(Utils.esrEnLisière(plateau, coordCase)){
+                        vitAAjouter += 3;
+                    }
+                    ajoutVitalite(plateau, coordCase, couleurJoueur, true,vitAAjouter + Utils.regardeSiVoisinEau(plateau, coordCase));
                     vitalite[0] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_ROUGE);
                     vitalite[1] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_BLEU);
                 }

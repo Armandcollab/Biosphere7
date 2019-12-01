@@ -386,9 +386,9 @@ public class Utils {
 
     /**
      * Vérifie si une case est de nature EAU
-     * 
+     *
      * @param plateau le plateau considéré
-     * @param coord coordoné de la case à vérifier 
+     * @param coord coordoné de la case à vérifier
      * @return vrai si la case est de nature EAU, sinon faux
      */
     static boolean estEau(Case[][] plateau, Coordonnees coord) {
@@ -400,7 +400,7 @@ public class Utils {
 
     /**
      * Vérifie si deux plantes sont de la mème catégorie
-     * 
+     *
      * @param espece1 espèce de la première plante à tester
      * @param espece2 espèce de la deuxième plante à tester
      * @return vrai si elles sont de la même catégorie sinon faux
@@ -440,13 +440,87 @@ public class Utils {
 
     /**
      * Calcul la distance de manhattan entre deux cases
-     * 
+     *
      * @param coord1 coordonnées de la premmière case
      * @param coord1 coordonnées de la deuxième case
      * @return la distance de manhattan entre les deux case
      */
-    static int calculDistanceManhattan(Coordonnees coord1, Coordonnees coord2){
-        return Math.abs(coord2.ligne-coord1.ligne) + Math.abs(coord2.colonne-coord1.colonne);
-        
+    static int calculDistanceManhattan(Coordonnees coord1, Coordonnees coord2) {
+        return Math.abs(coord2.ligne - coord1.ligne) + Math.abs(coord2.colonne - coord1.colonne);
+    }
+
+    /**
+     * Vérifie si unne case est à la lisière d'une foret d'au moins six arbres
+     * voisins
+     *
+     * @param plateau le plateau considéré
+     * @param coordCase la case qui est peut-être en lisière
+     * @return true si la case donnée est en lisière de foret, sinon faux
+     */
+    static boolean esrEnLisière(Case[][] plateau, Coordonnees coordCase) {
+        Coordonnees[] tabCoordsVoisin = plantesVoisines(plateau, coordCase, false);
+        int i = 0;
+        while (i < tabCoordsVoisin.length && (!estDansPlateau(plateau, tabCoordsVoisin[i])
+                || !estDeLaMemeCategorie(plateau[tabCoordsVoisin[i].ligne][tabCoordsVoisin[i].colonne].espece, 'P'))) {
+            i++;
+        }
+        if (i < tabCoordsVoisin.length) {
+            Coordonnees[] tabForet = {tabCoordsVoisin[i], null, null, null, null, null};
+            int j = 0;
+            while (j < tabForet.length && tabForet[tabForet.length - 1] == null) {
+                tabForet = regardeSiArbreVoisinDejaTrouve(plateau, tabForet);
+                j++;
+            }
+            if (tabForet[tabForet.length - 1] == null) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Ajoute un arbre ou pas suivant s'il y en as un qui est voisin d'un des
+     * arbres dont les coordonnées sont dans le tableau donné et qui n'as pas
+     * ses coordonnées dans le tableau et qui est un arbre
+     *
+     * @param plateau le plateau considéré
+     * @param coordsForet tableau contenant les arbres déjà trouvé dans la
+     * recherche de foret
+     * @return le tableau contenant les arbres déjà trouvés et un nouveau si il
+     * y en as un voisin qui n'est aps déjà dans le tableau
+     */
+    static Coordonnees[] regardeSiArbreVoisinDejaTrouve(Case[][] plateau, Coordonnees[] coordsForet) {
+        int f = 0;
+        int cpt = 0;
+        while (f < coordsForet.length && coordsForet[f] != null) {
+            f++;
+        }
+        if (f >= coordsForet.length) {
+            return coordsForet; // il y a déjà une Foret d'au moins six arbres
+        } else {
+            for (int k = 0; k < f; k++) { // si f = 0 retourne le tableau, il n'y as pas d'arbre de référence pour en chercher un nouveau (n'est pas sencé arriver)
+                Coordonnees[] tabVoisin = plantesVoisines(plateau, coordsForet[k], true);
+                for (int i = 0; i < tabVoisin.length; i++) {
+                    if (estDansPlateau(plateau, tabVoisin[i])
+                            && estDeLaMemeCategorie(plateau[tabVoisin[i].ligne][tabVoisin[i].colonne].espece, 'P')) {
+                        cpt = 0;
+                        for (int j = 0; j < f; j++) {
+                            if (tabVoisin[i].ligne == coordsForet[j].ligne
+                                    && tabVoisin[i].colonne == coordsForet[j].colonne) {
+                                cpt++;
+                            }
+                        }
+                        if (cpt == 0) {
+                            coordsForet[f] = new Coordonnees(tabVoisin[i].ligne, tabVoisin[i].colonne);
+                            return coordsForet;
+                        }
+                    }
+                }
+            }
+            return coordsForet;
+        }
     }
 }

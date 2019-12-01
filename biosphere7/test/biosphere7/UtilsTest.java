@@ -217,7 +217,6 @@ public class UtilsTest {
         //Assert.assertEquals(coordsAttendu[0].ligne, joueur.arbreVoisins(plateau, coord)[0].ligne);
     }
 
-    
     /**
      * Test de la fonction etouffe
      */
@@ -246,7 +245,7 @@ public class UtilsTest {
      * Test de la methode est dans plateau
      */
     @Test
-    public void testEstDansPlateau(){
+    public void testEstDansPlateau() {
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU1);
         assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('a', 'A')));
         assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('n', 'N')));
@@ -261,29 +260,29 @@ public class UtilsTest {
         assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(14, 0)));
         assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(14, -1)));
         assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(13, -1)));
-        
+
     }
-    
+
     /**
      * Test de la methode regardeSiVoisinEau
      */
     @Test
-    public void testRegardeSiVoisinEau(){
+    public void testRegardeSiVoisinEau() {
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU1);
-        assertEquals(1,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'B')));
-        assertEquals(1,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('e', 'C')));
-        assertEquals(1,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('e', 'C')));
-        assertEquals(1,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'D')));
-        assertEquals(1,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('g', 'C')));
-        assertEquals(0,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'A')));
-        
+        assertEquals(1, Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'B')));
+        assertEquals(1, Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('e', 'C')));
+        assertEquals(1, Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('e', 'C')));
+        assertEquals(1, Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'D')));
+        assertEquals(1, Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('g', 'C')));
+        assertEquals(0, Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'A')));
+
     }
-    
+
     /**
      * Test de la methode calculDistanceManhattan
      */
     @Test
-    public void testCalculDistanceManhattan(){
+    public void testCalculDistanceManhattan() {
         Coordonnees coord1 = new Coordonnees(0, 0);
         Coordonnees coord2 = new Coordonnees(1, 0);
         assertEquals(0, Utils.calculDistanceManhattan(coord1, coord1));
@@ -300,7 +299,49 @@ public class UtilsTest {
         assertEquals(20, Utils.calculDistanceManhattan(coord2, coord1));
         assertEquals(20, Utils.calculDistanceManhattan(coord1, coord2));
     }
-    
+
+    /**
+     * Test de la methode regardeSiArbreVoisinDejaTrouve
+     */
+    @Test
+    public void testRegardeSiArbreVoisinDejaTrouve() {
+        Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_FORET);
+        Coordonnees[] tabForet = {Coordonnees.depuisCars('g', 'G'), null, null, null, null, null};
+        Coordonnees[] tabForetAttendu = {Coordonnees.depuisCars('g', 'G'), Coordonnees.depuisCars('h', 'G'), null, null, null, null};
+
+        assertArrayEquals(tabForetAttendu, Utils.regardeSiArbreVoisinDejaTrouve(plateau, tabForet));
+
+        /*tabForet[0] = Coordonnees.depuisCars('m', 'C');
+        tabForetAttendu[0] = Coordonnees.depuisCars('m', 'C');
+        tabForetAttendu[1] = Coordonnees.depuisCars('m', 'D');
+        assertArrayEquals(tabForetAttendu, Utils.regardeSiArbreVoisinDejaTrouve(plateau, tabForet));
+        tabForetAttendu[2] = Coordonnees.depuisCars('l', 'C');
+        assertArrayEquals(tabForetAttendu, Utils.regardeSiArbreVoisinDejaTrouve(plateau, tabForet));*/
+
+        Coordonnees[] tabForetPlein = {Coordonnees.depuisCars('c', 'I'), Coordonnees.depuisCars('c', 'J'), Coordonnees.depuisCars('c', 'K'),
+            Coordonnees.depuisCars('c', 'L'), Coordonnees.depuisCars('c', 'M'), Coordonnees.depuisCars('c', 'N')};
+
+        assertArrayEquals(tabForetPlein, Utils.regardeSiArbreVoisinDejaTrouve(plateau, tabForetPlein));
+
+        Coordonnees[] tabForet2 = {Coordonnees.depuisCars('g', 'G'), Coordonnees.depuisCars('h', 'G'), null, null, null, null};
+
+        assertArrayEquals(tabForet2, Utils.regardeSiArbreVoisinDejaTrouve(plateau, tabForet2));
+    }
+
+    /**
+     * Test de la methode esrEnLisière
+     */
+    @Test
+    public void TestEstEnLisière() {
+        Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_FORET);
+        assertFalse(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('g', 'G')));
+        assertFalse(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('a', 'A')));
+        assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('b', 'J')));
+        assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('b', 'N')));
+        assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('d', 'N')));
+        assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('c', 'K')));
+    }
+
     /**
      * Plateau de test 1
      */
@@ -474,5 +515,38 @@ public class UtilsTest {
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "n|   |   |   |PR1|   |PR1|   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
-
+    /**
+     * Plateau de test 1
+     */
+    final String PLATEAU_FORET
+            = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N \n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "a|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "b|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "c|   |   |   |   |   |   |   |   |PR1|PB1|PR1|PR1|PR1|PR9|\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "d|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "e|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "f|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "g|   |   |   |   |   |   |PR1|   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "h|   |   |   |   |   |   |PR1|   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "i|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "j|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "k|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "l|   |   |PR1|   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "m|   |   |PR1|PR1|   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "n|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
 }
