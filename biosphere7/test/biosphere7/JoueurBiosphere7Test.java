@@ -139,7 +139,6 @@ public class JoueurBiosphere7Test {
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PbB,13,6"));
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "PaN"));
-        Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PaN,13,7"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PfA,13,8"));
         //assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PmE,13,8"));
@@ -161,7 +160,6 @@ public class JoueurBiosphere7Test {
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU7);
         couleur = 'R';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
-
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "FaM"));
 
         
@@ -176,6 +174,20 @@ public class JoueurBiosphere7Test {
         assertFalse(Utils.uneActionPossibleCommencePar(actionsPossibles, "O"));
         assertFalse(Utils.actionsPossiblesContient(actionsPossibles, "O,0,0"));
 
+        niveau = 10;
+        plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU9);
+        couleur = 'R';
+        actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
+        Utils.afficherActionsPossibles(actionsPossibles);
+        assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "RPb"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RPbD,25,27"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RHiD,21,27"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RTiD,21,27"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RSiD,21,27"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RDiD,21,27"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RBiD,21,27"));
+        /*
+        
         // log
         niveau = 9;
         plateau = Utils.plateauDepuisTexte(PLATEAU_log);
@@ -184,21 +196,21 @@ public class JoueurBiosphere7Test {
         Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "O,60,60"));
         Utils.afficherActionsPossibles(actionsPossibles);
-        
+        */
     }
 
     /**
-     * Test de la fonction ajoutActionPommier.
+     * Test de la fonction ajoutAction.
      */
     @Test
-    public void testAjoutActionPommier() {
+    public void testAjoutAction() {
         JoueurBiosphere7 joueur = new JoueurBiosphere7();
         // pour l'instant pas d'action possible
         assertEquals(0, joueur.nbActions);
         // on crée le tableau d'actions et on en ajoute une
         String[] actions = new String[30];
         Vitalite vit = new Vitalite();
-        joueur.ajoutAction(Coordonnees.depuisCars('f', 'D'), actions, 'P', vit);
+        joueur.ajoutAction(Coordonnees.depuisCars('f', 'D'), actions, "P", vit);
         // l'action est devenue possible
         assertTrue(Utils.actionsPossiblesContient(actions, "PfD,0,0"));
         // une action possible mais qui n'a pas encore été ajoutée
@@ -206,7 +218,7 @@ public class JoueurBiosphere7Test {
         // pour l'instant une seule action possible
         assertEquals(1, joueur.nbActions);
         // ajout d'une deuxième action possible
-        joueur.ajoutAction(Coordonnees.depuisCars('b', 'H'), actions, 'P', vit);
+        joueur.ajoutAction(Coordonnees.depuisCars('b', 'H'), actions, "P", vit);
         // l'action a bien été ajoutée
         assertTrue(Utils.actionsPossiblesContient(actions, "PbH,0,0"));
         // désormais, deux actions possibles
@@ -224,7 +236,7 @@ public class JoueurBiosphere7Test {
         String[] actions = new String[30];
         Vitalite vit = new Vitalite();
 
-        joueur.ajoutAction(Coordonnees.depuisCars('f', 'D'), actions, 'C', vit);
+        joueur.ajoutAction(Coordonnees.depuisCars('f', 'D'), actions, "C", vit);
         assertTrue(Utils.actionsPossiblesContient(actions, "CfD,0,0"));
         assertFalse(Utils.actionsPossiblesContient(actions, "PbH,0,0"));
 
@@ -444,7 +456,7 @@ public class JoueurBiosphere7Test {
 
     /**
      * Un plateau pour tester le niveau 9.
-     */ // 12 vitalitées bleu et 20 rouge
+     */ // 23 R et 27 B
     final String PLATEAU_NIVEAU9
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"

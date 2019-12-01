@@ -29,6 +29,11 @@ public class Utils {
     public final static char CAR_TERRE = ' ';
 
     /**
+     * Caractère indiquant la nature "EAU" de la case.
+     */
+    public final static char CAR_EAU = 'E';
+
+    /**
      * Caractère pour indiquer une case sans plante.
      */
     public final static char CAR_VIDE = ' ';
@@ -237,17 +242,16 @@ public class Utils {
 
     /**
      * A partir d'une case vérifie si les cases voisines contiennent un arbre et
-     * retorune leurs coordonnées selon si l'on veut les vides ou les pleines
-     * (boolean vérifie)
+     * retorune leurs coordonnées selon si l'on veut seuelement les pleines ou
+     * toutes les casesc
      *
      * @param plateau le plateau considéré
      * @param coord coordoné de la case dont on vas chercher les arbres voisins
-     * @param vide si vaut true on retourne les coordonnées des cases vides
-     * sinon renvoi les coordonées des cases pleines
+     * @param toute si vaut true on retourne toutes les coordonnés
      * @return un tableau contenant les coordonées de arbres voisons si il y en
-     * as, sinon -1,-1
+     * as, sinon -1,-1 ( sauf si toute vaut true)
      */
-    static Coordonnees[] plantesVoisines(Case[][] plateau, Coordonnees coord, boolean vide) {
+    static Coordonnees[] plantesVoisines(Case[][] plateau, Coordonnees coord, boolean toute) {
         Coordonnees[] coordsVoisins = new Coordonnees[4]; // 4 correspond au nombre de voisins possibles maximum
 
         Coordonnees coordsTmp1 = new Coordonnees(coord.ligne + 1, coord.colonne);
@@ -255,7 +259,7 @@ public class Utils {
         Coordonnees coordsTmp3 = new Coordonnees(coord.ligne, coord.colonne + 1);
         Coordonnees coordsTmp4 = new Coordonnees(coord.ligne, coord.colonne - 1);
 
-        if (!vide) {
+        if (!toute) {
             coordsVoisins[0] = regardeSiArbre(plateau, coordsTmp1, false);
 
             coordsVoisins[1] = regardeSiArbre(plateau, coordsTmp2, false);
@@ -265,13 +269,10 @@ public class Utils {
             coordsVoisins[3] = regardeSiArbre(plateau, coordsTmp4, false);
         } else {
 
-            coordsVoisins[0] = regardeSiArbre(plateau, coordsTmp1, true);
-
-            coordsVoisins[1] = regardeSiArbre(plateau, coordsTmp2, true);
-
-            coordsVoisins[2] = regardeSiArbre(plateau, coordsTmp3, true);
-
-            coordsVoisins[3] = regardeSiArbre(plateau, coordsTmp4, true);
+            coordsVoisins[0] = coordsTmp1;
+            coordsVoisins[1] = coordsTmp2;
+            coordsVoisins[2] = coordsTmp3;
+            coordsVoisins[3] = coordsTmp4;
         }
         return coordsVoisins;
     }
@@ -345,12 +346,41 @@ public class Utils {
      *
      * @param plateau le plateau considéré
      * @param coord coordoné de la case dont on vas chercher les arbres voisins
-     * @return true si la les coordonées donné sont compris dans les cases du tableau
+     * @return true si la les coordonées donné sont compris dans les cases du
+     * tableau
      */
-    static boolean estDansPlateau(Case[][] plateau, Coordonnees coordCase) {
-        if (coordCase.ligne < Coordonnees.NB_LIGNES && coordCase.ligne >= 0 && coordCase.colonne < Coordonnees.NB_COLONNES && coordCase.colonne >= 0) {
+    static boolean estDansPlateau(Case[][] plateau, Coordonnees coord) {
+        if (coord.ligne < Coordonnees.NB_LIGNES && coord.ligne >= 0 && coord.colonne < Coordonnees.NB_COLONNES && coord.colonne >= 0) {
             return true;
         }
         return false;
     }
+
+    /**
+     * Vérifie si une case à au moins une case voisine de nature Eau
+     *
+     * @param plateau le plateau considéré
+     * @param coord coordoné de la case dont on vas chercher les arbres voisins
+     * @return 1 si la case à au moins une case voisine de nature Eau, sinon
+     * 0 (cela correspond à la vitalité à ajouter, c'est pour cela qu'on ne retourne pas un booléen)
+     */
+    static int regardeSiVoisinEau(Case[][] plateau, Coordonnees coord) {
+        Coordonnees[] coordsVoisins = plantesVoisines(plateau, coord, true);
+        int i = -1;
+
+        do {
+            i++;
+            if (i >= 4) {
+                return 0;
+            }
+            while (!estDansPlateau(plateau, coordsVoisins[i])) {
+                i++;
+                if (i >= 4) {
+                    return 0;
+                }
+            }
+        } while (plateau[coordsVoisins[i].ligne][coordsVoisins[i].colonne].nature != CAR_EAU);
+        return 1;
+    }
+
 }

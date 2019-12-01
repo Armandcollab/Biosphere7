@@ -62,6 +62,16 @@ public class Vitalite {
         Coordonnees[] coordsVoisinPlein = Utils.plantesVoisines(plateau, coordCase, false);
         Coordonnees[] coordsVoisinVide = Utils.plantesVoisines(plateau, coordCase, true);
         switch (action) {
+
+            case 'R':
+                //calculVitalite(plateau, couleurJoueur, 'P', coordCase, niveau); 
+                // on appelle le calcul de la vitalité standard quelconque (mais vérifie si etouffe ...) il faudras changer +3 en 2 alors !                
+                ajoutVitalite(plateau, coordCase, couleurJoueur, true, 
+                        -plateau[coordCase.ligne][coordCase.colonne].vitalite);
+                ajoutVitalite(plateau, coordCase, couleurJoueur, true, 
+                        vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur)+2+Utils.regardeSiVoisinEau(plateau, coordCase));
+                // on rajoute deux de vitalité pour avoir les 3 (au lieu du 1 de la plantation standard)
+                break;
             case 'P':
             case 'S':
             case 'B':
@@ -70,7 +80,9 @@ public class Vitalite {
             case 'H':
                 // quand on plante une plante
                 if (!Utils.etouffe(plateau, coordCase, 4) && plateau[coordCase.ligne][coordCase.colonne].espece == CAR_VIDE) {
-                    ajoutVitalite(plateau, coordCase, couleurJoueur, true, vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur));
+                    ajoutVitalite(plateau, coordCase, couleurJoueur, true, 
+                            vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur)
+                                    + Utils.regardeSiVoisinEau(plateau, coordCase));
                     vitalite[0] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_ROUGE);
                     vitalite[1] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_BLEU);
                 }

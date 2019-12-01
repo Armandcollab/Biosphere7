@@ -43,27 +43,35 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
             for (int col = 0; col < Coordonnees.NB_COLONNES; col++) {
                 Coordonnees coord = new Coordonnees(lig, col);
                 Vitalite vit = new Vitalite();
-                for (char charAction : Utils.ESPECES) {
-                    vit.calculVitalite(plateau, couleurJoueur, charAction, coord, niveau);
-                    if (plateau[lig][col].espece == Utils.CAR_VIDE && !Utils.etouffe(plateau, coord, 4)) {
-                        ajoutAction(coord, actions, charAction, vit);
+                for (int i=0; i<Utils.ESPECES.length ; i++) {
+                    vit.calculVitalite(plateau, couleurJoueur, Utils.ESPECES[i], coord, niveau);
+                    if (plateau[lig][col].espece == Utils.CAR_VIDE && !Utils.etouffe(plateau, coord, 4) && plateau[lig][col].nature == Utils.CAR_TERRE) {
+                        ajoutAction(coord, actions, Utils.ESPECES[i]+"", vit);
                     }
                 }
                 if (plateau[lig][col].espece != Utils.CAR_VIDE && !Utils.estAutoFéconde(plateau, coord) && Utils.unVoisinDeLaMemeEspece(plateau, coord)) {
                     vit.calculVitalite(plateau, couleurJoueur, 'I', coord, niveau);
-                    ajoutAction(coord, actions, 'I', vit);
+                    ajoutAction(coord, actions, "I", vit);
                 } else if (plateau[lig][col].espece != Utils.CAR_VIDE && Utils.estAutoFéconde(plateau, coord)) {
                     vit.calculVitalite(plateau, couleurJoueur, 'I', coord, niveau);
-                    ajoutAction(coord, actions, 'I', vit);
+                    ajoutAction(coord, actions, "I", vit);
                 }
-                Coordonnees coordsCasePourVoisin = new Coordonnees(-1, -1); // Lorsque l'on coupe / fertilise une plante
+                Coordonnees coordsCasePourVoisin = new Coordonnees(-1, -1); // Lorsque l'on coupe / fertilise une plante / rotationne
                 if (plateau[lig][col].espece != CAR_VIDE) {
                     coordsCasePourVoisin.ligne = lig;
                     coordsCasePourVoisin.colonne = col;
                     vit.calculVitalite(plateau, couleurJoueur, 'C', coordsCasePourVoisin, niveau);
-                    ajoutAction(coordsCasePourVoisin, actions, 'C', vit);
+                    ajoutAction(coordsCasePourVoisin, actions, "C", vit);
                     vit.calculVitalite(plateau, couleurJoueur, 'F', coordsCasePourVoisin, niveau);
-                    ajoutAction(coordsCasePourVoisin, actions, 'F', vit);
+                    ajoutAction(coordsCasePourVoisin, actions, "F", vit);
+                    if (plateau[lig][col].couleur == couleurJoueur) {
+                        for (int i = 0; i < Utils.ESPECES.length; i++) {
+                            if (Utils.ESPECES[i] != plateau[lig][col].espece) {
+                                vit.calculVitalite(plateau, couleurJoueur, 'R', coordsCasePourVoisin, niveau);
+                                ajoutAction(coordsCasePourVoisin, actions, "R" + Utils.ESPECES[i], vit);
+                            }
+                        }
+                    }
 
                 }
             }
@@ -75,7 +83,7 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
         int[] vitAvant = {vit.vitalite[0], vit.vitalite[1]};
         vit.calculVitalite(plateau, couleurJoueur, 'O', coordNULL, niveau);
         if (vitAvant[0] != vit.vitalite[0] || vitAvant[1] != vit.vitalite[1]) {
-            ajoutAction(coordNULL, actions, 'O', vit);
+            ajoutAction(coordNULL, actions, "O", vit);
         }
 
         System.out.println("actionsPossibles : fin");
@@ -87,19 +95,18 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
      *
      * @param coord coordonnées de la case où planter le pommier
      * @param actions l'ensemble des actions possibles (en construction)
-     * @param carAction le caractère correspondant à l'action à exécuter
+     * @param StringAction le(s) caractère(s) correspondant à l'action à exécuter
      */
-    void ajoutAction(Coordonnees coord, String[] actions, char carAction, Vitalite vit) {
-        if (carAction != 'O') {
-            String action = carAction + "" + coord.carLigne() + "" + coord.carColonne() + "," + vit.vitalite[0] + "," + vit.vitalite[1];
+    void ajoutAction(Coordonnees coord, String[] actions, String StringAction, Vitalite vit) {
+        if (!"O".equals(StringAction)) {
+            String action = StringAction + "" + coord.carLigne() + "" + coord.carColonne() + "," + vit.vitalite[0] + "," + vit.vitalite[1];
             actions[nbActions] = action;
             nbActions++;
         } else {
-            String action = carAction + "," + vit.vitalite[0] + "," + vit.vitalite[1];
+            String action = StringAction + "," + vit.vitalite[0] + "," + vit.vitalite[1];
             actions[nbActions] = action;
             nbActions++;
         }
-
     }
 
     void test() {

@@ -263,6 +263,18 @@ public class UtilsTest {
         assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(13, -1)));
         
     }
+    
+    /**
+     * Test de la methode regardeSiVoisinEau
+     */
+    @Test
+    public void testRegardeSiVoisinEau(){
+        Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU1);
+        assertEquals(1,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'B')));
+        assertEquals(0,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'A')));
+        
+    }
+    
     /**
      * Plateau de test 1
      */
@@ -278,7 +290,7 @@ public class UtilsTest {
             + "d|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "e|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
-            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + " +---+---+E--+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "f|   |PR3|   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "g|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
