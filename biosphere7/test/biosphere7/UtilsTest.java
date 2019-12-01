@@ -271,6 +271,10 @@ public class UtilsTest {
     public void testRegardeSiVoisinEau(){
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU1);
         assertEquals(1,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'B')));
+        assertEquals(1,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('e', 'C')));
+        assertEquals(1,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('e', 'C')));
+        assertEquals(1,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'D')));
+        assertEquals(1,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('g', 'C')));
         assertEquals(0,Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'A')));
         
     }

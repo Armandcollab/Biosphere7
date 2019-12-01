@@ -172,8 +172,9 @@ public class Vitalite {
                 // on appelle le calcul de la vitalité standard quelconque (mais vérifie si etouffe ...) il faudras changer +3 en 2 alors !                
                 ajoutVitalite(plateau, coordCase, couleurJoueur, true,
                         -plateau[coordCase.ligne][coordCase.colonne].vitalite);
-                ajoutVitalite(plateau, coordCase, couleurJoueur, true,
-                        vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur) + 3 + Utils.regardeSiVoisinEau(plateau, coordCase));
+                ajoutVitalite(plateau, coordCase, couleurJoueur, true,(
+                        vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur) + 3));
+                ajoutVitalite(plateau, coordCase, couleurJoueur, true, Utils.regardeSiVoisinEau(plateau, coordCase)); // sinon bug d'ajout de 3 int à la suite
                 break;
             case ' ':
                 //pour simplement calculer les vitalités présentes sur le tableau
