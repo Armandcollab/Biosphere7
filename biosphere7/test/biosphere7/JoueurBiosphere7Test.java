@@ -179,11 +179,11 @@ public class JoueurBiosphere7Test {
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "RPbD"));
-        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RPbD,25,27"));
+        /*assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RPbD,25,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RHiD,21,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RTiD,21,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RDiD,21,27"));
-        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RBiD,21,27"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RBiD,21,27"));*/
 
         // log
         niveau = 10;
@@ -191,8 +191,9 @@ public class JoueurBiosphere7Test {
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         Utils.afficherActionsPossibles(actionsPossibles);
-        assertEquals(1, Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('f', 'E')));
-        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RDfE,21,21"));
+        assertEquals(0, Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('c', 'G')));
+        assertEquals(3, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('c', 'G'), false), niveau, couleur));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RBcG,24,28"));
 
     }
 
@@ -491,33 +492,33 @@ public class JoueurBiosphere7Test {
      */ //7 rouges 6 bleus 
     final String PLATEAU_log
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
+            + " +---+E--+E--+E--+E--+E--+E--+---+---+---+---+---+---+---+\n"
+            + "a|   |   |   |   |   |   |   |DR2|   |   |   |   |HR1|   |\n"
+            + " +---+E--+E--+E--+E--+E--+---+---+---+---+---+---+---+---+\n"
+            + "b|   |   |   |   |   |   |BB2|   |   |   |   |BR1|   |   |\n"
+            + " +---+E--+E--+---+E--+---+---+---+---+---+---+---+---+---+\n"
+            + "c|   |   |   |BB2|   |TB2|HB4|DB1|   |   |   |   |   |   |\n"
+            + " +---+E--+---+E--+E--+---+---+---+---+---+---+---+---+---+\n"
+            + "d|   |   |   |   |   |SB3|   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+E--+---+---+---+---+---+---+---+---+---+\n"
+            + "e|   |   |   |BR2|   |   |   |   |   |   |   |SR1|   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "a|   |   |   |   |   |   |   |   |PB1|SR1|   |   |   |   |\n"
+            + "f|DR1|   |DB1|   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "b|   |   |   |   |   |   |   |   |SR1|SR1|SR1|   |   |   |\n"
+            + "g|   |   |   |   |   |   |   |   |SB1|   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "c|   |   |HR1|   |   |SB1|   |   |   |PB1|TR1|   |   |   |\n"
+            + "h|   |TR1|   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "d|   |TB1|   |   |   |   |   |   |   |BR1|   |   |   |HR1|\n"
+            + "i|   |   |   |   |   |BR2|   |   |   |   |   |   |   |SB1|\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "e|   |   |HR1|   |PB2|HB1|   |PB1|   |   |   |SB2|DB1|   |\n"
+            + "j|HR1|   |   |   |   |PR1|   |   |DR1|SB1|PB2|   |   |BR1|\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "f|   |BB1|   |SB1|PB4|   |   |   |   |   |   |   |   |   |\n"
-            + " +---+---+---+---+E--+E--+---+---+---+---+---+---+---+---+\n"
-            + "g|   |   |BR2|   |   |   |   |   |   |   |   |   |   |   |\n"
-            + " +---+---+E--+E--+E--+E--+---+---+---+---+---+---+---+---+\n"
-            + "h|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
-            + " +---+---+E--+E--+E--+E--+---+---+---+---+---+---+---+---+\n"
-            + "i|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
-            + " +---+E--+E--+E--+E--+---+---+---+---+---+---+---+---+---+\n"
-            + "j|   |   |   |   |   |   |TR1|   |   |   |   |DB1|   |   |\n"
-            + " +E--+E--+E--+E--+E--+---+---+---+---+---+---+---+---+---+\n"
-            + "k|   |   |   |   |   |   |   |   |   |   |   |TR2|   |   |\n"
-            + " +E--+E--+E--+E--+E--+---+---+---+---+---+---+---+---+---+\n"
-            + "l|   |   |   |   |   |   |TR1|   |   |   |   |SR2|   |DB1|\n"
-            + " +---+---+---+E--+E--+---+---+---+---+---+---+---+---+---+\n"
-            + "m|   |   |   |   |   |   |PB1|   |   |   |   |BR3|   |   |\n"
+            + "k|   |   |   |   |   |PR1|   |   |   |   |   |   |   |PB1|\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "n|   |   |   |   |   |   |   |BR1|   |   |   |   |   |   |\n"
+            + "l|   |   |   |   |PR1|PB1|PR1|HB1|   |   |TR1|PB3|   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "m|   |   |   |   |   |PR1|   |   |TR1|   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "n|   |   |   |DR1|   |   |   |   |PR2|   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+";
 }
