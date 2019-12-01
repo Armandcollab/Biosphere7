@@ -179,7 +179,7 @@ public class JoueurBiosphere7Test {
         couleur = 'R';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         Utils.afficherActionsPossibles(actionsPossibles);
-        assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "RPb"));
+        assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "RPbD"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RPbD,25,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RHiD,21,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RTiD,21,27"));
@@ -455,12 +455,12 @@ public class JoueurBiosphere7Test {
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
 
     /**
-     * Un plateau pour tester le niveau 9.
+     * Un plateau pour tester le niveau 9 et 10.
      */ // 23 R et 27 B
     final String PLATEAU_NIVEAU9
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "a|   |   |   |SB1|   |   |   |   |   |   |   |   |   |   |\n"
+            + "a|   |   |   |HB1|   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "b|   |   |   |HR2|   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"

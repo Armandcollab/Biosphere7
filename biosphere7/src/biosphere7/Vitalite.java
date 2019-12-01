@@ -60,18 +60,8 @@ public class Vitalite {
             }
         }
         Coordonnees[] coordsVoisinPlein = Utils.plantesVoisines(plateau, coordCase, false);
-        Coordonnees[] coordsVoisinVide = Utils.plantesVoisines(plateau, coordCase, true);
+        Coordonnees[] coordsVoisinTouteCase = Utils.plantesVoisines(plateau, coordCase, true);
         switch (action) {
-
-            case 'R':
-                //calculVitalite(plateau, couleurJoueur, 'P', coordCase, niveau); 
-                // on appelle le calcul de la vitalité standard quelconque (mais vérifie si etouffe ...) il faudras changer +3 en 2 alors !                
-                ajoutVitalite(plateau, coordCase, couleurJoueur, true, 
-                        -plateau[coordCase.ligne][coordCase.colonne].vitalite);
-                ajoutVitalite(plateau, coordCase, couleurJoueur, true, 
-                        vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur)+2+Utils.regardeSiVoisinEau(plateau, coordCase));
-                // on rajoute deux de vitalité pour avoir les 3 (au lieu du 1 de la plantation standard)
-                break;
             case 'P':
             case 'S':
             case 'B':
@@ -80,9 +70,9 @@ public class Vitalite {
             case 'H':
                 // quand on plante une plante
                 if (!Utils.etouffe(plateau, coordCase, 4) && plateau[coordCase.ligne][coordCase.colonne].espece == CAR_VIDE) {
-                    ajoutVitalite(plateau, coordCase, couleurJoueur, true, 
-                            vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur)
-                                    + Utils.regardeSiVoisinEau(plateau, coordCase));
+                    ajoutVitalite(plateau, coordCase, couleurJoueur, true,
+                            vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur) + 1 // car on plante
+                            + Utils.regardeSiVoisinEau(plateau, coordCase));
                     vitalite[0] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_ROUGE);
                     vitalite[1] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_BLEU);
                 }
@@ -135,8 +125,8 @@ public class Vitalite {
                     for (int i = 0; i < coordsVoisinPlein.length; i++) {
                         if (coordsVoisinPlein[i].ligne == -1
                                 && coordsVoisinPlein[i].colonne == -1
-                                && Utils.estDansPlateau(plateau, coordsVoisinVide[i])) {
-                            ajoutVitalite(plateau, new Coordonnees(coordsVoisinVide[i].ligne, coordsVoisinVide[i].colonne),
+                                && Utils.estDansPlateau(plateau, coordsVoisinTouteCase[i])) {
+                            ajoutVitalite(plateau, new Coordonnees(coordsVoisinTouteCase[i].ligne, coordsVoisinTouteCase[i].colonne),
                                     couleurJoueur, true, Utils.vitaliteVoisinPlusFaible(plateau, coordCase));
                         }
                     }
@@ -145,8 +135,8 @@ public class Vitalite {
                     //quand on a des plantes autoFécondes 
                     for (int i = 0; i < coordsVoisinPlein.length; i++) {
                         if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1
-                                && Utils.estDansPlateau(plateau, coordsVoisinVide[i])) {
-                            ajoutVitalite(plateau, new Coordonnees(coordsVoisinVide[i].ligne, coordsVoisinVide[i].colonne), couleurJoueur, true, 1);
+                                && Utils.estDansPlateau(plateau, coordsVoisinTouteCase[i])) {
+                            ajoutVitalite(plateau, new Coordonnees(coordsVoisinTouteCase[i].ligne, coordsVoisinTouteCase[i].colonne), couleurJoueur, true, 1);
                         }
                     }
                 }
@@ -174,6 +164,14 @@ public class Vitalite {
                     }
                 }
                 break;
+            case 'R':
+                //calculVitalite(plateau, couleurJoueur, 'P', coordCase, niveau); 
+                // on appelle le calcul de la vitalité standard quelconque (mais vérifie si etouffe ...) il faudras changer +3 en 2 alors !                
+                ajoutVitalite(plateau, coordCase, couleurJoueur, true,
+                        -plateau[coordCase.ligne][coordCase.colonne].vitalite);
+                ajoutVitalite(plateau, coordCase, couleurJoueur, true,
+                        vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur) + 3 + Utils.regardeSiVoisinEau(plateau, coordCase));
+                break;
             case ' ':
                 //pour simplement calculer les vitalités présentes sur le tableau
                 break;
@@ -186,7 +184,7 @@ public class Vitalite {
     /**
      * Renvoi la vitalité à ajouter suivant les arbres autours d'elle Attention
      * à tester si la case centrale (dont sont issus les cases voisines) est
-     * bien vide !!!!
+     * bien vide pour pouvoir planter / pas pour R !!!!
      *
      * @param plateau le plateau considéré
      * @param coordsVoisin tableau contenant les coordonées de arbres voisons si
@@ -196,7 +194,7 @@ public class Vitalite {
      * @return vitalité à ajouter
      */
     static int vitalitePlanterSymbiose(Case[][] plateau, Coordonnees[] coordsVoisin, int niveau, char couleurJoueur) {
-        int compteur = 1; // au moins un car on plante un arbre
+        int compteur = 0; // on compte juste la symbiose à ajouter, donc si l'on plante, il faut ajouter 1.
         if (niveau >= 5) {
             for (int i = 0; i < 4; i++) {
                 if (coordsVoisin[i].ligne != -1 && coordsVoisin[i].colonne != -1) {

@@ -42,14 +42,17 @@ public class VitaliteTest {
 
     }
 
+    /**
+     * Test de la méthode vitalitePlanterSymbiose
+     */
     @Test
     public void testSymbiose() {
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU4);
         char couleurJoueur = 'R';
-        assertEquals(1, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('a', 'A'), false), 6, couleurJoueur));
+        assertEquals(0, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('a', 'A'), false), 6, couleurJoueur));
 
-        assertEquals(1, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('f', 'A'), false), 6, couleurJoueur));
-        assertEquals(4, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('e', 'I'), false), 6, couleurJoueur));
+        assertEquals(0, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('f', 'A'), false), 6, couleurJoueur));
+        assertEquals(3, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('e', 'I'), false), 6, couleurJoueur));
         // assertEquals(3, joueur.vitalitePlanterSymbiose(plateau, joueur.arbreVoisins(plateau, Coordonnees.depuisCars('e', 'M'), false), 6, couleurJoueur));
     }
     /**
