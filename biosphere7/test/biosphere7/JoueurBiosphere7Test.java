@@ -162,7 +162,6 @@ public class JoueurBiosphere7Test {
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "FaM"));
 
-        
         niveau = 9;
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU9);
         couleur = 'B';
@@ -183,20 +182,18 @@ public class JoueurBiosphere7Test {
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RPbD,25,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RHiD,21,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RTiD,21,27"));
-        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RSiD,21,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RDiD,21,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RBiD,21,27"));
-        /*
+        
         
         // log
-        niveau = 9;
+        niveau = 10;
         plateau = Utils.plateauDepuisTexte(PLATEAU_log);
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         Utils.afficherActionsPossibles(actionsPossibles);
-        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "O,60,60"));
-        Utils.afficherActionsPossibles(actionsPossibles);
-        */
+        //assertTrue(Utils.actionsPossiblesContient(actionsPossibles, ""));
+         
     }
 
     /**
@@ -223,7 +220,7 @@ public class JoueurBiosphere7Test {
         assertTrue(Utils.actionsPossiblesContient(actions, "PbH,0,0"));
         // désormais, deux actions possibles
         assertEquals(2, joueur.nbActions);
-        
+
     }
 
     /**
@@ -241,7 +238,7 @@ public class JoueurBiosphere7Test {
         assertFalse(Utils.actionsPossiblesContient(actions, "PbH,0,0"));
 
     }
-    
+
     /**
      * Un plateau de base, sous forme de chaîne. Pour construire une telle
      * chaîne depuis votre sortie.log, déclarez simplement : final String
@@ -495,32 +492,32 @@ public class JoueurBiosphere7Test {
     final String PLATEAU_log
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "a|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + "a|   |   |   |   |   |   |   |HB1|PR1|   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "b|   |   |   |   |   |   |   |   |HR3|   |   |   |   |   |\n"
+            + "b|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "c|   |   |   |DR3|   |   |   |HB5|HB4|   |   |DB2|   |   |\n"
+            + "c|   |   |   |HR1|   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "d|   |   |   |   |   |   |   |   |   |BB6|   |   |   |   |\n"
+            + "d|   |   |SR1|   |   |   |   |HR1|   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "e|   |   |DR2|   |TR7|   |   |   |   |   |   |   |   |   |\n"
+            + "e|BB2|DB1|   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "f|   |   |   |PB3|SB8|DB1|   |   |   |   |BR1|   |PR5|   |\n"
+            + "f|   |   |DR1|   |TR1|   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "g|   |   |TB1|   |   |SB1|   |SB3|   |   |   |   |PR5|   |\n"
+            + "g|   |   |   |   |   |   |   |   |   |DB2|   |   |   |DR1|\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "h|   |   |   |DR9|HR2|SB3|   |   |   |   |   |   |PR5|   |\n"
+            + "h|TR1|   |   |   |   |   |   |   |   |DB1|   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "i|   |   |   |   |BB3|PB6|   |   |   |   |DR3|   |PR5|   |\n"
+            + "i|   |   |   |   |BB1|   |   |PB1|   |   |DB1|DR1|   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "j|   |   |PR5|   |   |   |HR4|   |   |   |   |   |PR5|   |\n"
-            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "k|   |   |   |BB5|   |HR9|   |PB6|   |   |SB1|   |   |   |\n"
-            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "l|   |   |   |SB6|   |   |   |   |   |   |PB3|   |   |   |\n"
-            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "m|   |   |   |PR6|   |   |   |   |   |   |PB4|   |   |   |\n"
-            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "n|   |   |   |   |   |   |   |   |   |   |PB9|   |   |   |\n"
+            + "j|   |   |   |   |   |   |BR1|   |TB1|   |   |   |BR1|   |\n"
+            + " +---+---+---+---+---+---+---+---+---+E--+E--+E--+---+---+\n"
+            + "k|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+E--+E--+E--+E--+---+---+\n"
+            + "l|   |BB1|   |   |HR1|   |   |HR2|   |   |   |   |   |TB1|\n"
+            + " +---+---+---+---+---+---+---+---+E--+E--+E--+E--+E--+---+\n"
+            + "m|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+E--+E--+E--+---+\n"
+            + "n|   |   |   |   |TB1|   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+";
 }

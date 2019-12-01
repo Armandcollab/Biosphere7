@@ -361,8 +361,9 @@ public class Utils {
      *
      * @param plateau le plateau considéré
      * @param coord coordoné de la case dont on vas chercher les arbres voisins
-     * @return 1 si la case à au moins une case voisine de nature Eau, sinon
-     * 0 (cela correspond à la vitalité à ajouter, c'est pour cela qu'on ne retourne pas un booléen)
+     * @return 1 si la case à au moins une case voisine de nature Eau, sinon 0
+     * (cela correspond à la vitalité à ajouter, c'est pour cela qu'on ne
+     * retourne pas un booléen)
      */
     static int regardeSiVoisinEau(Case[][] plateau, Coordonnees coord) {
         Coordonnees[] coordsVoisins = plantesVoisines(plateau, coord, true);
@@ -381,6 +382,39 @@ public class Utils {
             }
         } while (plateau[coordsVoisins[i].ligne][coordsVoisins[i].colonne].nature != CAR_EAU);
         return 1;
+    }
+
+    static boolean estDeLaMemeCategorie(char espece1, char espece2) {
+        switch (espece1) {
+            case 'S':
+            case 'P':
+                switch (espece2) {
+                    case 'S':
+                    case 'P':
+                        return true;
+                    default:
+                        break;
+                }
+                break;
+            case 'B':
+                if(espece2 == 'B'){
+                    return true;
+                }
+                break;
+            case 'D':
+            case 'T':
+            case 'H':
+                switch (espece2) {
+                    case 'D':
+                    case 'T':
+                    case 'H':
+                        return true;
+                    default:
+                        break;
+                }
+                break;
+        }
+        return false;
     }
 
 }
