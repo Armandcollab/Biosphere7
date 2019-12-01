@@ -81,25 +81,18 @@ public class Vitalite {
                 // quand on fertilise
                 if (Utils.estDansPlateau(plateau, coordCase)) {
                     char espece = plateau[coordCase.ligne][coordCase.colonne].espece;
-                    switch (espece) {
-                        case 'P':
-                        case 'S':
-                            // Arbres
-                            ajoutVitalite(plateau, coordCase, couleurJoueur, false, 1);
-                            break;
-                        case 'B':
-                            // Arbustes
-                            ajoutVitalite(plateau, coordCase, couleurJoueur, false, 2);
-                            break;
-                        case 'D':
-                        case 'T':
-                        case 'H':
-                            // Légumes
-                            ajoutVitalite(plateau, coordCase, couleurJoueur, false, 3);
-                            break;
-                        default:
-                            // vide
-                            break;
+                    vitaliteFertilise(plateau, coordCase, couleurJoueur, espece);
+                    if (niveau >= 11) {
+                        for (int lig = 0; lig < Coordonnees.NB_LIGNES; lig++) {
+                            for (int col = 0; col < Coordonnees.NB_COLONNES; col++) {
+                                if (plateau[lig][col] != plateau[coordCase.ligne][coordCase.colonne]
+                                        && plateau[lig][col].espece == espece
+                                        && Utils.calculDistanceManhattan(coordCase, new Coordonnees(lig, col))
+                                        <= (plateau[coordCase.ligne][coordCase.colonne].vitalite + plateau[lig][col].vitalite)) {
+                                    vitaliteFertilise(plateau, new Coordonnees(lig, col), couleurJoueur, espece);
+                                }
+                            }
+                        }
                     }
                 }
                 break;
@@ -210,6 +203,37 @@ public class Vitalite {
         }
 
         return compteur;
+    }
+
+    /**
+     * Applique l'ajout de vitalité suivant la plante à fertiliser
+     *
+     * @param plateau le plateau considéré
+     * @param coordCase la case courante
+     * @param couleurJoueur la couleur du joueur courant
+     * @param espece l'espece de la plante sur la case courante
+     */
+    void vitaliteFertilise(Case[][] plateau, Coordonnees coordCase, char couleurJoueur, char espece) {
+        switch (espece) {
+            case 'P':
+            case 'S':
+                // Arbres
+                ajoutVitalite(plateau, coordCase, couleurJoueur, false, 1);
+                break;
+            case 'B':
+                // Arbustes
+                ajoutVitalite(plateau, coordCase, couleurJoueur, false, 2);
+                break;
+            case 'D':
+            case 'T':
+            case 'H':
+                // Légumes
+                ajoutVitalite(plateau, coordCase, couleurJoueur, false, 3);
+                break;
+            default:
+                // vide
+                break;
+        }
     }
 
     /**

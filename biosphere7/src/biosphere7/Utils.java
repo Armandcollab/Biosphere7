@@ -398,6 +398,13 @@ public class Utils {
         return false;
     }
 
+    /**
+     * Vérifie si deux plantes sont de la mème catégorie
+     * 
+     * @param espece1 espèce de la première plante à tester
+     * @param espece2 espèce de la deuxième plante à tester
+     * @return vrai si elles sont de la même catégorie sinon faux
+     */
     static boolean estDeLaMemeCategorie(char espece1, char espece2) {
         switch (espece1) {
             case 'S':
@@ -431,4 +438,15 @@ public class Utils {
         return false;
     }
 
+    /**
+     * Calcul la distance de manhattan entre deux cases
+     * 
+     * @param coord1 coordonnées de la premmière case
+     * @param coord1 coordonnées de la deuxième case
+     * @return la distance de manhattan entre les deux case
+     */
+    static int calculDistanceManhattan(Coordonnees coord1, Coordonnees coord2){
+        return Math.abs(coord2.ligne-coord1.ligne) + Math.abs(coord2.colonne-coord1.colonne);
+        
+    }
 }

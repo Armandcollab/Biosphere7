@@ -280,6 +280,28 @@ public class UtilsTest {
     }
     
     /**
+     * Test de la methode calculDistanceManhattan
+     */
+    @Test
+    public void testCalculDistanceManhattan(){
+        Coordonnees coord1 = new Coordonnees(0, 0);
+        Coordonnees coord2 = new Coordonnees(1, 0);
+        assertEquals(0, Utils.calculDistanceManhattan(coord1, coord1));
+        assertEquals(0, Utils.calculDistanceManhattan(coord2, coord2));
+        assertEquals(1, Utils.calculDistanceManhattan(coord1, coord2));
+        assertEquals(1, Utils.calculDistanceManhattan(coord2, coord1));
+        coord2.colonne = 1;
+        assertEquals(2, Utils.calculDistanceManhattan(coord2, coord1));
+        assertEquals(2, Utils.calculDistanceManhattan(coord1, coord2));
+        coord2.colonne = 8;
+        assertEquals(9, Utils.calculDistanceManhattan(coord2, coord1));
+        assertEquals(9, Utils.calculDistanceManhattan(coord1, coord2));
+        coord2.ligne = 12;
+        assertEquals(20, Utils.calculDistanceManhattan(coord2, coord1));
+        assertEquals(20, Utils.calculDistanceManhattan(coord1, coord2));
+    }
+    
+    /**
      * Plateau de test 1
      */
     final String PLATEAU1

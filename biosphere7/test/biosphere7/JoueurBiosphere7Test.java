@@ -177,15 +177,25 @@ public class JoueurBiosphere7Test {
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU9);
         couleur = 'R';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
-        Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "RPbD"));
-        /*assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RPbD,25,27"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RPbD,25,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RHiD,21,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RTiD,21,27"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RDiD,21,27"));
-        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RBiD,21,27"));*/
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RBiD,21,27"));
 
-        // log
+        
+        niveau = 11;
+        plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU9);
+        couleur = 'R';
+        actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
+        Utils.afficherActionsPossibles(actionsPossibles);
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "FaD,26,30"));
+        
+        
+        
+        
+       /* // log
         niveau = 10;
         plateau = Utils.plateauDepuisTexte(PLATEAU_log);
         couleur = 'B';
@@ -194,7 +204,7 @@ public class JoueurBiosphere7Test {
         assertEquals(0, Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('c', 'G')));
         assertEquals(3, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('c', 'G'), false), niveau, couleur));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "RBcG,24,28"));
-
+*/
     }
 
     /**
