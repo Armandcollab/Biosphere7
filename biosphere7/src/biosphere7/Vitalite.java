@@ -125,7 +125,8 @@ public class Vitalite {
                     for (int i = 0; i < coordsVoisinPlein.length; i++) {
                         if (coordsVoisinPlein[i].ligne == -1
                                 && coordsVoisinPlein[i].colonne == -1
-                                && Utils.estDansPlateau(plateau, coordsVoisinTouteCase[i])) {
+                                && Utils.estDansPlateau(plateau, coordsVoisinTouteCase[i])
+                                && !Utils.estEau(plateau, coordsVoisinTouteCase[i])) {
                             ajoutVitalite(plateau, new Coordonnees(coordsVoisinTouteCase[i].ligne, coordsVoisinTouteCase[i].colonne),
                                     couleurJoueur, true, Utils.vitaliteVoisinPlusFaible(plateau, coordCase));
                         }
@@ -135,8 +136,10 @@ public class Vitalite {
                     //quand on a des plantes autoFécondes 
                     for (int i = 0; i < coordsVoisinPlein.length; i++) {
                         if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1
-                                && Utils.estDansPlateau(plateau, coordsVoisinTouteCase[i])) {
-                            ajoutVitalite(plateau, new Coordonnees(coordsVoisinTouteCase[i].ligne, coordsVoisinTouteCase[i].colonne), couleurJoueur, true, 1);
+                                && Utils.estDansPlateau(plateau, coordsVoisinTouteCase[i])
+                                && !Utils.estEau(plateau, coordsVoisinTouteCase[i])) {
+                            ajoutVitalite(plateau, new Coordonnees(coordsVoisinTouteCase[i].ligne, coordsVoisinTouteCase[i].colonne),
+                                    couleurJoueur, true, 1);
                         }
                     }
                 }

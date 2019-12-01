@@ -380,8 +380,22 @@ public class Utils {
                     return 0;
                 }
             }
-        } while (plateau[coordsVoisins[i].ligne][coordsVoisins[i].colonne].nature != CAR_EAU);
+        } while (!estEau(plateau, coordsVoisins[i]));
         return 1;
+    }
+
+    /**
+     * Vérifie si une case est de nature EAU
+     * 
+     * @param plateau le plateau considéré
+     * @param coord coordoné de la case à vérifier 
+     * @return vrai si la case est de nature EAU, sinon faux
+     */
+    static boolean estEau(Case[][] plateau, Coordonnees coord) {
+        if (plateau[coord.ligne][coord.colonne].nature == CAR_EAU) {
+            return true;
+        }
+        return false;
     }
 
     static boolean estDeLaMemeCategorie(char espece1, char espece2) {
@@ -397,7 +411,7 @@ public class Utils {
                 }
                 break;
             case 'B':
-                if(espece2 == 'B'){
+                if (espece2 == 'B') {
                     return true;
                 }
                 break;
