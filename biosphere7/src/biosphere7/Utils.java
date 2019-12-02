@@ -458,27 +458,43 @@ public class Utils {
      * @return true si la case donnée est en lisière de foret, sinon faux
      */
     static boolean esrEnLisière(Case[][] plateau, Coordonnees coordCase) {
-        Coordonnees[] tabCoordsVoisin = plantesVoisines(plateau, coordCase, false);
-        int i = 0;
+        Coordonnees[] tabCoordsVoisin = plantesVoisines(plateau, coordCase, true);
+        boolean foretTrouve = false;
+        int nbrArbreValide = 0;
+        Coordonnees[] tabCoordsVoisinValide = {new Coordonnees(-1, -1), new Coordonnees(-1, -1), new Coordonnees(-1, -1), new Coordonnees(-1, -1)};
+
+        for (int j = 0; j < tabCoordsVoisin.length; j++) {
+            if (nbrArbreValide < tabCoordsVoisin.length && estDansPlateau(plateau, tabCoordsVoisin[j])
+                    && estDeLaMemeCategorie(plateau[tabCoordsVoisin[j].ligne][tabCoordsVoisin[j].colonne].espece, 'P')) {
+                tabCoordsVoisinValide[nbrArbreValide] = tabCoordsVoisin[j];
+                nbrArbreValide++;
+            }
+        }
+        /*
         while (i < tabCoordsVoisin.length && (!estDansPlateau(plateau, tabCoordsVoisin[i])
                 || !estDeLaMemeCategorie(plateau[tabCoordsVoisin[i].ligne][tabCoordsVoisin[i].colonne].espece, 'P'))) {
             i++;
-        }
-        if (i < tabCoordsVoisin.length) {
-            Coordonnees[] tabForet = {tabCoordsVoisin[i], null, null, null, null, null};
+        }*/        
+        
+        
+        int i= 0;
+        while (!foretTrouve && i < nbrArbreValide && nbrArbreValide!= 0 &&
+                estDansPlateau(plateau,tabCoordsVoisinValide[i])) {
+            Coordonnees[] tabForet = {tabCoordsVoisinValide[i], null, null, null, null, null};
+            foretTrouve = false;
             int j = 0;
             while (j < tabForet.length && tabForet[tabForet.length - 1] == null) {
                 tabForet = regardeSiArbreVoisinDejaTrouve(plateau, tabForet);
                 j++;
             }
             if (tabForet[tabForet.length - 1] == null) {
-                return false;
+                foretTrouve = false;
             } else {
-                return true;
+                foretTrouve = true;
             }
-        } else {
-            return false;
+            i++;
         }
+        return foretTrouve;
     }
 
     /**

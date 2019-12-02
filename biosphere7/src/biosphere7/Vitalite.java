@@ -6,7 +6,6 @@
 package biosphere7;
 
 import static biosphere7.Utils.CAR_VIDE;
-import jdk.jshell.execution.Util;
 
 /**
  *
@@ -72,13 +71,24 @@ public class Vitalite {
                 // quand on plante une plante
                 if (!Utils.etouffe(plateau, coordCase, 4) && plateau[coordCase.ligne][coordCase.colonne].espece == CAR_VIDE) {
                     int vitAAjouter = vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur) + 1;
-                
-                    if(Utils.esrEnLisière(plateau, coordCase)){
+                    System.out.println("+ " + vitalitePlanterSymbiose(plateau, coordsVoisinPlein, niveau, couleurJoueur));
+                    System.out.println(vitAAjouter);
+
+                    if (niveau >= 12 && action == 'B' && Utils.esrEnLisière(plateau, coordCase)) {
                         vitAAjouter += 3;
+                        System.out.println("+ 3");
+                        System.out.println(vitAAjouter);
+                    } else if (niveau >= 10) {
+                        System.out.println("+ " + Utils.regardeSiVoisinEau(plateau, coordCase));
+                        vitAAjouter += Utils.regardeSiVoisinEau(plateau, coordCase);
+                        System.out.println(vitAAjouter);
+                        System.out.println(vitalite[1] + vitAAjouter);
                     }
-                    ajoutVitalite(plateau, coordCase, couleurJoueur, true,vitAAjouter + Utils.regardeSiVoisinEau(plateau, coordCase));
+                    ajoutVitalite(plateau, coordCase, couleurJoueur, true, vitAAjouter);
                     vitalite[0] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_ROUGE);
                     vitalite[1] -= vitaliteArbresVoisinsEtouffent(plateau, coordsVoisinPlein, niveau, Utils.CAR_BLEU);
+
+                    System.out.println(vitalite[1]);
                 }
                 break;
             case 'F':
@@ -183,7 +193,7 @@ public class Vitalite {
     }
 
     /**
-     * Renvoi la vitalité à ajouter suivant les arbres autours d'elle Attention
+     * Renvoi la vitalité à ajouter suivant les plantes autours d'elle Attention
      * à tester si la case centrale (dont sont issus les cases voisines) est
      * bien vide pour pouvoir planter / pas pour R !!!!
      *

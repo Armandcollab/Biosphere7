@@ -335,11 +335,13 @@ public class UtilsTest {
     public void TestEstEnLisière() {
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_FORET);
         assertFalse(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('g', 'G')));
+        assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('i', 'G')));
+        assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('m', 'G')));
         assertFalse(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('a', 'A')));
         assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('b', 'J')));
         assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('b', 'N')));
-        assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('d', 'N')));
         assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('c', 'K')));
+        assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('d', 'N')));
     }
 
     /**
@@ -539,13 +541,13 @@ public class UtilsTest {
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "i|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "j|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + "j|   |   |   |   |   |   |PR1|PR1|   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "k|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + "k|   |   |   |   |   |PR1|PR1|PR1|   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "l|   |   |PR1|   |   |   |   |   |   |   |   |   |   |   |\n"
+            + "l|   |   |PR1|   |   |   |PR1|   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "m|   |   |PR1|PR1|   |   |   |   |   |   |   |   |   |   |\n"
+            + "m|   |   |PR1|PR1|   |   |   |PR1|   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "n|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
