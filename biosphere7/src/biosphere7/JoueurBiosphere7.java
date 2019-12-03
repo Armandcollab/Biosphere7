@@ -108,9 +108,4 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
             nbActions++;
         }
     }
-
-    void test() {
-        Vitalite v = new Vitalite();
-        System.out.println(v.vitalite[1]);
-    }
 }

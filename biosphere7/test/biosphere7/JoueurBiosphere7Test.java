@@ -202,9 +202,6 @@ public class JoueurBiosphere7Test {
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         Utils.afficherActionsPossibles(actionsPossibles);
-        //assertEquals(0, Utils.regardeSiVoisinEau(plateau, Coordonnees.depuisCars('c', 'G')));
-        //assertEquals(3, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('c', 'G'), false), niveau, couleur));
-        assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('d', 'K')));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "BkL,88,93"));
 
     }
@@ -502,6 +499,40 @@ public class JoueurBiosphere7Test {
     /**
      * le plateau du dernier sortie.log
      */ //7 rouges 6 bleus 
+    final String PLATEAU_NIVEAU12
+            = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
+            + " +---+---+---+---+---+---+---+---+---+---+E--+---+---+---+\n"
+            + "a|   |HB5|   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+E--+---+---+---+\n"
+            + "b|   |   |   |   |   |   |   |   |HR7|   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+E--+---+---+---+---+\n"
+            + "c|   |   |   |   |   |   |   |   |HB4|   |   |DB2|   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "d|   |   |   |   |   |   |   |   |   |BB6|   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "e|   |   |DR2|   |PR7|   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+E--+---+---+\n"
+            + "f|   |   |   |PB3|SB8|PB4|   |   |   |   |BR1|   |PR5|   |\n"
+            + " +---+---+---+---+---+---+E--+---+---+---+---+---+---+---+\n"
+            + "g|   |   |TB1|   |   |SB2|   |SB3|   |   |   |   |PR5|   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "h|   |   |   |DR9|SR2|SB3|   |   |   |   |   |SB4|PR5|   |\n"
+            + " +---+---+E--+E--+---+---+---+---+---+---+---+---+---+---+\n"
+            + "i|   |   |   |   |BB3|   |   |   |   |   |DR3|   |PR5|   |\n"
+            + " +---+E--+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "j|   |   |   |   |   |   |HR4|   |   |   |HR3|PB3|PR5|   |\n"
+            + " +---+E--+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "k|   |   |PR5|BB5|   |HR9|   |PB6|   |   |SB1|   |   |   |\n"
+            + " +---+E--+---+---+---+---+---+---+---+---+---+E--+---+---+\n"
+            + "l|   |   |SR2|SB6|   |   |   |   |   |   |PB3|   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "m|   |   |SB1|PR6|   |   |   |   |   |SR3|PB4|PB1|   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "n|   |   |   |   |   |   |   |   |   |   |PB9|   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+";
+    /**
+     * le plateau du dernier sortie.log
+     */  
     final String PLATEAU_log
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
             + " +---+---+---+---+---+---+---+---+---+---+E--+---+---+---+\n"

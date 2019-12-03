@@ -474,17 +474,16 @@ public class Utils {
         while (i < tabCoordsVoisin.length && (!estDansPlateau(plateau, tabCoordsVoisin[i])
                 || !estDeLaMemeCategorie(plateau[tabCoordsVoisin[i].ligne][tabCoordsVoisin[i].colonne].espece, 'P'))) {
             i++;
-        }*/        
-        
-        
-        int i= 0;
-        while (!foretTrouve && i < nbrArbreValide && nbrArbreValide!= 0 &&
-                estDansPlateau(plateau,tabCoordsVoisinValide[i])) {
+        }*/
+
+        int i = 0;
+        while (!foretTrouve && i < nbrArbreValide && nbrArbreValide != 0
+                && estDansPlateau(plateau, tabCoordsVoisinValide[i])) {
             Coordonnees[] tabForet = {tabCoordsVoisinValide[i], null, null, null, null, null};
             foretTrouve = false;
             int j = 0;
             while (j < tabForet.length && tabForet[tabForet.length - 1] == null) {
-                tabForet = regardeSiArbreVoisinDejaTrouve(plateau, tabForet);
+                tabForet = regardeSiPlanteVoisineDejaTrouve(plateau, tabForet, 'P');
                 j++;
             }
             if (tabForet[tabForet.length - 1] == null) {
@@ -508,7 +507,7 @@ public class Utils {
      * @return le tableau contenant les arbres déjà trouvés et un nouveau si il
      * y en as un voisin qui n'est aps déjà dans le tableau
      */
-    static Coordonnees[] regardeSiArbreVoisinDejaTrouve(Case[][] plateau, Coordonnees[] coordsForet) {
+    static Coordonnees[] regardeSiPlanteVoisineDejaTrouve(Case[][] plateau, Coordonnees[] coordsForet, char espece) {
         int f = 0;
         int cpt = 0;
         while (f < coordsForet.length && coordsForet[f] != null) {
@@ -521,7 +520,7 @@ public class Utils {
                 Coordonnees[] tabVoisin = plantesVoisines(plateau, coordsForet[k], true);
                 for (int i = 0; i < tabVoisin.length; i++) {
                     if (estDansPlateau(plateau, tabVoisin[i])
-                            && estDeLaMemeCategorie(plateau[tabVoisin[i].ligne][tabVoisin[i].colonne].espece, 'P')) {
+                            && estDeLaMemeCategorie(plateau[tabVoisin[i].ligne][tabVoisin[i].colonne].espece, espece)) {
                         cpt = 0;
                         for (int j = 0; j < f; j++) {
                             if (tabVoisin[i].ligne == coordsForet[j].ligne
@@ -539,4 +538,22 @@ public class Utils {
             return coordsForet;
         }
     }
+
+    /**
+     * Créé un tableau et y ajoute toutes les cases voisines de la même espèces 
+     * ou de nature EAU à partir de celle donnée
+     *
+     * @param plateau le plateau considéré
+     * @param coordCase la case qui est peut-être en lisière
+     * @return un tableau contenant toutes les cases touché par l'attaque de chapignon
+     */
+    static Coordonnees[] tableauCoordToucheChampi(Case[][] plateau, Coordonnees coordCase) {
+        Coordonnees[] tabToucheChampi = new Coordonnees[Coordonnees.NB_LIGNES * Coordonnees.NB_COLONNES];
+        tabToucheChampi[1] = new Coordonnees(coordCase.ligne, coordCase.colonne);
+        // while faire tant qu'on obtien pas deux fois le même !
+        regardeSiPlanteVoisineDejaTrouve(plateau, tabToucheChampi, plateau[coordCase.ligne][coordCase.colonne].espece);
+        // puis le retourner !
+        return null;
+    }
+
 }
