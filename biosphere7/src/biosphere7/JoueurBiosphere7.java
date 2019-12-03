@@ -64,6 +64,9 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
                     ajoutAction(coordsCasePourVoisin, actions, "C", vit);
                     vit.calculVitalite(plateau, couleurJoueur, 'F', coordsCasePourVoisin, niveau);
                     ajoutAction(coordsCasePourVoisin, actions, "F", vit);
+                    vit.calculVitalite(plateau, couleurJoueur, 'A', coordsCasePourVoisin, niveau);
+                    ajoutAction(coordsCasePourVoisin, actions, "A", vit);
+                    
                     if (plateau[lig][col].couleur == couleurJoueur) {
                         for (int i = 0; i < Utils.ESPECES.length; i++) {
                             if (!Utils.estDeLaMemeCategorie(Utils.ESPECES[i],plateau[lig][col].espece)) {

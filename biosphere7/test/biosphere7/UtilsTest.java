@@ -242,28 +242,6 @@ public class UtilsTest {
     }
 
     /**
-     * Test de la methode est dans plateau
-     */
-    @Test
-    public void testEstDansPlateau() {
-        Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU1);
-        assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('a', 'A')));
-        assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('n', 'N')));
-        assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('n', 'A')));
-        assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('a', 'N')));
-        assertTrue(Utils.estDansPlateau(plateau, Coordonnees.depuisCars('f', 'D')));
-        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(-1, -1)));
-        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(-1, 5)));
-        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(14, 14)));
-        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(8, 14)));
-        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(-1, 14)));
-        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(14, 0)));
-        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(14, -1)));
-        assertFalse(Utils.estDansPlateau(plateau, new Coordonnees(13, -1)));
-
-    }
-
-    /**
      * Test de la methode regardeSiVoisinEau
      */
     @Test
@@ -326,13 +304,13 @@ public class UtilsTest {
         Coordonnees[] tabForet2 = {Coordonnees.depuisCars('g', 'G'), Coordonnees.depuisCars('h', 'G'), null, null, null, null};
 
         assertArrayEquals(tabForet2, Utils.regardeSiPlanteVoisineDejaTrouve(plateau, tabForet2,'P'));
-    }
-
+    }    
+    
     /**
      * Test de la methode esrEnLisière
      */
     @Test
-    public void TestEstEnLisière() {
+    public void testEstEnLisière() {
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_FORET);
         assertFalse(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('g', 'G')));
         assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('i', 'G')));
@@ -344,6 +322,20 @@ public class UtilsTest {
         assertTrue(Utils.esrEnLisière(plateau, Coordonnees.depuisCars('d', 'N')));
     }
 
+    /**
+     * 
+     */
+    public void testNbrCasePleineTab() {
+        Coordonnees[] tabTest = {new Coordonnees(0, 0),new Coordonnees(0, 0),new Coordonnees(0, 0),null,null,null};
+        Coordonnees[] tabTest2 = {null,null,null};
+        Coordonnees[] tabTest3 = {new Coordonnees(0, 0),new Coordonnees(0, 0),new Coordonnees(0, 0)};
+        
+        assertEquals(3,Utils.nbrDeCasePleineDansUnTableau(tabTest));
+        assertEquals(0,Utils.nbrDeCasePleineDansUnTableau(tabTest2));
+        assertEquals(3,Utils.nbrDeCasePleineDansUnTableau(tabTest3));
+                
+    }
+    
     /**
      * Plateau de test 1
      */

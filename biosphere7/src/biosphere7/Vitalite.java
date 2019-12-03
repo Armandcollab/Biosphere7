@@ -84,7 +84,7 @@ public class Vitalite {
                 break;
             case 'F':
                 // quand on fertilise
-                if (Utils.estDansPlateau(plateau, coordCase)) {
+                if (coordCase.estDansPlateau()) {
                     char espece = plateau[coordCase.ligne][coordCase.colonne].espece;
                     vitaliteFertilise(plateau, coordCase, couleurJoueur, espece);
                     if (niveau >= 11) {
@@ -103,7 +103,7 @@ public class Vitalite {
                 break;
             case 'C':
                 // quand on coupe un arbre
-                if (Utils.estDansPlateau(plateau, coordCase)) {
+                if (coordCase.estDansPlateau()) {
                     Case caseCentrale = plateau[coordCase.ligne][coordCase.colonne];
                     ajoutVitalite(plateau, coordCase, couleurJoueur, false, -caseCentrale.vitalite);
 
@@ -123,7 +123,7 @@ public class Vitalite {
                     for (int i = 0; i < coordsVoisinPlein.length; i++) {
                         if (coordsVoisinPlein[i].ligne == -1
                                 && coordsVoisinPlein[i].colonne == -1
-                                && Utils.estDansPlateau(plateau, coordsVoisinTouteCase[i])
+                                && coordsVoisinTouteCase[i].estDansPlateau()
                                 && !Utils.estEau(plateau, coordsVoisinTouteCase[i])) {
                             ajoutVitalite(plateau, new Coordonnees(coordsVoisinTouteCase[i].ligne, coordsVoisinTouteCase[i].colonne),
                                     couleurJoueur, true, Utils.vitaliteVoisinPlusFaible(plateau, coordCase));
@@ -134,7 +134,7 @@ public class Vitalite {
                     //quand on a des plantes autoFécondes 
                     for (int i = 0; i < coordsVoisinPlein.length; i++) {
                         if (coordsVoisinPlein[i].ligne == -1 && coordsVoisinPlein[i].colonne == -1
-                                && Utils.estDansPlateau(plateau, coordsVoisinTouteCase[i])
+                                && coordsVoisinTouteCase[i].estDansPlateau()
                                 && !Utils.estEau(plateau, coordsVoisinTouteCase[i])) {
                             ajoutVitalite(plateau, new Coordonnees(coordsVoisinTouteCase[i].ligne, coordsVoisinTouteCase[i].colonne),
                                     couleurJoueur, true, 1);
@@ -149,7 +149,7 @@ public class Vitalite {
                         if (plateau[lig][col].espece != CAR_VIDE) {
                             int vitaliteAEnlever = 0;
                             for (int distance = 1; distance < 10; distance++) {
-                                if (Utils.estDansPlateau(plateau, new Coordonnees(lig + distance, col))) {
+                                if (new Coordonnees(lig + distance, col).estDansPlateau()) {
                                     if ((plateau[lig + distance][col].espece == 'S' || plateau[lig + distance][col].espece == 'P')
                                             && distance < plateau[lig + distance][col].vitalite) {
                                         vitaliteAEnlever += (plateau[lig + distance][col].vitalite - (distance)) / 2;
@@ -175,12 +175,13 @@ public class Vitalite {
                 ajoutVitalite(plateau, coordCase, couleurJoueur, true, vitAjout);
                 break;
             case 'A':
-                for (Coordonnees tabChampi : Utils.tableauCoordToucheChampi(plateau, coordCase)) {
-                    if (Utils.estDansPlateau(plateau, tabChampi) && plateau[tabChampi.ligne][tabChampi.colonne].nature == Utils.CAR_TERRE) {
-                        ajoutVitalite(plateau, coordCase, couleurJoueur, false, -plateau[tabChampi.ligne][tabChampi.colonne].vitalite / 2);
+                Coordonnees[] tabCoordChampi = Utils.tableauCoordToucheChampi(plateau, coordCase);
+                System.out.println(Utils.nbrDeCasePleineDansUnTableau(tabCoordChampi));
+                for (int i = 0; i < Utils.nbrDeCasePleineDansUnTableau(tabCoordChampi); i++) {
+                    if (tabCoordChampi[i].estDansPlateau() && plateau[tabCoordChampi[i].ligne][tabCoordChampi[i].colonne].nature == Utils.CAR_TERRE) {
+                        ajoutVitalite(plateau, coordCase, couleurJoueur, false, -plateau[tabCoordChampi[i].ligne][tabCoordChampi[i].colonne].vitalite / 2);
                     }
                 }
-
                 break;
             case ' ':
                 //pour simplement calculer les vitalités présentes sur le tableau

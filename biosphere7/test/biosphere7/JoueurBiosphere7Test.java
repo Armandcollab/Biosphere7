@@ -195,14 +195,18 @@ public class JoueurBiosphere7Test {
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "FnI,24,28"));
 
         niveau = 12;
-
+        plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU12);
+        couleur = 'B';
+        actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "BkL,88,93"));
+        
         // log
-        niveau = 12;
+        niveau = 13;
         plateau = Utils.plateauDepuisTexte(PLATEAU_log);
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         Utils.afficherActionsPossibles(actionsPossibles);
-        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "BkL,88,93"));
+
 
     }
 

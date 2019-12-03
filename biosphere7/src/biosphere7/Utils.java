@@ -181,6 +181,22 @@ public class Utils {
     }
 
     /**
+     * Compte le nombre de case pleine dans un tableau donné
+     *
+     * @param tab le tableau dont on va compter les cases
+     * @return le nombre de case pleine du tableau donné
+     */
+    static int nbrDeCasePleineDansUnTableau(Coordonnees[] tab) {
+        int nbrCasePleineTab = 0;
+        for (Coordonnees caseTab : tab) {
+            if (caseTab != null) {
+                nbrCasePleineTab++;
+            }
+        }
+        return nbrCasePleineTab;
+    }
+
+    /**
      * Si l'arbre contenue sur la case donnée est entre 4 arbres ( valeur
      * pourCombienArbre ) alors revoi vrai, sinon faux
      *
@@ -342,21 +358,6 @@ public class Utils {
     }
 
     /**
-     * Vérifie si des coordonnées indique une case dans le tableau
-     *
-     * @param plateau le plateau considéré
-     * @param coord coordoné de la case dont on vas chercher les arbres voisins
-     * @return true si la les coordonées donné sont compris dans les cases du
-     * tableau
-     */
-    static boolean estDansPlateau(Case[][] plateau, Coordonnees coord) {
-        if (coord.ligne < Coordonnees.NB_LIGNES && coord.ligne >= 0 && coord.colonne < Coordonnees.NB_COLONNES && coord.colonne >= 0) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * Vérifie si une case à au moins une case voisine de nature Eau
      *
      * @param plateau le plateau considéré
@@ -374,7 +375,7 @@ public class Utils {
             if (i >= 4) {
                 return 0;
             }
-            while (!estDansPlateau(plateau, coordsVoisins[i])) {
+            while (!coordsVoisins[i].estDansPlateau()) {
                 i++;
                 if (i >= 4) {
                     return 0;
@@ -464,21 +465,21 @@ public class Utils {
         Coordonnees[] tabCoordsVoisinValide = {new Coordonnees(-1, -1), new Coordonnees(-1, -1), new Coordonnees(-1, -1), new Coordonnees(-1, -1)};
 
         for (int j = 0; j < tabCoordsVoisin.length; j++) {
-            if (nbrArbreValide < tabCoordsVoisin.length && estDansPlateau(plateau, tabCoordsVoisin[j])
+            if (nbrArbreValide < tabCoordsVoisin.length && tabCoordsVoisin[j].estDansPlateau()
                     && estDeLaMemeCategorie(plateau[tabCoordsVoisin[j].ligne][tabCoordsVoisin[j].colonne].espece, 'P')) {
                 tabCoordsVoisinValide[nbrArbreValide] = tabCoordsVoisin[j];
                 nbrArbreValide++;
             }
         }
         /*
-        while (i < tabCoordsVoisin.length && (!estDansPlateau(plateau, tabCoordsVoisin[i])
+        while (i < tabCoordsVoisin.length && (!tabCoordsVoisin[i].estDansPlateau())
                 || !estDeLaMemeCategorie(plateau[tabCoordsVoisin[i].ligne][tabCoordsVoisin[i].colonne].espece, 'P'))) {
             i++;
         }*/
 
         int i = 0;
         while (!foretTrouve && i < nbrArbreValide && nbrArbreValide != 0
-                && estDansPlateau(plateau, tabCoordsVoisinValide[i])) {
+                && tabCoordsVoisinValide[i].estDansPlateau()) {
             Coordonnees[] tabForet = {tabCoordsVoisinValide[i], null, null, null, null, null};
             foretTrouve = false;
             int j = 0;
@@ -519,7 +520,7 @@ public class Utils {
             for (int k = 0; k < f; k++) { // si f = 0 retourne le tableau, il n'y as pas d'arbre de référence pour en chercher un nouveau (n'est pas sencé arriver)
                 Coordonnees[] tabVoisin = plantesVoisines(plateau, coordsForet[k], true);
                 for (int i = 0; i < tabVoisin.length; i++) {
-                    if (estDansPlateau(plateau, tabVoisin[i])
+                    if (tabVoisin[i].estDansPlateau()
                             && estDeLaMemeCategorie(plateau[tabVoisin[i].ligne][tabVoisin[i].colonne].espece, espece)) {
                         cpt = 0;
                         for (int j = 0; j < f; j++) {
@@ -540,20 +541,31 @@ public class Utils {
     }
 
     /**
-     * Créé un tableau et y ajoute toutes les cases voisines de la même espèces 
+     * Créé un tableau et y ajoute toutes les cases voisines de la même espèces
      * ou de nature EAU à partir de celle donnée
      *
      * @param plateau le plateau considéré
      * @param coordCase la case qui est peut-être en lisière
-     * @return un tableau contenant toutes les cases touché par l'attaque de chapignon
+     * @return un tableau contenant toutes les cases touché par l'attaque de
+     * chapignon
      */
     static Coordonnees[] tableauCoordToucheChampi(Case[][] plateau, Coordonnees coordCase) {
         Coordonnees[] tabToucheChampi = new Coordonnees[Coordonnees.NB_LIGNES * Coordonnees.NB_COLONNES];
         tabToucheChampi[1] = new Coordonnees(coordCase.ligne, coordCase.colonne);
-        // while faire tant qu'on obtien pas deux fois le même !
-        regardeSiPlanteVoisineDejaTrouve(plateau, tabToucheChampi, plateau[coordCase.ligne][coordCase.colonne].espece);
-        // puis le retourner !
-        return null;
+        boolean TrouveDeNouvelleArbre = true;
+        while (tabToucheChampi[tabToucheChampi.length - 1] != null || TrouveDeNouvelleArbre) {
+            int nbrCasePleineTab1 = 0;
+            int nbrCasePleineTab2 = 0;
+
+            nbrCasePleineTab1 = nbrDeCasePleineDansUnTableau(tabToucheChampi);
+            tabToucheChampi = regardeSiPlanteVoisineDejaTrouve(plateau, tabToucheChampi, plateau[coordCase.ligne][coordCase.colonne].espece);
+            nbrCasePleineTab2 = nbrDeCasePleineDansUnTableau(tabToucheChampi);
+
+            if (nbrCasePleineTab1 == nbrCasePleineTab2) {
+                TrouveDeNouvelleArbre = false;
+            }
+        }
+        return tabToucheChampi;
     }
 
 }
