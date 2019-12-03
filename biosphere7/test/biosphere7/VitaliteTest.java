@@ -55,17 +55,50 @@ public class VitaliteTest {
         assertEquals(3, Vitalite.vitalitePlanterSymbiose(plateau, Utils.plantesVoisines(plateau, Coordonnees.depuisCars('e', 'I'), false), 6, couleurJoueur));
         // assertEquals(3, joueur.vitalitePlanterSymbiose(plateau, joueur.arbreVoisins(plateau, Coordonnees.depuisCars('e', 'M'), false), 6, couleurJoueur));
     }
-    
+
     @Test
-    public void testVitalité(){
-        Vitalite vit = new Vitalite();
+    public void testCalculVitalite() {
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_log);
-        char couleurJoueur = 'B';
-        vit.calculVitalite(plateau, couleurJoueur, 'B', Coordonnees.depuisCars('k', 'L'), 12);
-        System.out.println(vit.vitalite[0] + " " + vit.vitalite[1]);
+        Vitalite vit = new Vitalite();
+        int[] vitAttendu = {16,16};
+        vit.calculVitalite(plateau, 'B', 'A', Coordonnees.depuisCars('f', 'A'), 13);
+        assertArrayEquals(vitAttendu, vit.vitalite);
     }
-
-
+    
+    /**
+     * le plateau du dernier sortie.log
+     */ //16 R et 17 B
+    final String PLATEAU_log
+            = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
+            + " +---+E--+E--+E--+E--+---+---+---+---+---+---+---+---+---+\n"
+            + "a|HR2|   |   |   |   |PR2|   |   |   |   |SB1|BR1|   |   |\n"
+            + " +E--+E--+E--+E--+E--+---+---+---+---+---+---+---+---+---+\n"
+            + "b|   |   |   |   |   |DB4|   |   |   |   |   |   |   |   |\n"
+            + " +E--+E--+---+E--+E--+E--+---+---+---+---+---+---+---+---+\n"
+            + "c|   |   |   |   |   |   |   |   |   |   |   |   |BR1|SB1|\n"
+            + " +---+---+---+E--+E--+E--+E--+---+---+---+---+---+---+---+\n"
+            + "d|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+E--+E--+E--+---+---+---+---+---+---+---+\n"
+            + "e|   |   |   |   |   |   |   |   |   |   |DB1|   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "f|PB1|   |   |   |   |   |   |   |   |   |   |TB1|TR1|   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "g|   |   |   |   |   |   |   |   |   |BB1|   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "h|   |   |   |   |   |   |   |   |   |   |   |   |BR1|   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "i|DR1|TR2|   |   |DB1|   |PB1|   |DR1|   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "j|   |   |   |   |   |   |   |   |DB1|   |   |   |HB1|PR1|\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "k|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "l|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "m|   |PR1|   |   |   |   |TR1|   |   |   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
+            + "n|   |   |   |   |   |BB3|   |   |SR1|   |   |   |   |   |\n"
+            + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+";
 
     /**
      * Un plateau de base, sous forme de chaîne. Pour construire une telle
@@ -282,7 +315,7 @@ public class VitaliteTest {
     /**
      * le plateau du dernier sortie.log
      */ //7 rouges 6 bleus 
-    final String PLATEAU_log
+    final String PLATEAu_NIVEAU12
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
             + " +---+---+---+---+---+---+---+---+---+---+E--+---+---+---+\n"
             + "a|   |HB5|   |   |   |   |   |   |   |   |   |   |   |   |\n"

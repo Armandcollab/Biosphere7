@@ -43,16 +43,14 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
             for (int col = 0; col < Coordonnees.NB_COLONNES; col++) {
                 Coordonnees coord = new Coordonnees(lig, col);
                 Vitalite vit = new Vitalite();
-                for (int i=0; i<Utils.ESPECES.length ; i++) {
+                for (int i = 0; i < Utils.ESPECES.length; i++) {
                     vit.calculVitalite(plateau, couleurJoueur, Utils.ESPECES[i], coord, niveau);
                     if (plateau[lig][col].espece == Utils.CAR_VIDE && !Utils.etouffe(plateau, coord, 4) && plateau[lig][col].nature == Utils.CAR_TERRE) {
-                        ajoutAction(coord, actions, Utils.ESPECES[i]+"", vit);
+                        ajoutAction(coord, actions, Utils.ESPECES[i] + "", vit);
                     }
                 }
-                if (plateau[lig][col].espece != Utils.CAR_VIDE && !Utils.estAutoFéconde(plateau, coord) && Utils.unVoisinDeLaMemeEspece(plateau, coord)) {
-                    vit.calculVitalite(plateau, couleurJoueur, 'I', coord, niveau);
-                    ajoutAction(coord, actions, "I", vit);
-                } else if (plateau[lig][col].espece != Utils.CAR_VIDE && Utils.estAutoFéconde(plateau, coord)) {
+                if (plateau[lig][col].espece != Utils.CAR_VIDE && (!Utils.estAutoFéconde(plateau, coord) && Utils.unVoisinDeLaMemeEspece(plateau, coord))
+                        || Utils.estAutoFéconde(plateau, coord)) {
                     vit.calculVitalite(plateau, couleurJoueur, 'I', coord, niveau);
                     ajoutAction(coord, actions, "I", vit);
                 }
@@ -66,10 +64,10 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
                     ajoutAction(coordsCasePourVoisin, actions, "F", vit);
                     vit.calculVitalite(plateau, couleurJoueur, 'A', coordsCasePourVoisin, niveau);
                     ajoutAction(coordsCasePourVoisin, actions, "A", vit);
-                    
+
                     if (plateau[lig][col].couleur == couleurJoueur) {
                         for (int i = 0; i < Utils.ESPECES.length; i++) {
-                            if (!Utils.estDeLaMemeCategorie(Utils.ESPECES[i],plateau[lig][col].espece)) {
+                            if (!Utils.estDeLaMemeCategorie(Utils.ESPECES[i], plateau[lig][col].espece)) {
                                 vit.calculVitalite(plateau, couleurJoueur, 'R', coordsCasePourVoisin, niveau);
                                 ajoutAction(coordsCasePourVoisin, actions, "R" + Utils.ESPECES[i], vit);
                             }
@@ -98,7 +96,8 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
      *
      * @param coord coordonnées de la case où planter le pommier
      * @param actions l'ensemble des actions possibles (en construction)
-     * @param StringAction le(s) caractère(s) correspondant à l'action à exécuter
+     * @param StringAction le(s) caractère(s) correspondant à l'action à
+     * exécuter
      */
     void ajoutAction(Coordonnees coord, String[] actions, String StringAction, Vitalite vit) {
         if (!"O".equals(StringAction)) {
