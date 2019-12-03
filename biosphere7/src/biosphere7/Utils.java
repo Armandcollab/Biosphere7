@@ -551,7 +551,7 @@ public class Utils {
      */
     static Coordonnees[] tableauCoordToucheChampi(Case[][] plateau, Coordonnees coordCase) {
         Coordonnees[] tabToucheChampi = new Coordonnees[Coordonnees.NB_LIGNES * Coordonnees.NB_COLONNES];
-        tabToucheChampi[1] = new Coordonnees(coordCase.ligne, coordCase.colonne);
+        tabToucheChampi[0] = new Coordonnees(coordCase.ligne, coordCase.colonne);
         boolean TrouveDeNouvelleArbre = true;
         while (tabToucheChampi[tabToucheChampi.length - 1] != null || TrouveDeNouvelleArbre) {
             int nbrCasePleineTab1 = 0;

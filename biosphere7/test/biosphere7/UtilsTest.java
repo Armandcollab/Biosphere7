@@ -323,7 +323,7 @@ public class UtilsTest {
     }
 
     /**
-     * 
+     * Test de la methode nbrCasePleinTab
      */
     public void testNbrCasePleineTab() {
         Coordonnees[] tabTest = {new Coordonnees(0, 0),new Coordonnees(0, 0),new Coordonnees(0, 0),null,null,null};
@@ -332,8 +332,7 @@ public class UtilsTest {
         
         assertEquals(3,Utils.nbrDeCasePleineDansUnTableau(tabTest));
         assertEquals(0,Utils.nbrDeCasePleineDansUnTableau(tabTest2));
-        assertEquals(3,Utils.nbrDeCasePleineDansUnTableau(tabTest3));
-                
+        assertEquals(3,Utils.nbrDeCasePleineDansUnTableau(tabTest3));       
     }
     
     /**

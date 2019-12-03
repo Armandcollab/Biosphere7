@@ -176,8 +176,10 @@ public class Vitalite {
                 break;
             case 'A':
                 Coordonnees[] tabCoordChampi = Utils.tableauCoordToucheChampi(plateau, coordCase);
+                
                 System.out.println(Utils.nbrDeCasePleineDansUnTableau(tabCoordChampi));
                 for (int i = 0; i < Utils.nbrDeCasePleineDansUnTableau(tabCoordChampi); i++) {
+                    System.out.println(i);
                     if (tabCoordChampi[i].estDansPlateau() && plateau[tabCoordChampi[i].ligne][tabCoordChampi[i].colonne].nature == Utils.CAR_TERRE) {
                         ajoutVitalite(plateau, coordCase, couleurJoueur, false, -plateau[tabCoordChampi[i].ligne][tabCoordChampi[i].colonne].vitalite / 2);
                     }
