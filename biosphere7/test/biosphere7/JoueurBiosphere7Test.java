@@ -197,6 +197,9 @@ public class JoueurBiosphere7Test {
         couleur = 'B';
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "BkL,88,93"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "HnN,88,88"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "DnH,88,88"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "DgJ,88,88"));
 
         niveau = 13;
         plateau = Utils.plateauDepuisTexte(PLATEAU_NIVEAU13);
@@ -204,6 +207,9 @@ public class JoueurBiosphere7Test {
         actionsPossibles = joueur.actionsPossibles(plateau, couleur, niveau);
         Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "AcN,9,13"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "PaA,11,16"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "TgF,11,16"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "SiL,11,15"));
 
     }
 
@@ -463,7 +469,7 @@ public class JoueurBiosphere7Test {
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n";
 
     /**
-     * Un plateau pour tester le niveau 9 et 10.
+     * Un plateau pour tester le niveau 9, 10 et 11.
      */ // 23 R et 27 B
     final String PLATEAU_NIVEAU9
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
@@ -498,7 +504,7 @@ public class JoueurBiosphere7Test {
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+";
 
     /**
-     * le plateau du dernier sortie.log
+     * Un plateau pour tester le niveau 12.
      */ //7 rouges 6 bleus 
     final String PLATEAU_NIVEAU12
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N\n"
@@ -532,7 +538,7 @@ public class JoueurBiosphere7Test {
             + "n|   |   |   |   |   |   |   |   |   |   |PB9|   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+";
     /**
-     * le plateau du dernier sortie.log
+     * Un plateau pour tester le niveau 13.
      */ //16 R et 17 B
     final String PLATEAU_NIVEAU13
             = "   A   B   C   D   E   F   G   H   I   J   K   L   M   N \n"
