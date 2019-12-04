@@ -287,7 +287,7 @@ public class UtilsTest {
         Coordonnees[] tabForet = {Coordonnees.depuisCars('g', 'G'), null, null, null, null, null};
         Coordonnees[] tabForetAttendu = {Coordonnees.depuisCars('g', 'G'), Coordonnees.depuisCars('h', 'G'), null, null, null, null};
 
-        assertArrayEquals(tabForetAttendu, Utils.regardeSiPlanteVoisineDejaTrouve(plateau, tabForet,'P'));
+        assertArrayEquals(tabForetAttendu, Utils.regardeSiPlanteVoisineDejaTrouve(plateau, tabForet,'P',Utils.CAR_TERRE));
 
         /*tabForet[0] = Coordonnees.depuisCars('m', 'C');
         tabForetAttendu[0] = Coordonnees.depuisCars('m', 'C');
@@ -299,11 +299,11 @@ public class UtilsTest {
         Coordonnees[] tabForetPlein = {Coordonnees.depuisCars('c', 'I'), Coordonnees.depuisCars('c', 'J'), Coordonnees.depuisCars('c', 'K'),
             Coordonnees.depuisCars('c', 'L'), Coordonnees.depuisCars('c', 'M'), Coordonnees.depuisCars('c', 'N')};
 
-        assertArrayEquals(tabForetPlein, Utils.regardeSiPlanteVoisineDejaTrouve(plateau, tabForetPlein,'P'));
+        assertArrayEquals(tabForetPlein, Utils.regardeSiPlanteVoisineDejaTrouve(plateau, tabForetPlein,'P',Utils.CAR_TERRE));
 
         Coordonnees[] tabForet2 = {Coordonnees.depuisCars('g', 'G'), Coordonnees.depuisCars('h', 'G'), null, null, null, null};
 
-        assertArrayEquals(tabForet2, Utils.regardeSiPlanteVoisineDejaTrouve(plateau, tabForet2,'P'));
+        assertArrayEquals(tabForet2, Utils.regardeSiPlanteVoisineDejaTrouve(plateau, tabForet2,'P',Utils.CAR_TERRE));
     }    
     
     /**

@@ -34,8 +34,7 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
     public String[] actionsPossibles(Case[][] plateau, char couleurJoueur, int niveau) {
         // afficher l'heure de lancement
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SSS");
-        System.out.println("actionsPossibles : lancement le "
-                + format.format(new Date()));
+        System.out.println("actionsPossibles : lancement le "+ format.format(new Date()));
         // calculer les actions possibles
         String actions[] = new String[MAX_NB_ACTIONS];
         nbActions = 0;
@@ -65,13 +64,13 @@ public class JoueurBiosphere7 implements IJoueurBiosphere7 {
                     vit.calculVitalite(plateau, couleurJoueur, 'A', coordsCasePourVoisin, niveau);
                     ajoutAction(coordsCasePourVoisin, actions, "A", vit);
 
-                    /*if (plateau[lig][col].couleur == couleurJoueur) {*/
+                    if (plateau[lig][col].couleur == couleurJoueur) {
                         for (int i = 0; i < Utils.ESPECES.length; i++) {
                             if (!Utils.estDeLaMemeCategorie(Utils.ESPECES[i], plateau[lig][col].espece)) {
                                 vit.calculVitalite(plateau, couleurJoueur, 'R', coordsCasePourVoisin, niveau);
                                 ajoutAction(coordsCasePourVoisin, actions, "R" + Utils.ESPECES[i], vit);
                             }
-                        //}
+                        }
                     }
 
                 }

@@ -174,22 +174,13 @@ public class Vitalite {
                         + 3 + Utils.regardeSiVoisinEau(plateau, coordCase);
                 ajoutVitalite(plateau, coordCase, couleurJoueur, true, vitAjout);
                 break;
+                
             case 'A':
-                Coordonnees[] tabCoordChampi = Utils.tableauCoordToucheChampi(plateau, coordCase);
-                
-                for (Coordonnees a : tabCoordChampi) {
-                    System.out.println(a);
-                    if(a != null){
-                        System.out.println(a.ligne + " " + a.colonne);
-                    }
-                }
-                
-                
+                Coordonnees[] tabCoordChampi = Utils.tableauCoordToucheChampi(plateau, coordCase, plateau[coordCase.ligne][coordCase.colonne].espece);
+
                 for (int i = 0; i < Utils.nbrDeCasePleineDansUnTableau(tabCoordChampi); i++) {
-                    System.out.println(Utils.nbrDeCasePleineDansUnTableau(tabCoordChampi));
                     if (tabCoordChampi[i].estDansPlateau() && plateau[tabCoordChampi[i].ligne][tabCoordChampi[i].colonne].nature == Utils.CAR_TERRE) {
                         ajoutVitalite(plateau, tabCoordChampi[i], couleurJoueur, false, (int) - Math.ceil(plateau[tabCoordChampi[i].ligne][tabCoordChampi[i].colonne].vitalite / 2.0f));
-                        System.out.println("boucle");
                     }
                 }
                 break;
@@ -197,7 +188,6 @@ public class Vitalite {
                 //pour simplement calculer les vitalités présentes sur le tableau
                 break;
             default:
-                System.out.println("Action non valide pour le calcule de vitalité");
                 break;
         }
     }

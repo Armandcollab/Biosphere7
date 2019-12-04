@@ -440,6 +440,17 @@ public class Utils {
     }
 
     /**
+     * Vérifie si deux natures données sont égales
+     *
+     * @param nature espèce donné
+     * @param natureAtt espèce attendu
+     * @return true si les deux nature sont egales
+     */
+    static boolean estDeLaMemeNature(char nature, char natureAtt) {
+        return (nature == natureAtt);
+    }
+
+    /**
      * Calcul la distance de manhattan entre deux cases
      *
      * @param coord1 coordonnées de la premmière case
@@ -484,7 +495,7 @@ public class Utils {
             foretTrouve = false;
             int j = 0;
             while (j < tabForet.length && tabForet[tabForet.length - 1] == null) {
-                tabForet = regardeSiPlanteVoisineDejaTrouve(plateau, tabForet, 'P');
+                tabForet = regardeSiPlanteVoisineDejaTrouve(plateau, tabForet, 'P', CAR_TERRE);
                 j++;
             }
             if (tabForet[tabForet.length - 1] == null) {
@@ -508,34 +519,32 @@ public class Utils {
      * @return le tableau contenant les arbres déjà trouvés et un nouveau si il
      * y en as un voisin qui n'est aps déjà dans le tableau
      */
-    static Coordonnees[] regardeSiPlanteVoisineDejaTrouve(Case[][] plateau, Coordonnees[] coordsForet, char espece) {
-        System.out.println(" aaaaaaaaaaaaaaaaaaaaa");
+    static Coordonnees[] regardeSiPlanteVoisineDejaTrouve(Case[][] plateau, Coordonnees[] coordsForet, char espece, char nature) {
         int f = 0;
         int cpt = 0;
         while (f < coordsForet.length && coordsForet[f] != null) {
             f++;
         }
         if (f >= coordsForet.length) {
-            System.out.println("déjà forets");
             return coordsForet; // il y a déjà une Foret d'au moins six arbres
         } else {
-            System.out.println("esle");
             for (int k = 0; k < f; k++) { // si f = 0 retourne le tableau, il n'y as pas d'arbre de référence pour en chercher un nouveau (n'est pas sencé arriver)
                 Coordonnees[] tabVoisin = plantesVoisines(plateau, coordsForet[k], true);
                 for (int i = 0; i < tabVoisin.length; i++) {
-                    if (tabVoisin[i].estDansPlateau()
-                            && estDeLaMemeCategorie(plateau[tabVoisin[i].ligne][tabVoisin[i].colonne].espece, espece)) {
-                        System.out.println("est dans plateau && même catégorie");
-                        cpt = 0;
-                        for (int j = 0; j < f; j++) {
-                            if (tabVoisin[i].ligne == coordsForet[j].ligne
-                                    && tabVoisin[i].colonne == coordsForet[j].colonne) {
-                                cpt++;
+                    if (tabVoisin[i].estDansPlateau()) {
+                        if (estDeLaMemeCategorie(plateau[tabVoisin[i].ligne][tabVoisin[i].colonne].espece, espece) 
+                                || (nature == CAR_EAU && estDeLaMemeNature(plateau[tabVoisin[i].ligne][tabVoisin[i].colonne].nature, nature))) {
+                            cpt = 0;
+                            for (int j = 0; j < f; j++) {
+                                if (tabVoisin[i].ligne == coordsForet[j].ligne
+                                        && tabVoisin[i].colonne == coordsForet[j].colonne) {
+                                    cpt++;
+                                }
                             }
-                        }
-                        if (cpt == 0) {
-                            coordsForet[f] = new Coordonnees(tabVoisin[i].ligne, tabVoisin[i].colonne);
-                            return coordsForet;
+                            if (cpt == 0) {
+                                coordsForet[f] = new Coordonnees(tabVoisin[i].ligne, tabVoisin[i].colonne);
+                                return coordsForet;
+                            }
                         }
                     }
                 }
@@ -550,23 +559,24 @@ public class Utils {
      *
      * @param plateau le plateau considéré
      * @param coordCase la case qui est peut-être en lisière
+     * @param espece l'espece de la première plante touché par les champignons
      * @return un tableau contenant toutes les cases touché par l'attaque de
      * chapignon
      */
-    static Coordonnees[] tableauCoordToucheChampi(Case[][] plateau, Coordonnees coordCase) {
+    static Coordonnees[] tableauCoordToucheChampi(Case[][] plateau, Coordonnees coordCase, char espece) {
         Coordonnees[] tabToucheChampi = new Coordonnees[Coordonnees.NB_LIGNES * Coordonnees.NB_COLONNES];
         tabToucheChampi[0] = new Coordonnees(coordCase.ligne, coordCase.colonne);
         boolean TrouveDeNouvelleArbre = true;
-        
-        
+
         while (tabToucheChampi[tabToucheChampi.length - 1] != null || TrouveDeNouvelleArbre) {
             int nbrCasePleineTab1 = 0;
             int nbrCasePleineTab2 = 0;
 
             nbrCasePleineTab1 = nbrDeCasePleineDansUnTableau(tabToucheChampi);
-            tabToucheChampi = regardeSiPlanteVoisineDejaTrouve(plateau, tabToucheChampi, plateau[coordCase.ligne][coordCase.colonne].espece);
+            tabToucheChampi = regardeSiPlanteVoisineDejaTrouve(plateau, tabToucheChampi, espece, CAR_TERRE);
+            tabToucheChampi = regardeSiPlanteVoisineDejaTrouve(plateau, tabToucheChampi, espece, CAR_EAU);
             nbrCasePleineTab2 = nbrDeCasePleineDansUnTableau(tabToucheChampi);
-            System.out.println("on passe");
+
             if (nbrCasePleineTab1 == nbrCasePleineTab2) {
                 TrouveDeNouvelleArbre = false;
             }

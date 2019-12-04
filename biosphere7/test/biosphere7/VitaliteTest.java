@@ -60,8 +60,8 @@ public class VitaliteTest {
     public void testCalculVitalite() {
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_log);
         Vitalite vit = new Vitalite();
-        int[] vitAttendu = {16,16};
-        vit.calculVitalite(plateau, 'B', 'A', Coordonnees.depuisCars('a', 'K'), 13);
+        int[] vitAttendu = {15,15};
+        vit.calculVitalite(plateau, 'B', 'A', Coordonnees.depuisCars('b', 'F'), 13);
         assertArrayEquals(vitAttendu, vit.vitalite);
     }
     
@@ -121,7 +121,7 @@ public class VitaliteTest {
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "f|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
-            + "g|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
+            + "g|   |   |   |   |   |   |SR1|   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
             + "h|   |   |   |   |   |   |   |   |   |   |   |   |   |   |\n"
             + " +---+---+---+---+---+---+---+---+---+---+---+---+---+---+\n"
