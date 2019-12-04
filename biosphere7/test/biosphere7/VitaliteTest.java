@@ -61,7 +61,7 @@ public class VitaliteTest {
         Case[][] plateau = Utils.plateauDepuisTexte(PLATEAU_log);
         Vitalite vit = new Vitalite();
         int[] vitAttendu = {16,16};
-        vit.calculVitalite(plateau, 'B', 'A', Coordonnees.depuisCars('f', 'A'), 13);
+        vit.calculVitalite(plateau, 'B', 'A', Coordonnees.depuisCars('a', 'K'), 13);
         assertArrayEquals(vitAttendu, vit.vitalite);
     }
     

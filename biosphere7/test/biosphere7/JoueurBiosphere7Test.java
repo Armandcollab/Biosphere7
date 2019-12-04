@@ -206,7 +206,9 @@ public class JoueurBiosphere7Test {
         Utils.afficherActionsPossibles(actionsPossibles);
         assertTrue(Utils.uneActionPossibleCommencePar(actionsPossibles, "AbF"));
         assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "AfA,16,16"));
-        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "AbF,15,15"));
+        assertFalse(Utils.uneActionPossibleCommencePar(actionsPossibles, "AfE"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "AaK,15,16"));
+        assertTrue(Utils.actionsPossiblesContient(actionsPossibles, "AbF,14,15"));
 
     }
 

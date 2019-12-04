@@ -498,9 +498,9 @@ public class Utils {
     }
 
     /**
-     * Ajoute un arbre ou pas suivant s'il y en as un qui est voisin d'un des
-     * arbres dont les coordonnées sont dans le tableau donné et qui n'as pas
-     * ses coordonnées dans le tableau et qui est un arbre
+     * Ajoute une plande ou pas suivant s'il y en as un qui est voisin d'une des
+     * plantes dont les coordonnées sont dans le tableau donné et qui n'as pas
+     * ses coordonnées dans le tableau et qui est de l'èspèce de demandée
      *
      * @param plateau le plateau considéré
      * @param coordsForet tableau contenant les arbres déjà trouvé dans la
@@ -509,19 +509,23 @@ public class Utils {
      * y en as un voisin qui n'est aps déjà dans le tableau
      */
     static Coordonnees[] regardeSiPlanteVoisineDejaTrouve(Case[][] plateau, Coordonnees[] coordsForet, char espece) {
+        System.out.println(" aaaaaaaaaaaaaaaaaaaaa");
         int f = 0;
         int cpt = 0;
         while (f < coordsForet.length && coordsForet[f] != null) {
             f++;
         }
         if (f >= coordsForet.length) {
+            System.out.println("déjà forets");
             return coordsForet; // il y a déjà une Foret d'au moins six arbres
         } else {
+            System.out.println("esle");
             for (int k = 0; k < f; k++) { // si f = 0 retourne le tableau, il n'y as pas d'arbre de référence pour en chercher un nouveau (n'est pas sencé arriver)
                 Coordonnees[] tabVoisin = plantesVoisines(plateau, coordsForet[k], true);
                 for (int i = 0; i < tabVoisin.length; i++) {
                     if (tabVoisin[i].estDansPlateau()
                             && estDeLaMemeCategorie(plateau[tabVoisin[i].ligne][tabVoisin[i].colonne].espece, espece)) {
+                        System.out.println("est dans plateau && même catégorie");
                         cpt = 0;
                         for (int j = 0; j < f; j++) {
                             if (tabVoisin[i].ligne == coordsForet[j].ligne
@@ -553,6 +557,8 @@ public class Utils {
         Coordonnees[] tabToucheChampi = new Coordonnees[Coordonnees.NB_LIGNES * Coordonnees.NB_COLONNES];
         tabToucheChampi[0] = new Coordonnees(coordCase.ligne, coordCase.colonne);
         boolean TrouveDeNouvelleArbre = true;
+        
+        
         while (tabToucheChampi[tabToucheChampi.length - 1] != null || TrouveDeNouvelleArbre) {
             int nbrCasePleineTab1 = 0;
             int nbrCasePleineTab2 = 0;
@@ -560,7 +566,7 @@ public class Utils {
             nbrCasePleineTab1 = nbrDeCasePleineDansUnTableau(tabToucheChampi);
             tabToucheChampi = regardeSiPlanteVoisineDejaTrouve(plateau, tabToucheChampi, plateau[coordCase.ligne][coordCase.colonne].espece);
             nbrCasePleineTab2 = nbrDeCasePleineDansUnTableau(tabToucheChampi);
-
+            System.out.println("on passe");
             if (nbrCasePleineTab1 == nbrCasePleineTab2) {
                 TrouveDeNouvelleArbre = false;
             }
